@@ -28,8 +28,14 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
     exclude: /node_modules/,
   };
 
+  const svgLoader = {
+    test: /\.svg$/,
+    loader: 'svg-inline-loader'
+  }
+
   return [
     typescriptLoader,
     cssLoader,
+    svgLoader,
   ]
 }

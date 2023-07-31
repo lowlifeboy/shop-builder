@@ -1,0 +1,29 @@
+.appDropdown {
+  position: relative;
+}
+
+.appDropdownSelectedItem {
+  display: flex;
+  align-items: center;
+  color: var(--primary-color);
+
+  &:hover {
+    border-bottom: 1px solid var(--primary-color);
+  }
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 2px;
+
+  svg {
+    filter: var(--primary-color-filter);
+  }
+}
+
+.appDropdownList {
+  position: absolute;
+  top: 46px;
+  left: 0;
+}

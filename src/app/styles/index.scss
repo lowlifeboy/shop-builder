@@ -1,0 +1,23 @@
+@import "reset";
+@import "variables/global";
+@import "themes/normal";
+@import "themes/dark";
+
+@font-face {
+  font-family: "SpaceGrotesk";
+  src: local('SpaceGrotesk'), url("app/assets/fonts/SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Inter";
+  src: local('Inter'), url("app/assets/fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
+}
+
+.app {
+  font: var(--font-m);
+
+  background: var(--bg-color);
+  color: var(--primary-color);
+
+  min-height: 100vh;
+}
