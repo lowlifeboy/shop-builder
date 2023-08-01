@@ -22,10 +22,8 @@ export default function AppInput({onChange, debounceTimeMS, className}: AppInput
   useEffect(() => {
     if (value && debouncedValue) {
       onChange(value);
-      console.log('Handle change');
     } else {
       onChange('');
-      console.log('Handle clear');
     }
   }, [debouncedValue]);
 

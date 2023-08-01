@@ -1,7 +1,7 @@
-.appDropdown {
+.appDropdownSimple {
   position: relative;
 
-  .appDropdownList {
+  .appDropdownSimpleList {
     display: none;
     position: absolute;
     top: 68px;
@@ -14,23 +14,23 @@
   }
 
   &:hover {
-    .appDropdownList {
+    .appDropdownSimpleList {
       display: block;
     }
   }
 }
 
-.appDropdownSelectedItemWrapper {
+.appDropdownSimpleSelectedItemWrapper {
   height: 68px;
   display: flex;
   align-items: center;
 
-  &:hover .appDropdownSelectedItem {
+  &:hover .appDropdownSimpleSelectedItem {
     border-bottom: 1px solid var(--primary-color);
   }
 }
 
-.appDropdownSelectedItem {
+.appDropdownSimpleSelectedItem {
   display: flex;
   align-items: center;
   color: var(--primary-color);

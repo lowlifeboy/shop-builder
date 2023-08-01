@@ -7,13 +7,26 @@ import {useToggle} from "shared/lib/useToggle/useToggle";
 import {SearchIcon} from "shared/assets/icons";
 import {useTheme} from "app/providers/ThemeProvider";
 import {getIconColorByTheme} from "shared/lib/getMainColorByTheme/getIconColorByTheme";
+import {AppDropdownSearch} from "shared/ui/AppDropdownSearch/AppDropdownSearch";
+import AppLink from "shared/ui/AppLink/AppLink";
+
+interface SearchDropdownItem {
+  text: string;
+  path: string;
+}
+
+export interface SearchDropdown {
+  title: string;
+  items: SearchDropdownItem[];
+}
 
 interface SearchProps {
+  config: SearchDropdown;
   className?: string;
 }
 
 // TODO: complete Search component
-export default function Search({className}: SearchProps) {
+export default function Search({config, className}: SearchProps) {
   const {theme} = useTheme();
   const {opened, toggle} = useToggle();
 
@@ -22,11 +35,21 @@ export default function Search({className}: SearchProps) {
   }
 
   return (
-    <div className={classNames(cls.searchWrapper, {opened}, [className])}>
+    <div className={classNames(cls.searchWrapper, {[cls.opened]: opened}, [className])}>
       <div className={cls.search}>
         <AppInput onChange={handleSearch} debounceTimeMS={500} />
         <AppButton onClick={toggle} ><SearchIcon color={getIconColorByTheme(theme)} /></AppButton>
       </div>
+
+      {opened && (
+        <AppDropdownSearch title={config.title}>
+          {config.items.map((dropDownItem) => (
+            <li key={dropDownItem.path} className={cls.searchDropdownItem}>
+              <AppLink to={dropDownItem.path}>{dropDownItem.text}</AppLink>
+            </li>
+          ))}
+        </AppDropdownSearch>
+      )}
     </div>
   );
 }

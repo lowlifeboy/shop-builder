@@ -4,10 +4,10 @@ import {classNames} from "shared/lib/classNames/classNames";
 import {useTheme} from "app/providers/ThemeProvider";
 import {AppRouter} from "app/providers/router";
 import {Navbar} from "widgets/Navbar";
-import {NavbarDropdownsConfig} from "widgets/Navbar/ui/Navbar";
 import {Footer} from "widgets/Footer";
+import {NavbarDropdownsConfig} from "widgets/Navbar/ui/Navbar";
 
-const dropdownsConfig: NavbarDropdownsConfig = {
+const navigationDropdownsConfig: NavbarDropdownsConfig = {
   items: [
     {
       title: 'Home',
@@ -44,12 +44,22 @@ const dropdownsConfig: NavbarDropdownsConfig = {
   ]
 }
 
+const searchDropdownConfig = {
+  title: 'Quick Search',
+  items: [
+    {text: 'Jumpsuits', path: '/jumpsuits'},
+    {text: 'Pants', path: '/pants'},
+    {text: 'Streetwear', path: '/streetwear'},
+    {text: 'Summer', path: '/summer'},
+  ]
+}
+
 export default function App() {
   const {theme} = useTheme();
 
   return (
     <div className={classNames('app', {}, [theme])}>
-      <Navbar dropdownsConfig={dropdownsConfig} />
+      <Navbar navigationDropdownsConfig={navigationDropdownsConfig} searchDropdownConfig={searchDropdownConfig} />
       <main>
         <AppRouter />
       </main>

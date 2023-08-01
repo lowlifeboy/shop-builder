@@ -3,13 +3,14 @@ import cls from './Navbar.module.scss';
 import {ThemeSwitcher} from "entities/ThemeSwitcher";
 import {classNames} from "shared/lib/classNames/classNames";
 import AppLink from "shared/ui/AppLink/AppLink";
-import {AppDropdown} from "shared/ui/AppDropdown/AppDropdown";
 import {HeaderLogoIcon} from "shared/assets/icons";
 import {useTheme} from "app/providers/ThemeProvider";
 import {Search} from "features/Search";
 import {ProfileIconLink} from "entities/ProfileIconLink";
 import {BasketIconLink} from "entities/BasketIconLink";
 import {getIconColorByTheme} from "shared/lib/getMainColorByTheme/getIconColorByTheme";
+import {AppDropdownSimple} from "shared/ui/AppDropdownSimple/AppDropdownSimple";
+import {SearchDropdown} from "features/Search/ui/Search";
 
 interface NavbarDropdownItem {
   text: string;
@@ -26,11 +27,12 @@ export interface NavbarDropdownsConfig {
 }
 
 interface NavbarProps {
-  dropdownsConfig: NavbarDropdownsConfig,
+  navigationDropdownsConfig: NavbarDropdownsConfig;
+  searchDropdownConfig: SearchDropdown;
   className?: string;
 }
 
-export default function Navbar({dropdownsConfig, className}: NavbarProps) {
+export default function Navbar({navigationDropdownsConfig, searchDropdownConfig, className}: NavbarProps) {
   const {theme} = useTheme();
 
   return (
@@ -40,9 +42,9 @@ export default function Navbar({dropdownsConfig, className}: NavbarProps) {
       </AppLink>
 
       <nav className={cls.navbarNav}>
-        {dropdownsConfig.items.map((dropdown) => (
+        {navigationDropdownsConfig.items.map((dropdown) => (
           <li key={dropdown.title}>
-            <AppDropdown title={dropdown.title}>
+            <AppDropdownSimple title={dropdown.title}>
               {dropdown.items.map((dropDownItem) => (
                 <li key={dropDownItem.path}>
                   <AppLink
@@ -53,13 +55,13 @@ export default function Navbar({dropdownsConfig, className}: NavbarProps) {
                   </AppLink>
                 </li>
               ))}
-            </AppDropdown>
+            </AppDropdownSimple>
           </li>
         ))}
       </nav>
 
       <div className={cls.navbarActionButtons}>
-        <div><Search /></div>
+        <div><Search config={searchDropdownConfig} /></div>
         <div><ThemeSwitcher /></div>
         <div><ProfileIconLink /></div>
         <div><BasketIconLink /></div>
