@@ -1,0 +1,31 @@
+.searchWrapper {
+  height: 68px;
+  display: flex;
+  align-items: center;
+
+  .search {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--secondary-bg-color);
+    border-bottom: 1px solid var(--secondary-bg-color);
+    box-sizing: border-box;
+
+    input {
+      width: 0;
+      margin-right: 0;
+      transition: all 0.3s;
+    }
+  }
+
+  &.opened {
+    .search {
+      border-bottom: 1px solid var(--primary-color);
+
+      input {
+        width: 140px;
+        margin-right: 15px;
+        transition: all 0.3s;
+      }
+    }
+  }
+}

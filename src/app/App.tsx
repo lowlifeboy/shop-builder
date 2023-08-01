@@ -5,6 +5,7 @@ import {useTheme} from "app/providers/ThemeProvider";
 import {AppRouter} from "app/providers/router";
 import {Navbar} from "widgets/Navbar";
 import {NavbarDropdownsConfig} from "widgets/Navbar/ui/Navbar";
+import {Footer} from "widgets/Footer";
 
 const dropdownsConfig: NavbarDropdownsConfig = {
   items: [
@@ -49,7 +50,10 @@ export default function App() {
   return (
     <div className={classNames('app', {}, [theme])}>
       <Navbar dropdownsConfig={dropdownsConfig} />
-      <AppRouter />
+      <main>
+        <AppRouter />
+      </main>
+      <Footer />
     </div>
   )
 }

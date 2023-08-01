@@ -1,9 +1,15 @@
 .app.dark {
   --bg-color: #2c3348;
   --bg-color-hovered: #505d81;
+  --secondary-bg-color: #404a69;
 
   --primary-color: #fff;
-  --primary-color-filter: invert(100%) sepia(0%) saturate(7494%) hue-rotate(136deg) brightness(102%) contrast(104%);
   --secondary-color: #121212;
-  --secondary-color-filter: invert(0%) sepia(7%) saturate(4322%) hue-rotate(30deg) brightness(99%) contrast(86%);
+
+  --box-shadow-color: rgba(255, 255, 255, 0.04);
+
+  --text-second-color: #dfdfef;
+  --text-third-color: #dedeec;
+
+  --horizontal-line-color: #a5accb;
 }

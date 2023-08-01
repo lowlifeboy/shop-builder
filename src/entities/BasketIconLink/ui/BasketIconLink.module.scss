@@ -1,0 +1,23 @@
+.basketIconLink {
+  display: flex;
+  align-items: center;
+}
+
+.counter {
+  min-width: 20px;
+  height: 20px;
+  padding: 5px;
+  margin-left: 2px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+
+  color: var(--bg-color);
+  text-align: center;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: var(--font-family-secondary);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 10px;
+}

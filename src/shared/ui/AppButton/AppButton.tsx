@@ -1,20 +1,39 @@
 import cls from './AppButton.module.scss';
 
 import {classNames} from "shared/lib/classNames/classNames";
-import {forwardRef, ReactNode} from "react";
+import {ButtonHTMLAttributes, forwardRef, ReactNode} from "react";
 
-interface AppButtonProps {
+export enum ThemeButton {
+  CLEAR = 'clear',
+
+}
+
+interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
   onClick: () => void;
   children: ReactNode;
+  theme?: ThemeButton;
   className?: string;
 }
 
 const AppButton = forwardRef<HTMLButtonElement, AppButtonProps>((
-  {className, children, onClick},
+  props,
   ref
 ) => {
+  const {
+    className,
+    theme = ThemeButton.CLEAR,
+    children,
+    onClick,
+    ...otherProps
+  } = props;
+
   return (
-    <button ref={ref} className={classNames(cls.appButton, {}, [className])} onClick={onClick}>
+    <button
+      ref={ref}
+      className={classNames(cls.appButton, {}, [className, theme])}
+      onClick={onClick}
+      {...otherProps}
+    >
       {children}
     </button>
   );

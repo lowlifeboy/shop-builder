@@ -1,29 +1,43 @@
 .appDropdown {
   position: relative;
+
+  .appDropdownList {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+
+    background: var(--secondary-bg-color);
+
+    // TODO: use theme color
+    box-shadow: 0 8px 16px 0 var(--box-shadow-color);
+  }
+
+  &:hover {
+    .appDropdownList {
+      display: block;
+    }
+  }
+}
+
+.appDropdownSelectedItemWrapper {
+  height: 68px;
+  display: flex;
+  align-items: center;
+
+  &:hover .appDropdownSelectedItem {
+    border-bottom: 1px solid var(--primary-color);
+  }
 }
 
 .appDropdownSelectedItem {
   display: flex;
   align-items: center;
   color: var(--primary-color);
-
-  &:hover {
-    border-bottom: 1px solid var(--primary-color);
-  }
 }
 
 .iconWrapper {
   display: flex;
   align-items: center;
   margin-left: 2px;
-
-  svg {
-    filter: var(--primary-color-filter);
-  }
-}
-
-.appDropdownList {
-  position: absolute;
-  top: 46px;
-  left: 0;
 }

@@ -1,9 +1,15 @@
 import cls from './Navbar.module.scss';
 
+import {ThemeSwitcher} from "entities/ThemeSwitcher";
 import {classNames} from "shared/lib/classNames/classNames";
 import AppLink from "shared/ui/AppLink/AppLink";
 import {AppDropdown} from "shared/ui/AppDropdown/AppDropdown";
+import {HeaderLogoIcon} from "shared/assets/icons";
 import {useTheme} from "app/providers/ThemeProvider";
+import {Search} from "features/Search";
+import {ProfileIconLink} from "entities/ProfileIconLink";
+import {BasketIconLink} from "entities/BasketIconLink";
+import {getIconColorByTheme} from "shared/lib/getMainColorByTheme/getIconColorByTheme";
 
 interface NavbarDropdownItem {
   text: string;
@@ -25,15 +31,12 @@ interface NavbarProps {
 }
 
 export default function Navbar({dropdownsConfig, className}: NavbarProps) {
-  const {toggleTheme} = useTheme();
+  const {theme} = useTheme();
 
   return (
     <div className={classNames(cls.navbar, {}, [className])}>
-      <AppLink
-        className={cls.navbarLogo}
-        to={'/'}
-      >
-        <img src="https://nayzak.design/wp-content/uploads/2022/11/nayzay-design-logo-1.svg" alt="Nayzak Design"/>
+      <AppLink className={cls.navbarLogo} to={'/'}>
+        <HeaderLogoIcon color={getIconColorByTheme(theme)} />
       </AppLink>
 
       <nav className={cls.navbarNav}>
@@ -55,7 +58,12 @@ export default function Navbar({dropdownsConfig, className}: NavbarProps) {
         ))}
       </nav>
 
-      <button onClick={toggleTheme}>Toggle theme</button>
+      <div className={cls.navbarActionButtons}>
+        <div><Search /></div>
+        <div><ThemeSwitcher /></div>
+        <div><ProfileIconLink /></div>
+        <div><BasketIconLink /></div>
+      </div>
     </div>
   );
 }

@@ -1,12 +1,10 @@
 import cls from './AppDropdown.module.scss';
 
 import {classNames} from "shared/lib/classNames/classNames";
-import {ReactNode, useRef} from "react";
-import {useToggle} from "shared/lib/useToggle/useToggle";
-import AppButton from "shared/ui/AppButton/AppButton";
-import {useClickOutside} from "shared/lib/useClickOutside/useClickOutside";
-import {useClickInside} from "shared/lib/useClickInside/useClickInside";
-import {ArrowDownIcon} from "app/assets/icons";
+import {ReactNode} from "react";
+import {ArrowDownIcon} from "shared/assets/icons";
+import {useTheme} from "app/providers/ThemeProvider";
+import {getIconColorByTheme} from "shared/lib/getMainColorByTheme/getIconColorByTheme";
 
 interface AppDropdownProps {
   title: string;
@@ -20,11 +18,15 @@ interface AppDropdownSelectedItemProps {
 }
 
 export function AppDropdownSelectedItem({title, active}: AppDropdownSelectedItemProps) {
+  const {theme} = useTheme();
+
   return (
-    <div className={classNames(cls.appDropdownSelectedItem, {}, [])}>
-      <div>{title}</div>
-      <div className={cls.iconWrapper}>
-        <ArrowDownIcon rotate={active ? 180 : 0} />
+    <div className={cls.appDropdownSelectedItemWrapper}>
+      <div className={cls.appDropdownSelectedItem}>
+        <div>{title}</div>
+        <div className={cls.iconWrapper}>
+          <ArrowDownIcon color={getIconColorByTheme(theme)} rotate={active ? 180 : 0} />
+        </div>
       </div>
     </div>
   );
@@ -32,22 +34,12 @@ export function AppDropdownSelectedItem({title, active}: AppDropdownSelectedItem
 
 
 export function AppDropdown({className, children, title}: AppDropdownProps) {
-  const {opened, toggle} = useToggle();
-
-  const selectedValueFieldRef = useRef<HTMLButtonElement>(null);
-  const optionsListRef = useRef<HTMLUListElement>(null);
-
-  useClickOutside(optionsListRef, () => toggle(), selectedValueFieldRef.current);
-  useClickInside(optionsListRef, () => toggle());
-
   return (
     <div className={classNames(cls.appDropdown, {}, [className])}>
-      <AppButton onClick={toggle} children={<AppDropdownSelectedItem title={title} active={opened} />} ref={selectedValueFieldRef} />
-      {opened && (
-        <ul className={cls.appDropdownList} ref={optionsListRef}>
-          {children}
-        </ul>
-      )}
+      <AppDropdownSelectedItem title={title} active={true} />
+      <ul className={cls.appDropdownList}>
+        {children}
+      </ul>
     </div>
   );
 }

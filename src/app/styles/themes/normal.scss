@@ -1,9 +1,15 @@
 :root {
   --bg-color: #fff;
   --bg-color-hovered: #dadada;
+  --secondary-bg-color: #FAFAFB;
 
   --primary-color: #121212;
-  --primary-color-filter: invert(0%) sepia(7%) saturate(4322%) hue-rotate(30deg) brightness(99%) contrast(86%);
   --secondary-color: #fff;
-  --secondary-color-filter: invert(100%) sepia(0%) saturate(7494%) hue-rotate(136deg) brightness(102%) contrast(104%);
+
+  --box-shadow-color: rgba(18, 18, 18, 0.04);
+
+  --text-second-color: #3E3E59;
+  --text-third-color: #605F5F;
+
+  --horizontal-line-color: #CBCBCB;
 }
