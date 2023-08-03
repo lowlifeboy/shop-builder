@@ -1,8 +1,8 @@
 import cls from './AppInput.module.scss';
 
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "../../lib/classNames/classNames";
 import {ChangeEvent, useEffect, useState} from "react";
-import {useDebounce} from "shared/lib/useDebounce/useDebounce";
+import {useDebounce} from "../../lib/useDebounce/useDebounce";
 
 interface AppInputProps {
   onChange: (value: string) => void;

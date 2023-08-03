@@ -3,7 +3,7 @@ import {Link, LinkProps} from "react-router-dom";
 
 import cls from './AppLink.module.scss';
 
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "../../lib/classNames/classNames";
 
 export interface AppLinkProps extends LinkProps {
   children: ReactNode;

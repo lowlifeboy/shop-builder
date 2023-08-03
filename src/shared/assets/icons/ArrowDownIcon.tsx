@@ -1,6 +1,6 @@
 import React from "react";
 
-function ArrowDownIcon({rotate = 0, color = "#121212"}) {
+function ArrowDownIcon({rotate = false, color = "#121212"}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,7 +8,7 @@ function ArrowDownIcon({rotate = 0, color = "#121212"}) {
       height="18"
       fill="none"
       viewBox="0 0 18 18"
-      transform={`rotate(${rotate}deg)`}
+      transform={`rotate(${rotate ? 180 : 0} 0 0)`}
     >
       <path
         stroke={color}

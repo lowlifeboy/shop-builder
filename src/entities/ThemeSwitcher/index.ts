@@ -1,1 +1,1 @@
-export {default as ThemeSwitcher} from "entities/ThemeSwitcher/ui/ThemeSwitcher";
+export {default as ThemeSwitcher} from "./ui/ThemeSwitcher";

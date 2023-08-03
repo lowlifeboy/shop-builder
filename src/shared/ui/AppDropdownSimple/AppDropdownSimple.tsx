@@ -1,10 +1,10 @@
 import cls from './AppDropdownSimple.module.scss';
 
-import {classNames} from "shared/lib/classNames/classNames";
 import {ReactNode} from "react";
-import {ArrowDownIcon} from "shared/assets/icons";
 import {useTheme} from "app/providers/ThemeProvider";
+import {ArrowDownIcon} from "shared/assets/icons";
 import {getIconColorByTheme} from "shared/lib/getMainColorByTheme/getIconColorByTheme";
+import {classNames} from "shared/lib/classNames/classNames";
 
 interface AppDropdownSimpleProps {
   title: string;
@@ -14,10 +14,9 @@ interface AppDropdownSimpleProps {
 
 interface AppDropdownSimpleSelectedItemProps {
   title: string;
-  active: boolean;
 }
 
-export function AppDropdownSimpleSelectedItem({title, active}: AppDropdownSimpleSelectedItemProps) {
+export function AppDropdownSimpleSelectedItem({title}: AppDropdownSimpleSelectedItemProps) {
   const {theme} = useTheme();
 
   return (
@@ -25,7 +24,7 @@ export function AppDropdownSimpleSelectedItem({title, active}: AppDropdownSimple
       <div className={cls.appDropdownSimpleSelectedItem}>
         <div>{title}</div>
         <div className={cls.iconWrapper}>
-          <ArrowDownIcon color={getIconColorByTheme(theme)} rotate={active ? 180 : 0} />
+          <ArrowDownIcon color={getIconColorByTheme(theme)} />
         </div>
       </div>
     </div>
@@ -36,7 +35,7 @@ export function AppDropdownSimpleSelectedItem({title, active}: AppDropdownSimple
 export function AppDropdownSimple({className, children, title}: AppDropdownSimpleProps) {
   return (
     <div className={classNames(cls.appDropdownSimple, {}, [className])}>
-      <AppDropdownSimpleSelectedItem title={title} active={true} />
+      <AppDropdownSimpleSelectedItem title={title} />
       <ul className={cls.appDropdownSimpleList}>
         {children}
       </ul>

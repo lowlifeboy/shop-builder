@@ -1,1 +1,1 @@
-export {default as BasketIconLink} from "entities/BasketIconLink/ui/BasketIconLink";
+export {default as BasketIconLink} from "./ui/BasketIconLink";

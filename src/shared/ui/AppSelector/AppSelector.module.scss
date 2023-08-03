@@ -1,0 +1,43 @@
+.appSelector {
+  position: relative;
+
+  .appSelectorSelectedItem {
+    display: flex;
+    align-items: center;
+
+    .appSelectorSelectedItemWrapper {
+      margin-right: 2px;
+    }
+  }
+
+  .appSelectorDropdown {
+    min-width: 114px;
+    display: none;
+    position: absolute;
+
+    background: var(--secondary-bg-color);
+    box-shadow: 0 8px 16px 0 var(--box-shadow-color);
+  }
+
+  .appSelectorDropdownItem {
+    background: var(--secondary-bg-color);
+
+    &:hover {
+      background-color: var(--bg-color-hovered);
+    }
+  }
+
+  .appSelectorDropdownButton {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 16px;
+  }
+
+  &:hover {
+    .appSelectorDropdown {
+      display: block;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import cls from './AppDropdownSearch.module.scss';
 
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "../../lib/classNames/classNames";
 import {ReactNode} from "react";
 
 interface AppDropdownSearchProps {

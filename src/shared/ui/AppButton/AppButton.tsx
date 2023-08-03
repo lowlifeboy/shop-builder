@@ -1,6 +1,6 @@
 import cls from './AppButton.module.scss';
 
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "../../lib/classNames/classNames";
 import {ButtonHTMLAttributes, forwardRef, ReactNode} from "react";
 
 export enum ThemeButton {

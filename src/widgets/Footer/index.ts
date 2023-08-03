@@ -1,1 +1,1 @@
-export {default as Footer} from "widgets/Footer/ui/Footer";
+export {default as Footer} from "./ui/Footer";
