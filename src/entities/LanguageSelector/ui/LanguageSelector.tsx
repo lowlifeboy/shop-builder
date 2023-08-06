@@ -2,10 +2,11 @@ import cls from './LanguageSelector.module.scss';
 
 import {classNames} from "shared/lib/classNames/classNames";
 import AppSelector from "shared/ui/AppSelector/AppSelector";
-import {LOCAL_STORAGE_LANGUAGE_KEY} from "../model/constants";
+import i18n from "shared/config/i18n/i18n";
 
 export interface Language {
   id: string;
+  key: string;
   name: string;
   emoji: string;
 }
@@ -28,7 +29,7 @@ function LanguageItem(item: Language) {
 
 export default function LanguageSelector({openDirection, config, className, openPosition}: LanguageSelectorProps) {
   function onChange(item: Language) {
-    localStorage.setItem(LOCAL_STORAGE_LANGUAGE_KEY, item.id);
+    i18n.changeLanguage(item.key);
   }
 
   return (
@@ -36,7 +37,7 @@ export default function LanguageSelector({openDirection, config, className, open
       <AppSelector
         keyPropName={'id'}
         config={config}
-        defaultValue={config.find((item) => item.id === localStorage.getItem(LOCAL_STORAGE_LANGUAGE_KEY)) || config[0]}
+        defaultValue={config.find((item) => item.key === i18n.language) || config[0]}
         onChange={onChange}
         itemRender={(item) => <LanguageItem {...item} />}
         openDirection={openDirection}

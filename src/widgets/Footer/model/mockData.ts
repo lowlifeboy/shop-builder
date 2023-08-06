@@ -80,20 +80,24 @@ export const languages: Language[] = [
     id: 'qwewq7e76qw76',
     name: 'Deutsch',
     emoji: '🇩🇪',
+    key: 'de',
   },
   {
     id: 'x53t35xt53xt',
     name: 'Italiano',
     emoji: '🇮🇹',
+    key: 'it',
   },
   {
     id: 'vuj67v7h6u6vh',
     name: 'العربية',
     emoji: '🇪🇬',
+    key: 'eg',
   },
   {
     id: 'bj45bj5b344jbd',
     name: '日本語',
     emoji: '🇯🇵',
+    key: 'jp',
   },
 ]

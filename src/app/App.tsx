@@ -6,6 +6,8 @@ import {AppRouter} from "app/providers/router";
 import {Navbar} from "widgets/Navbar";
 import {Footer} from "widgets/Footer";
 import {NavbarDropdownsConfig} from "widgets/Navbar/ui/Navbar";
+import {Suspense} from "react";
+import {useTranslation} from "react-i18next";
 
 const navigationDropdownsConfig: NavbarDropdownsConfig = {
   items: [
@@ -54,16 +56,30 @@ const searchDropdownConfig = {
   ]
 }
 
+function MyComponent() {
+  const { t } = useTranslation();
+
+  return (
+    <div>
+      <h1>{t('testTitle')}</h1>
+      <p>{t('testParagraph')}</p>
+    </div>
+  )
+}
+
 export default function App() {
   const {theme} = useTheme();
 
   return (
     <div className={classNames('app', {}, [theme])}>
-      <Navbar navigationDropdownsConfig={navigationDropdownsConfig} searchDropdownConfig={searchDropdownConfig} />
-      <main>
-        <AppRouter />
-      </main>
-      <Footer />
+      <Suspense fallback="Loading localization...">
+        <Navbar navigationDropdownsConfig={navigationDropdownsConfig} searchDropdownConfig={searchDropdownConfig} />
+        <main>
+          <MyComponent />
+          <AppRouter />
+        </main>
+        <Footer />
+      </Suspense>
     </div>
   )
 }
