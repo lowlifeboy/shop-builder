@@ -1,6 +1,10 @@
-import React from "react";
+import React from 'react'
 
-function ProfileIcon({color = "#121212"}) {
+interface ProfileIconProps {
+  color?: string
+}
+
+function ProfileIcon ({ color = '#121212' }: ProfileIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +20,7 @@ function ProfileIcon({color = "#121212"}) {
         clipRule="evenodd"
       ></path>
     </svg>
-  );
+  )
 }
 
-export default ProfileIcon;
+export default ProfileIcon

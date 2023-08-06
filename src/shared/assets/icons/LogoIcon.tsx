@@ -1,6 +1,10 @@
-import React from "react";
+import React from 'react'
 
-function LogoIcon({color = "#fff"}) {
+interface LogoIconProps {
+  color?: string
+}
+
+function LogoIcon ({ color = '#fff' }: LogoIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +20,7 @@ function LogoIcon({color = "#fff"}) {
         clipRule="evenodd"
       ></path>
     </svg>
-  );
+  )
 }
 
-export default LogoIcon;
+export default LogoIcon

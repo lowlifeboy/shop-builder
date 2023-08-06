@@ -1,6 +1,10 @@
-import React from "react";
+import React from 'react'
 
-function EmailIcon({color = "#121212"}) {
+interface EmailIconProps {
+  color?: string
+}
+
+function EmailIcon ({ color = '#121212' }: EmailIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +20,7 @@ function EmailIcon({color = "#121212"}) {
         clipRule="evenodd"
       ></path>
     </svg>
-  );
+  )
 }
 
-export default EmailIcon;
+export default EmailIcon

@@ -1,6 +1,10 @@
-import React from "react";
+import React from 'react'
 
-function InstagramIcon({color = "#121212"}) {
+interface InstagramIconProps {
+  color?: string
+}
+
+function InstagramIcon ({ color = '#121212' }: InstagramIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +20,7 @@ function InstagramIcon({color = "#121212"}) {
         clipRule="evenodd"
       ></path>
     </svg>
-  );
+  )
 }
 
-export default InstagramIcon;
+export default InstagramIcon

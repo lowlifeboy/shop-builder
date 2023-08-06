@@ -1,1 +1,1 @@
-export {default as Search} from "./ui/Search";
+export { default as Search } from './ui/Search'

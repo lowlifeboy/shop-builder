@@ -1,6 +1,10 @@
-import React from "react";
+import React from 'react'
 
-function BasketIcon({color = "#121212"}) {
+interface BasketIconProps {
+  color?: string
+}
+
+function BasketIcon ({ color = '#121212' }: BasketIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +20,7 @@ function BasketIcon({color = "#121212"}) {
         clipRule="evenodd"
       ></path>
     </svg>
-  );
+  )
 }
 
-export default BasketIcon;
+export default BasketIcon

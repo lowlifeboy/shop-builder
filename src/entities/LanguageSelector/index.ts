@@ -1,1 +1,1 @@
-export {default as LanguageSelector} from "./ui/LanguageSelector";
+export { default as LanguageSelector } from './ui/LanguageSelector'

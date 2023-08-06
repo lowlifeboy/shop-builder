@@ -1,6 +1,10 @@
-import React from "react";
+import React from 'react'
 
-function SearchIcon({color = "#121212"}) {
+interface SearchIconProps {
+  color?: string
+}
+
+function SearchIcon ({ color = '#121212' }: SearchIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +20,7 @@ function SearchIcon({color = "#121212"}) {
         clipRule="evenodd"
       ></path>
     </svg>
-  );
+  )
 }
 
-export default SearchIcon;
+export default SearchIcon

@@ -1,6 +1,11 @@
-import React from "react";
+import React from 'react'
 
-function ArrowDownIcon({rotate = false, color = "#121212"}) {
+interface ArrowDownIconProps {
+  rotate?: boolean
+  color?: string
+}
+
+function ArrowDownIcon ({ rotate = false, color = '#121212' }: ArrowDownIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +23,7 @@ function ArrowDownIcon({rotate = false, color = "#121212"}) {
         d="M4.704 6.75l4.5 4.5 4.5-4.5"
       ></path>
     </svg>
-  );
+  )
 }
 
-export default ArrowDownIcon;
+export default ArrowDownIcon

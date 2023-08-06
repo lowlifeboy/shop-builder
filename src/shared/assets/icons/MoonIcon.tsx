@@ -1,6 +1,10 @@
-import React from "react";
+import React from 'react'
 
-function MoonIcon({width = 24}) {
+interface MoonIconProps {
+  width?: number
+}
+
+function MoonIcon ({ width = 24 }: MoonIconProps) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={width} height={width} viewBox="0 0 24 24">
       <path
@@ -8,7 +12,7 @@ function MoonIcon({width = 24}) {
         d="M9.582.246c.426-.086.848-.148 1.266-.191.43-.04.855-.059 1.273-.055.207 0 .383.148.418.352a.432.432 0 01-.27.476 7.983 7.983 0 00-4.093 3.637 7.952 7.952 0 00-.797 5.406v.012a7.991 7.991 0 003.434 5.062 7.966 7.966 0 006 1.157l.015-.004a7.935 7.935 0 003.965-2.106 8.01 8.01 0 002.21-3.937.432.432 0 01.43-.332.43.43 0 01.41.359 11.98 11.98 0 01-1.964 8.734 11.96 11.96 0 01-7.457 4.938 11.97 11.97 0 01-9.02-1.73A11.966 11.966 0 01.25 14.417a11.949 11.949 0 011.613-8.836A11.965 11.965 0 019.371.293zm0 0"
       ></path>
     </svg>
-  );
+  )
 }
 
-export default MoonIcon;
+export default MoonIcon

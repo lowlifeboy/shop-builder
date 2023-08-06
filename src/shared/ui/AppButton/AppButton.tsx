@@ -1,18 +1,18 @@
-import cls from './AppButton.module.scss';
+import cls from './AppButton.module.scss'
 
-import {classNames} from "../../lib/classNames/classNames";
-import {ButtonHTMLAttributes, forwardRef, ReactNode} from "react";
+import { classNames } from '../../lib/classNames/classNames'
+import { type ButtonHTMLAttributes, forwardRef, type ReactNode } from 'react'
 
 export enum ThemeButton {
   CLEAR = 'clear',
 
 }
 
-interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
-  onClick: () => void;
-  children: ReactNode;
-  theme?: ThemeButton;
-  className?: string;
+interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  onClick: () => void
+  children: ReactNode
+  theme?: ThemeButton
+  className?: string
 }
 
 const AppButton = forwardRef<HTMLButtonElement, AppButtonProps>((
@@ -25,18 +25,18 @@ const AppButton = forwardRef<HTMLButtonElement, AppButtonProps>((
     children,
     onClick,
     ...otherProps
-  } = props;
+  } = props
 
   return (
     <button
       ref={ref}
-      className={classNames(cls.appButton, {}, [className, theme])}
+      className={classNames(cls.appButton, {}, [className ?? '', theme])}
       onClick={onClick}
       {...otherProps}
     >
       {children}
     </button>
-  );
+  )
 })
 
-export default AppButton;
+export default AppButton

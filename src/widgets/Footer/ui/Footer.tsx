@@ -1,27 +1,27 @@
-import cls from './Footer.module.scss';
+import cls from './Footer.module.scss'
 
-import {classNames} from "shared/lib/classNames/classNames";
-import LogoIcon from "shared/assets/icons/LogoIcon";
-import {getIconColorByTheme} from "shared/lib/getMainColorByTheme/getIconColorByTheme";
-import {Theme, useTheme} from "app/providers/ThemeProvider";
-import AppLink from "shared/ui/AppLink/AppLink";
-import {FooterProps, NavigationColumn} from "../model/types";
-import {currencies, languages, navigation, socialNetworks} from "../model/mockData";
-import CurrencySelector from "entities/CurrencySelector/ui/CurrencySelector";
-import LanguageSelector from "entities/LanguageSelector/ui/LanguageSelector";
+import { classNames } from 'shared/lib/classNames/classNames'
+import LogoIcon from 'shared/assets/icons/LogoIcon'
+import { getIconColorByTheme } from 'shared/lib/getMainColorByTheme/getIconColorByTheme'
+import { type Theme, useTheme } from 'app/providers/ThemeProvider'
+import AppLink from 'shared/ui/AppLink/AppLink'
+import { type FooterProps, type NavigationColumnProps } from '../model/types'
+import { currencies, languages, navigation, socialNetworks } from '../model/mockData'
+import CurrencySelector from 'entities/CurrencySelector/ui/CurrencySelector'
+import LanguageSelector from 'entities/LanguageSelector/ui/LanguageSelector'
 
 interface LogoDescAndSocialNetworksProps {
   theme: Theme
 }
 
-function LogoDescAndSocialNetworks({theme}: LogoDescAndSocialNetworksProps) {
+function LogoDescAndSocialNetworks ({ theme }: LogoDescAndSocialNetworksProps) {
   return (
     <div className={cls.footerContentLeft}>
       <LogoIcon color={getIconColorByTheme(theme)} />
       <p>Phosf luorescently engage worldwide method process shopping.</p>
       <div className={cls.socialNetworks}>
-        {socialNetworks.map(({link, logo, key}) => {
-          const LogoComponent = logo;
+        {socialNetworks.map(({ link, logo, key }) => {
+          const LogoComponent = logo
 
           return (
             <AppLink target="_blank" rel="noopener noreferrer" key={key} to={link}><LogoComponent color={getIconColorByTheme(theme)} /></AppLink>
@@ -32,13 +32,13 @@ function LogoDescAndSocialNetworks({theme}: LogoDescAndSocialNetworksProps) {
   )
 }
 
-function NavigationColumn({title, items}: NavigationColumn) {
+function NavigationColumn ({ title, items }: NavigationColumnProps) {
   return (
     <div>
       <h3>{title}</h3>
 
       <ul>
-        {items.map(({path, text}) => (
+        {items.map(({ path, text }) => (
           <li key={path}>
             <AppLink to={path} className={cls.footerNavLink}>
               {text}
@@ -50,16 +50,16 @@ function NavigationColumn({title, items}: NavigationColumn) {
   )
 }
 
-export default function Footer({className}: FooterProps) {
-  const {theme} = useTheme();
+export default function Footer ({ className }: FooterProps) {
+  const { theme } = useTheme()
 
   return (
-    <div className={classNames(cls.footer, {}, [className])}>
+    <div className={classNames(cls.footer, {}, [className ?? ''])}>
       <div className={classNames(cls.footerContent, {}, [])}>
         <LogoDescAndSocialNetworks theme={theme} />
 
         <ul className={cls.footerNavigationColumns}>
-          {navigation.map(({title, items}) => (
+          {navigation.map(({ title, items }) => (
             <li key={title}>
               <NavigationColumn title={title} items={items} />
             </li>
@@ -75,5 +75,5 @@ export default function Footer({className}: FooterProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }

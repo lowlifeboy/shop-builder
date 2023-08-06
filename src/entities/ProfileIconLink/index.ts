@@ -1,1 +1,1 @@
-export {default as ProfileIconLink} from "./ui/ProfileIconLink";
+export { default as ProfileIconLink } from './ui/ProfileIconLink'
