@@ -34,7 +34,7 @@ export default function CurrencySelector ({ openDirection, config, className, op
         config={config}
         defaultValue={config.find((item) => item.id === localStorage.getItem(LOCAL_STORAGE_CURRENCY_KEY)) ?? config[0]}
         onChange={onChange}
-        itemRender={(item) => <CurrencyItem {...item} />}
+        itemRender={(item) => <CurrencyItem id={item.id} name={item.name} />}
         openDirection={openDirection}
         openPosition={openPosition}
       />

@@ -1,12 +1,10 @@
 :root {
-  --font-family-main: SpaceGrotesk, sans-serif;
-  --font-family-secondary: Inter, sans-serif;
-
+  --font-family-main: spacegrotesk, sans-serif;
+  --font-family-secondary: inter, sans-serif;
   --font-size-m: 16px;
   --font-line-m: 24px;
   --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
   --font-secondary-m: var(--font-size-m) / var(--font-line-m) var(--font-family-secondary);
-
   --font-size-l: 24px;
   --font-line-l: 32px;
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);

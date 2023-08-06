@@ -1,24 +1,36 @@
 import cls from './Footer.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
-import LogoIcon from 'shared/assets/icons/LogoIcon'
 import { getIconColorByTheme } from 'shared/lib/getMainColorByTheme/getIconColorByTheme'
-import { type Theme, useTheme } from 'app/providers/ThemeProvider'
+import { Theme, useTheme } from 'app/providers/ThemeProvider'
 import AppLink from 'shared/ui/AppLink/AppLink'
-import { type FooterProps, type NavigationColumnProps } from '../model/types'
-import { currencies, languages, navigation, socialNetworks } from '../model/mockData'
+import { type FooterProps, type NavigationColumnProps, type SocialNetwork } from '../model/types'
+import {
+  copyright,
+  currencies,
+  description,
+  languages,
+  logoDark,
+  logoLight,
+  navigation,
+  socialNetworks
+} from '../model/mockData'
 import CurrencySelector from 'entities/CurrencySelector/ui/CurrencySelector'
 import LanguageSelector from 'entities/LanguageSelector/ui/LanguageSelector'
+import { type ReactNode } from 'react'
 
 interface LogoDescAndSocialNetworksProps {
+  logo: ReactNode
+  text: string
+  socialNetworks: SocialNetwork[]
   theme: Theme
 }
 
-function LogoDescAndSocialNetworks ({ theme }: LogoDescAndSocialNetworksProps) {
+function LogoDescAndSocialNetworks ({ logo, text, socialNetworks, theme }: LogoDescAndSocialNetworksProps) {
   return (
     <div className={cls.footerContentLeft}>
-      <LogoIcon color={getIconColorByTheme(theme)} />
-      <p>Phosf luorescently engage worldwide method process shopping.</p>
+      {logo}
+      {text && <p>{text}</p>}
       <div className={cls.socialNetworks}>
         {socialNetworks.map(({ link, logo, key }) => {
           const LogoComponent = logo
@@ -56,7 +68,11 @@ export default function Footer ({ className }: FooterProps) {
   return (
     <div className={classNames(cls.footer, {}, [className ?? ''])}>
       <div className={classNames(cls.footerContent, {}, [])}>
-        <LogoDescAndSocialNetworks theme={theme} />
+        <LogoDescAndSocialNetworks
+          logo={theme === Theme.LIGHT ? logoLight : logoDark }
+          text={description} socialNetworks={socialNetworks}
+          theme={theme}
+        />
 
         <ul className={cls.footerNavigationColumns}>
           {navigation.map(({ title, items }) => (
@@ -68,7 +84,7 @@ export default function Footer ({ className }: FooterProps) {
       </div>
 
       <div className={cls.footerBottom}>
-        <div className={cls.footerCopyrightText}>© 2088 Nayzak Design</div>
+        <div className={cls.footerCopyrightText}>{copyright}</div>
         <div className={cls.footerBottomSelectors}>
           <LanguageSelector className={cls.languageSelectorMargin} openDirection={'up'} openPosition={'right'} config={languages} />
           <CurrencySelector openDirection={'up'} openPosition={'right'} config={currencies} />

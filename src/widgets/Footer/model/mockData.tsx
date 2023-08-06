@@ -1,7 +1,13 @@
-import { type NavigationColumn, type SocialNetwork } from './types'
+import { type NavigationColumnProps, type SocialNetwork } from './types'
 import { EmailIcon, FacebookIcon, InstagramIcon, TwitterIcon } from 'shared/assets/icons'
 import { type Currency } from 'entities/CurrencySelector/ui/CurrencySelector'
 import { type Language } from 'entities/LanguageSelector/ui/LanguageSelector'
+import LogoIcon from 'shared/assets/icons/LogoIcon'
+
+export const logoLight = <LogoIcon />
+export const logoDark = <LogoIcon color="#fff" />
+
+export const description = 'Phosf luorescently engage worldwide method process shopping.'
 
 export const socialNetworks: SocialNetwork[] = [
   {
@@ -26,7 +32,7 @@ export const socialNetworks: SocialNetwork[] = [
   }
 ]
 
-export const navigation: NavigationColumn[] = [
+export const navigation: NavigationColumnProps[] = [
   {
     title: 'Shop',
     items: [
@@ -55,6 +61,8 @@ export const navigation: NavigationColumn[] = [
     ]
   }
 ]
+
+export const copyright = '© 2088 Nayzak Design'
 
 export const currencies: Currency[] = [
   {

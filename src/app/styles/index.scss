@@ -4,21 +4,19 @@
 @import "themes/dark";
 
 @font-face {
-  font-family: "SpaceGrotesk";
+  font-family: SpaceGrotesk;
   src: local('SpaceGrotesk'), url("shared/assets/fonts/SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "Inter";
+  font-family: Inter;
   src: local('Inter'), url("shared/assets/fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
 }
 
 .app {
   font: var(--font-m);
-
   background: var(--bg-color);
   color: var(--primary-color);
-
   min-height: 100vh;
   display: flex;
   flex-direction: column;

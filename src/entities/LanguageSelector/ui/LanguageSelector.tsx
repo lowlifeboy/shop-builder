@@ -39,7 +39,7 @@ export default function LanguageSelector ({ openDirection, config, className, op
         config={config}
         defaultValue={config.find((item) => item.key === i18n.language) ?? config[0]}
         onChange={onChange}
-        itemRender={(item) => <LanguageItem {...item} />}
+        itemRender={(item) => <LanguageItem id={item.id} name={item.name} key={item.key} emoji={item.emoji} />}
         openDirection={openDirection}
         openPosition={openPosition}
       />
