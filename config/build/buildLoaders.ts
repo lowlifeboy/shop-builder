@@ -3,6 +3,17 @@ import type webpack from 'webpack'
 import { type BuildOptions } from './types/config'
 
 export function buildLoaders ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+  const babelLoader = {
+    test: /\.[jt]sx?$/,
+    exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+      options: {
+        presets: ['@babel/preset-env']
+      }
+    }
+  }
+
   const cssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -47,6 +58,7 @@ export function buildLoaders ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   }
 
   return [
+    babelLoader,
     typescriptLoader,
     cssLoader,
     svgLoader,
