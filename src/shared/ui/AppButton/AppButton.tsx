@@ -1,7 +1,8 @@
+import { type ButtonHTMLAttributes, forwardRef, type ReactNode } from 'react'
+
 import cls from './AppButton.module.scss'
 
 import { classNames } from '../../lib/classNames/classNames'
-import { type ButtonHTMLAttributes, forwardRef, type ReactNode } from 'react'
 
 export enum ThemeButton {
   CLEAR = 'clear',

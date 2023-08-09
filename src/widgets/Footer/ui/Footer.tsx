@@ -1,3 +1,5 @@
+import { type ReactNode } from 'react'
+
 import cls from './Footer.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -15,9 +17,8 @@ import {
   navigation,
   socialNetworks
 } from '../model/mockData'
-import CurrencySelector from 'entities/CurrencySelector/ui/CurrencySelector'
-import LanguageSelector from 'entities/LanguageSelector/ui/LanguageSelector'
-import { type ReactNode } from 'react'
+import { LanguageSelector } from '../../../entities/LanguageSelector'
+import { CurrencySelector } from '../../../entities/CurrencySelector'
 
 interface LogoDescAndSocialNetworksProps {
   logo: ReactNode
@@ -66,7 +67,7 @@ export default function Footer ({ className }: FooterProps) {
   const { theme } = useTheme()
 
   return (
-    <div className={classNames(cls.footer, {}, [className ?? ''])}>
+    <div data-testid="footer" className={classNames(cls.footer, {}, [className ?? ''])}>
       <div className={classNames(cls.footerContent, {}, [])}>
         <LogoDescAndSocialNetworks
           logo={theme === Theme.LIGHT ? logoLight : logoDark }

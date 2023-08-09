@@ -1,13 +1,13 @@
 import cls from './Navbar.module.scss'
 
-import { ThemeSwitcher } from 'entities/ThemeSwitcher'
+import { ThemeSwitcher } from '../../../entities/ThemeSwitcher'
 import { classNames } from 'shared/lib/classNames/classNames'
 import AppLink from 'shared/ui/AppLink/AppLink'
 import { HeaderLogoIcon } from 'shared/assets/icons'
 import { useTheme } from 'app/providers/ThemeProvider'
 import { Search } from 'features/Search'
-import { ProfileIconLink } from 'entities/ProfileIconLink'
-import { BasketIconLink } from 'entities/BasketIconLink'
+import { ProfileIconLink } from '../../../entities/ProfileIconLink'
+import { BasketIconLink } from '../../../entities/BasketIconLink'
 import { getIconColorByTheme } from 'shared/lib/getMainColorByTheme/getIconColorByTheme'
 import { AppDropdownSimple } from 'shared/ui/AppDropdownSimple/AppDropdownSimple'
 import { type SearchDropdown } from 'features/Search/ui/Search'
@@ -36,7 +36,7 @@ export default function Navbar ({ navigationDropdownsConfig, searchDropdownConfi
   const { theme } = useTheme()
 
   return (
-    <div className={classNames(cls.navbar, {}, [className ?? ''])}>
+    <div data-testid="navbar" className={classNames(cls.navbar, {}, [className ?? ''])}>
       <AppLink className={cls.navbarLogo} to={'/'}>
         <HeaderLogoIcon color={getIconColorByTheme(theme)} />
       </AppLink>
