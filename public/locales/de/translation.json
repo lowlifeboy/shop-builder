@@ -1,5 +1,9 @@
 {
-  "translate": "übersetzen",
-  "testTitle": "Test",
-  "testParagraph": "Fünf Jahrhunderte später erlebte Lorem Ipsum mit der Veröffentlichung des trockenen Transfers von Letrasets Blättern einen Popularitätsschub. Diese Beschriftungsblätter können überall gerieben werden und wurden von Künstlern, Druckern, Architekten und Werbetreibenden für ihr professionelles Aussehen und ihre Benutzerfreundlichkeit schnell akzeptiert. Letraset fügte Lorem Ipsum-Passagen in das Arsenal der Schriften, Stile und Größen ein und festigte den Platz der lateinamerikanischen Phrase in der Druck- und Grafikindustrie. Wer mit Liebe zum Detail arbeitet, wird in der Folge Mad Men sogar eine Hommage an den klassischen Text finden (S6E1 um 1:18:55 für diejenigen, die es nicht taten)."
+  "pageNotFound": "404 - Seite nicht gefunden",
+  "pageNotFoundDescription": "Die Seite, die Sie suchen, ist nicht verfügbar. Versuchen Sie es erneut oder verwenden Sie die Zurück-Schaltfläche unten.",
+  "goBackHome": "Wieder nach Hause gehen",
+  "unexpectedErrorOccurred": "Unerwarteter Fehler ist aufgetreten",
+  "reloadPage": "reloadPage",
+  "error": "Fehler",
+  "throwError": "Fehler werfen"
 }

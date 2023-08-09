@@ -1,13 +1,88 @@
 .appButton {
   display: flex;
   cursor: pointer;
-}
 
+  &.clear {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: transparent;
+    outline: none;
+  }
 
-.clear {
-  padding: 0;
-  margin: 0;
-  border: none;
-  background-color: transparent;
-  outline: none;
+  &.pill, &.rounded, &.sharp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid var(--primary-color);
+    box-sizing: border-box;
+
+    // Font
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: var(--font-family-main);
+    font-weight: 500;
+
+    // Fill theme
+    &.solid {
+      background-color: var(--primary-color);
+      color: var(--inverted-primary-color);
+    }
+
+    &.outline {
+      background-color: transparent;
+      color: var(--primary-color);
+    }
+
+    // Size
+    &.xl {
+      padding: 10px 40px;
+      font-size: 26px;
+      line-height: 38px;
+    }
+
+    &.l {
+      padding: 8px 32px;
+      font-size: 22px;
+      line-height: 34px;
+    }
+
+    &.m, &.s, &.xs {
+      letter-spacing: -0.4px;
+    }
+
+    &.m {
+      padding: 6px 24px;
+      font-size: 18px;
+      line-height: 28px;
+    }
+
+    &.s {
+      padding: 5px 20px;
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    &.xs {
+      padding: 4px 16px;
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+
+  &.pill {
+    border-radius: 39px;
+  }
+
+  &.rounded {
+    border-radius: 6px;
+  }
+
+  &.sharp {
+    border-radius: 0;
+  }
+
+  &.disabled {
+    // TODO: add disabled button styles
+  }
 }

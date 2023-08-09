@@ -1,3 +1,5 @@
+import { Suspense } from 'react'
+
 import './styles/index.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -6,8 +8,6 @@ import { AppRouter } from 'app/providers/router'
 import { Navbar } from 'widgets/Navbar'
 import { Footer } from 'widgets/Footer'
 import { type NavbarDropdownsConfig } from 'widgets/Navbar/ui/Navbar'
-import { Suspense } from 'react'
-import { useTranslation } from 'react-i18next'
 
 const navigationDropdownsConfig: NavbarDropdownsConfig = {
   items: [
@@ -56,17 +56,6 @@ const searchDropdownConfig = {
   ]
 }
 
-function MyComponent () {
-  const { t } = useTranslation()
-
-  return (
-    <div>
-      <h1>{t('testTitle')}</h1>
-      <p>{t('testParagraph')}</p>
-    </div>
-  )
-}
-
 export default function App () {
   const { theme } = useTheme()
 
@@ -75,7 +64,6 @@ export default function App () {
       <Suspense fallback="Loading localization...">
         <Navbar navigationDropdownsConfig={navigationDropdownsConfig} searchDropdownConfig={searchDropdownConfig} />
         <main>
-          <MyComponent />
           <AppRouter />
         </main>
         <Footer />

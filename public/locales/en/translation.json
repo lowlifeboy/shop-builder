@@ -1,5 +1,9 @@
 {
-  "translate": "Translate",
-  "testTitle": "Test",
-  "testParagraph": "Officia officia cupidatat do nostrud sunt exercitation culpa occaecat adipisicing velit. Id proident non sint minim mollit minim ut cupidatat reprehenderit pariatur aliquip eu culpa. Nostrud irure aute velit sunt. Velit esse exercitation eu sint mollit enim eiusmod reprehenderit consectetur. Tempor minim minim Lorem incididunt sit adipisicing sint laboris velit nisi et anim culpa. Irure in sint do adipisicing excepteur. Officia ut culpa excepteur anim consectetur fugiat adipisicing nisi adipisicing officia eiusmod ullamco cupidatat. Deserunt ex est dolor ea laboris ipsum nulla qui duis fugiat in qui adipisicing sint."
+  "pageNotFound": "404 – Page not found",
+  "pageNotFoundDescription": "The page you're looking for isn't available. Try to search again or use the go back button below.",
+  "goBackHome": "Go back home",
+  "unexpectedErrorOccurred": "Unexpected error occurred",
+  "reloadPage": "reloadPage",
+  "error": "Error",
+  "throwError": "Throw error"
 }
