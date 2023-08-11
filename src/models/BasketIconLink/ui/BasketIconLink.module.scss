@@ -12,11 +12,11 @@
   border-radius: 10px;
   background-color: var(--primary-color);
   color: var(--bg-color);
+
+  // font
   text-align: center;
-  font-feature-settings: 'clig' off, 'liga' off;
   font-family: var(--font-family-secondary);
   font-size: 12px;
-  font-style: normal;
   font-weight: 700;
   line-height: 10px;
 }
