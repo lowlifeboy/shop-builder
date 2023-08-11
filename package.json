@@ -12,9 +12,6 @@
     "lint:scss": "stylelint \"**/*.scss\"",
     "lint:scss:fix": "stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
-    "test:ui": "npx loki test",
-    "test:ui:ok": "npx loki approve",
-    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
     "chromatic": "npx chromatic --project-token=chpt_9aaeae954e4b09f --build-script-name storybook:build"
@@ -66,7 +63,6 @@
     "image-webpack-loader": "^8.1.0",
     "jest": "^29.6.2",
     "jest-environment-jsdom": "^29.6.2",
-    "loki": "^0.32.0",
     "mini-css-extract-plugin": "^2.7.6",
     "react-refresh": "^0.14.0",
     "regenerator-runtime": "^0.14.0",
