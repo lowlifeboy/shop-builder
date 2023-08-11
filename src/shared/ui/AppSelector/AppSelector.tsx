@@ -1,11 +1,8 @@
 import { type ReactNode, useEffect, useState } from 'react'
 
 import cls from './AppSelector.module.scss'
-
-import { useTheme } from 'app/providers/ThemeProvider'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { ArrowDownIcon } from 'shared/assets/icons'
-import { getIconColorByTheme } from 'shared/lib/getMainColorByTheme/getIconColorByTheme'
 import AppButton from 'shared/ui/AppButton/AppButton'
 
 interface AppSelectorProps {
@@ -29,8 +26,6 @@ export default function AppSelector ({
   openDirection = 'down',
   openPosition = 'left'
 }: AppSelectorProps) {
-  const { theme } = useTheme()
-
   const [selectedItem, setSelectedItem] = useState<Record<string, any>>()
 
   useEffect(() => {
@@ -48,7 +43,7 @@ export default function AppSelector ({
         <div className={cls.appSelectorSelectedItemWrapper}>
           {selectedItem && itemRender(selectedItem)}
         </div>
-        <ArrowDownIcon color={getIconColorByTheme(theme)} />
+        <ArrowDownIcon className={cls.arrowDownIcon} />
       </div>
 
       <ul

@@ -1,8 +1,13 @@
-import { type NavigationColumnProps, type SocialNetwork } from './types'
-import { EmailIcon, FacebookIcon, InstagramIcon, TwitterIcon } from 'shared/assets/icons'
+import { type NavigationColumnProps, type SocialNetwork, SocialNetworkKeys } from './types'
 import { type Currency } from 'models/CurrencySelector/ui/CurrencySelector'
 import { type Language } from 'models/LanguageSelector/ui/LanguageSelector'
 import LogoIcon from 'shared/assets/icons/LogoIcon'
+import {
+  EmailIconComponent,
+  FacebookIconComponent,
+  InstagramIconComponent,
+  TwitterIconComponent
+} from 'shared/ui/socialIconComponents'
 
 export const logoLight = <LogoIcon color="#121212" />
 export const logoDark = <LogoIcon color="#fff" />
@@ -11,26 +16,29 @@ export const description = 'Phosf luorescently engage worldwide method process s
 
 export const socialNetworks: SocialNetwork[] = [
   {
-    key: 'facebook',
-    logo: FacebookIcon,
+    key: SocialNetworkKeys.FACEBOOK,
     link: 'https://www.facebook.com'
   },
   {
-    key: 'instagram',
-    logo: InstagramIcon,
+    key: SocialNetworkKeys.INSTAGRAM,
     link: 'https://www.instagram.com'
   },
   {
-    key: 'twitter',
-    logo: TwitterIcon,
+    key: SocialNetworkKeys.TWITTER,
     link: 'https://www.twitter.com'
   },
   {
-    key: 'email',
-    logo: EmailIcon,
+    key: SocialNetworkKeys.EMAIL,
     link: 'https://www.gmail.com'
   }
 ]
+
+export const socialNetworkIcons: Record<SocialNetworkKeys, any> = {
+  [SocialNetworkKeys.FACEBOOK]: FacebookIconComponent,
+  [SocialNetworkKeys.INSTAGRAM]: InstagramIconComponent,
+  [SocialNetworkKeys.TWITTER]: TwitterIconComponent,
+  [SocialNetworkKeys.EMAIL]: EmailIconComponent
+}
 
 export const navigation: NavigationColumnProps[] = [
   {

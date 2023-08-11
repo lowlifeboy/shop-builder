@@ -1,17 +1,10 @@
 import webpack from 'webpack'
 import path from 'path'
-import { type BuildPaths } from '../build/types/config'
+import buildSvgLoader from '../build/loaders/buildSvgLoader'
 
 export default function ({ config }: { config: webpack.Configuration }) {
-  const paths: BuildPaths = {
-    build: '',
-    entry: '',
-    html: '',
-    src: path.resolve(__dirname, '..', '..', 'src')
-  }
-
   if (config.resolve?.modules) {
-    config.resolve.modules.push(paths.src)
+    config.resolve.modules.push(path.resolve(__dirname, '..', '..', 'src'))
   }
 
   if (config.resolve?.extensions) {
@@ -26,18 +19,16 @@ export default function ({ config }: { config: webpack.Configuration }) {
     )
   }
 
-  // if (config.module?.rules) {
-  //   config.module.rules.push(buildTypescriptLoader());
-  //   config.module.rules.push(buildCssLoader(true));
-  // }
+  if (config?.module?.rules) {
+    config.module.rules.forEach(rule => {
+      if (!rule || typeof rule !== 'object') return
+      if (rule.test instanceof RegExp && rule.test.test('.svg')) {
+        rule.exclude = /\.svg$/
+      }
+    })
 
-  // if (config.module?.rules) {
-  //   config.module.rules.push({
-  //     test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-  //     use: ['file-loader'],
-  //     include: path.resolve(__dirname, '../../../')
-  //   })
-  // }
+    config.module.rules.push(buildSvgLoader())
+  }
 
   return config
 }

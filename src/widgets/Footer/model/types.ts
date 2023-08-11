@@ -2,9 +2,15 @@ export interface FooterProps {
   className?: string
 }
 
+export enum SocialNetworkKeys {
+  FACEBOOK = 'facebook',
+  INSTAGRAM = 'instagram',
+  TWITTER = 'twitter',
+  EMAIL = 'email'
+}
+
 export interface SocialNetwork {
-  key: string
-  logo: any
+  key: SocialNetworkKeys
   link: string
 }
 interface NavigationItem {

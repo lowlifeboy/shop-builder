@@ -1,9 +1,7 @@
 import cls from './AppDropdownSimple.module.scss'
 
 import { type ReactNode } from 'react'
-import { useTheme } from 'app/providers/ThemeProvider'
-import { ArrowDownIcon } from 'shared/assets/icons'
-import { getIconColorByTheme } from 'shared/lib/getMainColorByTheme/getIconColorByTheme'
+import ArrowDownIcon from 'shared/assets/icons/ArrowDownIcon.svg'
 import { classNames } from 'shared/lib/classNames/classNames'
 
 interface AppDropdownSimpleProps {
@@ -17,14 +15,12 @@ interface AppDropdownSimpleSelectedItemProps {
 }
 
 export function AppDropdownSimpleSelectedItem ({ title }: AppDropdownSimpleSelectedItemProps) {
-  const { theme } = useTheme()
-
   return (
     <div className={cls.appDropdownSimpleSelectedItemWrapper}>
       <div className={cls.appDropdownSimpleSelectedItem}>
         <div>{title}</div>
         <div className={cls.iconWrapper}>
-          <ArrowDownIcon color={getIconColorByTheme(theme)} />
+          <ArrowDownIcon className={cls.arrowDownIcon} />
         </div>
       </div>
     </div>

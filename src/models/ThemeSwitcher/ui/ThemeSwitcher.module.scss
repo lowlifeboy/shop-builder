@@ -4,3 +4,15 @@
   display: grid;
   place-items: center;
 }
+
+.moonIcon, .sunIcon {
+  fill: var(--primary-color);
+}
+
+.moonIcon {
+  transform: scale(20 / 24);
+}
+
+.sunIcon {
+  transform: scale(24 / 24);
+}

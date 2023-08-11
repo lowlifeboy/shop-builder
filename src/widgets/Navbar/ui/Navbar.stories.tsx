@@ -24,10 +24,10 @@ export const Light: Story = {
   decorators: [StoryDecorator, ThemeDecorator(Theme.LIGHT)]
 }
 
-// export const Dark: Story = {
-//   args: {
-//     navigationDropdownsConfig,
-//     searchDropdownConfig
-//   },
-//   decorators: [StoryDecorator, ThemeDecorator(Theme.DARK)]
-// }
+export const Dark: Story = {
+  args: {
+    navigationDropdownsConfig,
+    searchDropdownConfig
+  },
+  decorators: [StoryDecorator, ThemeDecorator(Theme.DARK)]
+}

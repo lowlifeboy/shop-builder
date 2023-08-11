@@ -37,4 +37,8 @@
   display: flex;
   align-items: center;
   margin-left: 2px;
+
+  .arrowDownIcon {
+    stroke: var(--primary-color);
+  }
 }

@@ -43,8 +43,8 @@ export default function Navbar ({ navigationDropdownsConfig, searchDropdownConfi
       <div className={cls.navbarActionButtons}>
         <div><Search config={searchDropdownConfig} /></div>
         <div><ThemeSwitcher /></div>
-        <div><ProfileIconLink theme={theme} /></div>
-        <div><BasketIconLink theme={theme} /></div>
+        <div><ProfileIconLink /></div>
+        <div><BasketIconLink /></div>
       </div>
     </div>
   )

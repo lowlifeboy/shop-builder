@@ -7,7 +7,7 @@ export default function ThemeSwitcher () {
 
   return (
     <button className={cls.themeSwitcher} onClick={toggleTheme}>
-      {theme === Theme.DARK ? <MoonIcon width={20} /> : <SunIcon width={24} />}
+      {theme === Theme.DARK ? <MoonIcon className={cls.moonIcon} /> : <SunIcon className={cls.sunIcon} />}
     </button>
   )
 }

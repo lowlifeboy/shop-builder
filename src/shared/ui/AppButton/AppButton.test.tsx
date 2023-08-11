@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 
-import AppButton, { ButtonSize, FillThemeButton, ThemeButton } from './AppButton'
+import AppButton, { AppButtonSize, AppButtonFillTheme, AppButtonTheme } from './AppButton'
 
 describe('AppButton', () => {
   function onClick () {
@@ -15,17 +15,17 @@ describe('AppButton', () => {
   })
 
   test('Test render with selected theme', () => {
-    render(<AppButton onClick={onClick} theme={ThemeButton.PILL}>{text}</AppButton>)
-    expect(screen.getByText(text)).toHaveClass(ThemeButton.PILL)
+    render(<AppButton onClick={onClick} theme={AppButtonTheme.PILL}>{text}</AppButton>)
+    expect(screen.getByText(text)).toHaveClass(AppButtonTheme.PILL)
   })
 
   test('Test render with fill theme', () => {
-    render(<AppButton onClick={onClick} fillTheme={FillThemeButton.OUTLINE}>{text}</AppButton>)
-    expect(screen.getByText(text)).toHaveClass(FillThemeButton.OUTLINE)
+    render(<AppButton onClick={onClick} fillTheme={AppButtonFillTheme.OUTLINE}>{text}</AppButton>)
+    expect(screen.getByText(text)).toHaveClass(AppButtonFillTheme.OUTLINE)
   })
 
   test('Test render with selected size', () => {
-    render(<AppButton onClick={onClick} size={ButtonSize.XS}>{text}</AppButton>)
-    expect(screen.getByText(text)).toHaveClass(ButtonSize.XS)
+    render(<AppButton onClick={onClick} size={AppButtonSize.XS}>{text}</AppButton>)
+    expect(screen.getByText(text)).toHaveClass(AppButtonSize.XS)
   })
 })

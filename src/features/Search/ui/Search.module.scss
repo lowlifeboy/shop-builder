@@ -16,6 +16,10 @@
       margin-right: 0;
       transition: all 0.3s;
     }
+
+    .searchIcon {
+      fill: var(--primary-color);
+    }
   }
 
   &.opened {

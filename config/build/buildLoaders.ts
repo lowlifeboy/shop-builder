@@ -2,6 +2,7 @@ import type webpack from 'webpack'
 import {type BuildOptions} from './types/config'
 import buildCssLoader from "./loaders/buildCssLoader";
 import buildTypescriptLoader from "./loaders/buildTypescriptLoader";
+import buildSvgLoader from "./loaders/buildSvgLoader";
 
 export function buildLoaders ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   const babelLoader = {
@@ -19,11 +20,7 @@ export function buildLoaders ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
   const typescriptLoader = buildTypescriptLoader();
 
-  const svgLoader = {
-    test: /\.svg$/i,
-    issuer: /\.[jt]sx?$/,
-    use: ['@svgr/webpack']
-  }
+  const svgLoader = buildSvgLoader();
 
   const urlLoader = {
     test: /\.(png|jpe?g|gif)$/i,

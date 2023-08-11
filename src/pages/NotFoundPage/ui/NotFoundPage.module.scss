@@ -4,6 +4,10 @@
   align-items: center;
   justify-content: center;
 
+  .notFoundPageIcon {
+    fill: var(--primary-color);
+  }
+
   h1, p {
     text-align: center;
   }

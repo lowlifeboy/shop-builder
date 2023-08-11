@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import AppButton, { ThemeButton } from './AppButton'
+import AppButton, { AppButtonTheme } from './AppButton'
 import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
 import BorderedStoryDecorator from 'shared/config/storybook/StoryDecorator/BorderedStoryDecorator'
@@ -17,14 +17,14 @@ type Story = StoryObj<typeof meta>
 
 export const Clear: Story = {
   args: {
-    theme: ThemeButton.CLEAR,
+    theme: AppButtonTheme.CLEAR,
     children: 'Button'
   }
 }
 
 export const Pill: Story = {
   args: {
-    theme: ThemeButton.PILL,
+    theme: AppButtonTheme.PILL,
     children: 'Button'
   },
   decorators: [BorderedStoryDecorator, ThemeDecorator(Theme.LIGHT)]
@@ -32,7 +32,7 @@ export const Pill: Story = {
 
 export const Rounded: Story = {
   args: {
-    theme: ThemeButton.ROUNDED,
+    theme: AppButtonTheme.ROUNDED,
     children: 'Button'
   },
   decorators: [BorderedStoryDecorator, ThemeDecorator(Theme.LIGHT)]
@@ -40,7 +40,7 @@ export const Rounded: Story = {
 
 export const Sharp: Story = {
   args: {
-    theme: ThemeButton.SHARP,
+    theme: AppButtonTheme.SHARP,
     children: 'Button'
   },
   decorators: [BorderedStoryDecorator, ThemeDecorator(Theme.LIGHT)]
@@ -48,7 +48,7 @@ export const Sharp: Story = {
 
 export const PillDark: Story = {
   args: {
-    theme: ThemeButton.PILL,
+    theme: AppButtonTheme.PILL,
     children: 'Button'
   },
   decorators: [BorderedStoryDecorator, ThemeDecorator(Theme.DARK)]
@@ -56,7 +56,7 @@ export const PillDark: Story = {
 
 export const RoundedDark: Story = {
   args: {
-    theme: ThemeButton.ROUNDED,
+    theme: AppButtonTheme.ROUNDED,
     children: 'Button'
   },
   decorators: [BorderedStoryDecorator, ThemeDecorator(Theme.DARK)]
@@ -64,7 +64,7 @@ export const RoundedDark: Story = {
 
 export const SharpDark: Story = {
   args: {
-    theme: ThemeButton.SHARP,
+    theme: AppButtonTheme.SHARP,
     children: 'Button'
   },
   decorators: [BorderedStoryDecorator, ThemeDecorator(Theme.DARK)]

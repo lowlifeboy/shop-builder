@@ -3,10 +3,8 @@ import { useTranslation } from 'react-i18next'
 import cls from './NotFoundPage.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
-import AppButton, { ButtonSize, FillThemeButton, ThemeButton } from 'shared/ui/AppButton/AppButton'
-import NotFoundPageIcon from 'shared/assets/icons/NotFoundPageIcon'
-import { getIconColorByTheme } from 'shared/lib/getMainColorByTheme/getIconColorByTheme'
-import { useTheme } from 'app/providers/ThemeProvider'
+import AppButton, { AppButtonFillTheme, AppButtonSize, AppButtonTheme } from 'shared/ui/AppButton/AppButton'
+import { NotFoundPageIcon } from 'shared/assets/icons'
 
 interface NotFoundPageProps {
   className?: string
@@ -14,18 +12,17 @@ interface NotFoundPageProps {
 
 export default function NotFoundPage ({ className }: NotFoundPageProps) {
   const { t } = useTranslation()
-  const { theme } = useTheme()
 
   return (
     <div className={classNames(cls.notFoundPage, {}, [className ?? ''])}>
-      <NotFoundPageIcon color={getIconColorByTheme(theme)} />
+      <NotFoundPageIcon className={cls.notFoundPageIcon} />
       <h1>{t('pageNotFound')}</h1>
       <p>{t('pageNotFoundDescription')}</p>
       <AppButton
         onClick={() => { console.log('test') }}
-        theme={ThemeButton.ROUNDED}
-        fillTheme={FillThemeButton.SOLID}
-        size={ButtonSize.M}
+        theme={AppButtonTheme.ROUNDED}
+        fillTheme={AppButtonFillTheme.SOLID}
+        size={AppButtonSize.M}
         disabled
       >
         {t('goBackHome')}

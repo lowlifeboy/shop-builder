@@ -3,7 +3,6 @@ import { type ReactNode } from 'react'
 import cls from './Footer.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
-import { getIconColorByTheme } from 'shared/lib/getMainColorByTheme/getIconColorByTheme'
 import { Theme, useTheme } from 'app/providers/ThemeProvider'
 import AppLink from 'shared/ui/AppLink/AppLink'
 import { type FooterProps, type NavigationColumnProps, type SocialNetwork } from '../model/types'
@@ -15,6 +14,7 @@ import {
   logoDark,
   logoLight,
   navigation,
+  socialNetworkIcons,
   socialNetworks
 } from '../model/mockData'
 import { LanguageSelector } from 'models/LanguageSelector'
@@ -24,20 +24,19 @@ interface LogoDescAndSocialNetworksProps {
   logo: ReactNode
   text: string
   socialNetworks: SocialNetwork[]
-  theme: Theme
 }
 
-function LogoDescAndSocialNetworks ({ logo, text, socialNetworks, theme }: LogoDescAndSocialNetworksProps) {
+function LogoDescAndSocialNetworks ({ logo, text, socialNetworks }: LogoDescAndSocialNetworksProps) {
   return (
     <div className={cls.footerContentLeft}>
       {logo}
       {text && <p>{text}</p>}
       <div className={cls.socialNetworks}>
-        {socialNetworks.map(({ link, logo, key }) => {
-          const LogoComponent = logo
+        {socialNetworks.map(({ link, key }) => {
+          const NetworkIconComponent = socialNetworkIcons[key]
 
           return (
-            <AppLink target="_blank" rel="noopener noreferrer" key={key} to={link}><LogoComponent color={getIconColorByTheme(theme)} /></AppLink>
+            <AppLink target="_blank" rel="noopener noreferrer" key={key} to={link}><NetworkIconComponent /></AppLink>
           )
         })}
       </div>
@@ -71,8 +70,8 @@ export default function Footer ({ className }: FooterProps) {
       <div className={classNames(cls.footerContent, {}, [])}>
         <LogoDescAndSocialNetworks
           logo={theme === Theme.LIGHT ? logoLight : logoDark }
-          text={description} socialNetworks={socialNetworks}
-          theme={theme}
+          text={description}
+          socialNetworks={socialNetworks}
         />
 
         <ul className={cls.footerNavigationColumns}>

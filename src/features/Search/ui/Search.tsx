@@ -4,11 +4,9 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import AppInput from 'shared/ui/AppInput/AppInput'
 import AppButton from 'shared/ui/AppButton/AppButton'
 import { useToggle } from 'shared/lib/useToggle/useToggle'
-import { SearchIcon } from 'shared/assets/icons'
-import { useTheme } from 'app/providers/ThemeProvider'
-import { getIconColorByTheme } from 'shared/lib/getMainColorByTheme/getIconColorByTheme'
 import { AppDropdownSearch } from 'shared/ui/AppDropdownSearch/AppDropdownSearch'
 import AppLink from 'shared/ui/AppLink/AppLink'
+import { SearchIcon } from 'shared/assets/icons'
 
 interface SearchDropdownItem {
   text: string
@@ -27,7 +25,6 @@ interface SearchProps {
 
 // TODO: complete Search component
 export default function Search ({ config, className }: SearchProps) {
-  const { theme } = useTheme()
   const { opened, toggle } = useToggle()
 
   function handleSearch (value: string) {
@@ -38,7 +35,7 @@ export default function Search ({ config, className }: SearchProps) {
     <div className={classNames(cls.searchWrapper, { [cls.opened]: opened }, [className ?? ''])}>
       <div className={cls.search}>
         <AppInput onChange={handleSearch} debounceTimeMS={500} />
-        <AppButton onClick={toggle} ><SearchIcon color={getIconColorByTheme(theme)} /></AppButton>
+        <AppButton onClick={toggle}><SearchIcon className={cls.searchIcon} /></AppButton>
       </div>
 
       {opened && (
