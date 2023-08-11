@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import cls from './NotFoundPage.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
-import AppButton, { ButtonSize, ColorsThemeButton, FillThemeButton, ThemeButton } from 'shared/ui/AppButton/AppButton'
+import AppButton, { ButtonSize, FillThemeButton, ThemeButton } from 'shared/ui/AppButton/AppButton'
 import NotFoundPageIcon from 'shared/assets/icons/NotFoundPageIcon'
 import { getIconColorByTheme } from 'shared/lib/getMainColorByTheme/getIconColorByTheme'
 import { useTheme } from 'app/providers/ThemeProvider'
@@ -24,7 +24,6 @@ export default function NotFoundPage ({ className }: NotFoundPageProps) {
       <AppButton
         onClick={() => { console.log('test') }}
         theme={ThemeButton.ROUNDED}
-        colorTheme={ColorsThemeButton.LIGHT}
         fillTheme={FillThemeButton.SOLID}
         size={ButtonSize.M}
         disabled

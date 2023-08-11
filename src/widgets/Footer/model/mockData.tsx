@@ -1,10 +1,10 @@
 import { type NavigationColumnProps, type SocialNetwork } from './types'
 import { EmailIcon, FacebookIcon, InstagramIcon, TwitterIcon } from 'shared/assets/icons'
-import { type Currency } from 'entities/CurrencySelector/ui/CurrencySelector'
-import { type Language } from 'entities/LanguageSelector/ui/LanguageSelector'
+import { type Currency } from 'models/CurrencySelector/ui/CurrencySelector'
+import { type Language } from 'models/LanguageSelector/ui/LanguageSelector'
 import LogoIcon from 'shared/assets/icons/LogoIcon'
 
-export const logoLight = <LogoIcon />
+export const logoLight = <LogoIcon color="#121212" />
 export const logoDark = <LogoIcon color="#fff" />
 
 export const description = 'Phosf luorescently engage worldwide method process shopping.'

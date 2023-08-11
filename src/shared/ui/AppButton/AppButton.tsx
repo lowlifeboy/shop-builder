@@ -11,11 +11,6 @@ export enum ThemeButton {
   SHARP = 'sharp'
 }
 
-export enum ColorsThemeButton {
-  LIGHT = 'light',
-  DARK = 'dark'
-}
-
 export enum FillThemeButton {
   SOLID = 'solid',
   OUTLINE = 'outline'
@@ -33,7 +28,6 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick: () => void
   children: ReactNode
   theme?: ThemeButton
-  colorTheme?: ColorsThemeButton
   fillTheme?: FillThemeButton
   size?: ButtonSize
   disabled?: boolean
@@ -47,7 +41,6 @@ const AppButton = forwardRef<HTMLButtonElement, AppButtonProps>((
   const {
     className,
     theme = ThemeButton.CLEAR,
-    colorTheme = ColorsThemeButton.LIGHT,
     fillTheme = FillThemeButton.SOLID,
     size = ButtonSize.XL,
     disabled = false,
@@ -59,7 +52,7 @@ const AppButton = forwardRef<HTMLButtonElement, AppButtonProps>((
   return (
     <button
       ref={ref}
-      className={classNames(cls.appButton, { disabled }, [className ?? '', cls[theme], cls[colorTheme], cls[fillTheme], cls[size]])}
+      className={classNames(cls.appButton, { disabled }, [className ?? '', cls[theme], cls[fillTheme], cls[size]])}
       onClick={onClick}
       disabled={disabled}
       {...otherProps}

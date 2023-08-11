@@ -1,36 +1,16 @@
 import cls from './Navbar.module.scss'
 
-import { ThemeSwitcher } from '../../../entities/ThemeSwitcher'
+import { ThemeSwitcher } from 'models/ThemeSwitcher'
 import { classNames } from 'shared/lib/classNames/classNames'
 import AppLink from 'shared/ui/AppLink/AppLink'
 import { HeaderLogoIcon } from 'shared/assets/icons'
 import { useTheme } from 'app/providers/ThemeProvider'
 import { Search } from 'features/Search'
-import { ProfileIconLink } from '../../../entities/ProfileIconLink'
-import { BasketIconLink } from '../../../entities/BasketIconLink'
+import { ProfileIconLink } from 'models/ProfileIconLink'
+import { BasketIconLink } from 'models/BasketIconLink'
 import { getIconColorByTheme } from 'shared/lib/getMainColorByTheme/getIconColorByTheme'
 import { AppDropdownSimple } from 'shared/ui/AppDropdownSimple/AppDropdownSimple'
-import { type SearchDropdown } from 'features/Search/ui/Search'
-
-interface NavbarDropdownItem {
-  text: string
-  path: string
-}
-
-interface NavbarDropdown {
-  title: string
-  items: NavbarDropdownItem[]
-}
-
-export interface NavbarDropdownsConfig {
-  items: NavbarDropdown[]
-}
-
-interface NavbarProps {
-  navigationDropdownsConfig: NavbarDropdownsConfig
-  searchDropdownConfig: SearchDropdown
-  className?: string
-}
+import { type NavbarProps } from '../models/types'
 
 export default function Navbar ({ navigationDropdownsConfig, searchDropdownConfig, className }: NavbarProps) {
   const { theme } = useTheme()
@@ -63,8 +43,8 @@ export default function Navbar ({ navigationDropdownsConfig, searchDropdownConfi
       <div className={cls.navbarActionButtons}>
         <div><Search config={searchDropdownConfig} /></div>
         <div><ThemeSwitcher /></div>
-        <div><ProfileIconLink /></div>
-        <div><BasketIconLink /></div>
+        <div><ProfileIconLink theme={theme} /></div>
+        <div><BasketIconLink theme={theme} /></div>
       </div>
     </div>
   )

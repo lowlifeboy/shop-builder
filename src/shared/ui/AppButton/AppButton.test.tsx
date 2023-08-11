@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 
-import AppButton, { ButtonSize, ColorsThemeButton, FillThemeButton, ThemeButton } from './AppButton'
+import AppButton, { ButtonSize, FillThemeButton, ThemeButton } from './AppButton'
 
 describe('AppButton', () => {
   function onClick () {
@@ -17,11 +17,6 @@ describe('AppButton', () => {
   test('Test render with selected theme', () => {
     render(<AppButton onClick={onClick} theme={ThemeButton.PILL}>{text}</AppButton>)
     expect(screen.getByText(text)).toHaveClass(ThemeButton.PILL)
-  })
-
-  test('Test render with color theme', () => {
-    render(<AppButton onClick={onClick} colorTheme={ColorsThemeButton.DARK}>{text}</AppButton>)
-    expect(screen.getByText(text)).toHaveClass(ColorsThemeButton.DARK)
   })
 
   test('Test render with fill theme', () => {

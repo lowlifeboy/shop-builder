@@ -17,8 +17,8 @@ import {
   navigation,
   socialNetworks
 } from '../model/mockData'
-import { LanguageSelector } from '../../../entities/LanguageSelector'
-import { CurrencySelector } from '../../../entities/CurrencySelector'
+import { LanguageSelector } from 'models/LanguageSelector'
+import { CurrencySelector } from 'models/CurrencySelector'
 
 interface LogoDescAndSocialNetworksProps {
   logo: ReactNode

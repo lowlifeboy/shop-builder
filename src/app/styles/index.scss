@@ -5,12 +5,12 @@
 
 @font-face {
   font-family: SpaceGrotesk;
-  src: local('SpaceGrotesk'), url("shared/assets/fonts/SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
+  src: local('SpaceGrotesk'), url("../../shared/assets/fonts/SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
 }
 
 @font-face {
   font-family: Inter;
-  src: local('Inter'), url("shared/assets/fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
+  src: local('Inter'), url("../../shared/assets/fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
 }
 
 .app {
@@ -20,6 +20,10 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+
+  &.theme {
+    min-height: auto;
+  }
 
   & > main {
     flex-grow: 1;
