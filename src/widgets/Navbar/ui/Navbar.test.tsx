@@ -1,12 +1,12 @@
-import { MemoryRouter } from 'react-router-dom'
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 
 import Navbar from './Navbar'
 import { navigationDropdownsConfig, searchDropdownConfig } from '../models/mocks'
+import componentRender from 'shared/lib/tests/componentRender/componentRender'
 
 describe('Navbar', () => {
   test('Test render', () => {
-    render(<MemoryRouter><Navbar navigationDropdownsConfig={navigationDropdownsConfig} searchDropdownConfig={searchDropdownConfig} /></MemoryRouter>)
+    componentRender(<Navbar navigationDropdownsConfig={navigationDropdownsConfig} searchDropdownConfig={searchDropdownConfig} />, { route: '' })
     expect(screen.getByTestId('navbar')).toBeInTheDocument()
   })
 })

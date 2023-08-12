@@ -1,11 +1,11 @@
 import { screen } from '@testing-library/react'
 
 import { PageError } from 'widgets/PageError'
-import renderWithTranslation from 'shared/lib/tests/renderWithTranslation/renderWithTranslation'
+import componentRender from 'shared/lib/tests/componentRender/componentRender'
 
 describe('PageError', () => {
   test('Test render', () => {
-    renderWithTranslation(<PageError />)
+    componentRender(<PageError />, { route: '' })
     expect(screen.getByTestId('pageError')).toBeInTheDocument()
   })
 })

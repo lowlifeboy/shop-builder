@@ -21,10 +21,13 @@ jobs:
         run: yarn
       - name: Build production project
         run: npm run build:prod
+        if: always()
       - name: Linting Typescript
         run: npm run lint:ts
+        if: always()
       - name: Linting CSS
         run: npm run lint:scss
+        if: always()
       - name: Unit testing
         run: npm run test:unit
       - name: Build Storybook

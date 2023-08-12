@@ -8,3 +8,4 @@
 - [x] Storybook
 - [x] Unit tests (Jest)
 - [x] Screenshot tests (Chromatic)
+- [x] Static code analysis engine (Qodana)
