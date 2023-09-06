@@ -1,6 +1,7 @@
 .appButton {
   display: flex;
   cursor: pointer;
+  color: var(--primary-color);
 
   &.clear {
     padding: 0;

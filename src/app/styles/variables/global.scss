@@ -11,4 +11,13 @@
 
   // Размеры
   --navbar-height: 68px;
+  --modal-padding: 32px;
+  --modal-border-radius: 0px;
+  --modal-max-width: 652px;
+
+  // z-индексы
+  --modal-z-index: 10;
+
+  // цвета
+  --overlay-color: rgb(0 0 0 / 50%);
 }

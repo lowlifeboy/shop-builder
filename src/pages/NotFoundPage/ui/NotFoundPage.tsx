@@ -23,7 +23,6 @@ export default function NotFoundPage ({ className }: NotFoundPageProps) {
         theme={AppButtonTheme.ROUNDED}
         fillTheme={AppButtonFillTheme.SOLID}
         size={AppButtonSize.M}
-        disabled
       >
         {t('goBackHome')}
       </AppButton>

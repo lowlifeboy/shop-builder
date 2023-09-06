@@ -13,10 +13,15 @@
   src: local('Inter'), url("../../shared/assets/fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
 }
 
+body {
+  font: var(--font-m);
+  color: var(--primary-color);
+}
+
 .app {
   font: var(--font-m);
-  background: var(--bg-color);
   color: var(--primary-color);
+  background: var(--bg-color);
   min-height: 100vh;
   display: flex;
   flex-direction: column;

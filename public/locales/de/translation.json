@@ -5,5 +5,6 @@
   "unexpectedErrorOccurred": "Unerwarteter Fehler ist aufgetreten",
   "reloadPage": "reloadPage",
   "error": "Fehler",
-  "throwError": "Fehler werfen"
+  "throwError": "Fehler werfen",
+  "signIn": "Eintragen"
 }
