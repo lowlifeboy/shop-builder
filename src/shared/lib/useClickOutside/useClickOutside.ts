@@ -14,5 +14,5 @@ export function useClickOutside (ref: any, callback: () => void, exclude?: any) 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [ref, exclude])
+  }, [ref, exclude, callback])
 }

@@ -25,7 +25,7 @@ export default function AppInput ({ onChange, debounceTimeMS, className }: AppIn
     } else {
       onChange('')
     }
-  }, [debouncedValue])
+  }, [debouncedValue, onChange, value])
 
   return (
     <div className={classNames(cls.appInput, {}, [className ?? ''])}>

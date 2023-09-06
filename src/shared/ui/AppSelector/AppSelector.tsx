@@ -30,7 +30,7 @@ export default function AppSelector ({
 
   useEffect(() => {
     setSelectedItem(defaultValue)
-  }, [])
+  }, [defaultValue])
 
   function handleSelect (item: Record<string, any>) {
     setSelectedItem(item)
