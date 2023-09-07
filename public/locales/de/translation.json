@@ -6,5 +6,7 @@
   "reloadPage": "reloadPage",
   "error": "Fehler",
   "throwError": "Fehler werfen",
-  "signIn": "Eintragen"
+  "signIn": "Eintragen",
+  "increment": "inkrementieren",
+  "decrement": "dekrementieren"
 }

@@ -6,5 +6,7 @@
   "reloadPage": "reloadPage",
   "error": "Error",
   "throwError": "Throw error",
-  "signIn": "Sign in"
+  "signIn": "Sign in",
+  "increment": "increment",
+  "decrement": "decrement"
 }
