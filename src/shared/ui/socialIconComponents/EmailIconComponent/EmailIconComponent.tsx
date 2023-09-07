@@ -9,6 +9,6 @@ interface EmailIconComponentProps {
 
 export default function EmailIconComponent ({ className }: EmailIconComponentProps) {
   return (
-    <EmailIcon className={classNames(cls.emailIconComponent, {}, [className ?? ''])} />
+    <EmailIcon className={classNames(cls.emailIconComponent, {}, [className])} />
   )
 }

@@ -17,7 +17,7 @@ export default function PageError ({ className }: PageErrorProps) {
   }
 
   return (
-    <div data-testid="pageError" className={classNames(cls.pageError, {}, [className ?? ''])}>
+    <div data-testid="pageError" className={classNames(cls.pageError, {}, [className])}>
       <h1>{t('error')}</h1>
       <p>{t('unexpectedErrorOccurred')}</p>
       <AppButton

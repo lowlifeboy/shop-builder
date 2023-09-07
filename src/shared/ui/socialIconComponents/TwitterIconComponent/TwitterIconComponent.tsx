@@ -9,6 +9,6 @@ interface TwitterIconComponentProps {
 
 export default function TwitterIconComponent ({ className }: TwitterIconComponentProps) {
   return (
-    <TwitterIcon className={classNames(cls.twitterIconComponent, {}, [className ?? ''])} />
+    <TwitterIcon className={classNames(cls.twitterIconComponent, {}, [className])} />
   )
 }

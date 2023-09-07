@@ -9,6 +9,6 @@ interface FacebookIconComponentProps {
 
 export default function FacebookIconComponent ({ className }: FacebookIconComponentProps) {
   return (
-    <FacebookIcon className={classNames(cls.facebookIconComponent, {}, [className ?? ''])} />
+    <FacebookIcon className={classNames(cls.facebookIconComponent, {}, [className])} />
   )
 }

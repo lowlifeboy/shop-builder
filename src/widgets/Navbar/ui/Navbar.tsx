@@ -27,7 +27,7 @@ export default function Navbar ({ navigationDropdownsConfig, searchDropdownConfi
   }, [])
 
   return (
-    <div data-testid="navbar" className={classNames(cls.navbar, {}, [className ?? ''])}>
+    <div data-testid="navbar" className={classNames(cls.navbar, {}, [className])}>
       <AppLink className={cls.navbarLogo} to={'/'}>
         <HeaderLogoIcon color={getIconColorByTheme(theme)} />
       </AppLink>

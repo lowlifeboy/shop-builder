@@ -32,7 +32,7 @@ export default function Search ({ config, className }: SearchProps) {
   }
 
   return (
-    <div className={classNames(cls.searchWrapper, { [cls.opened]: opened }, [className ?? ''])}>
+    <div className={classNames(cls.searchWrapper, { [cls.opened]: opened }, [className])}>
       <div className={cls.search}>
         <AppInput onChange={handleSearch} debounceTimeMS={500} />
         <AppButton onClick={toggle}><SearchIcon className={cls.searchIcon} /></AppButton>

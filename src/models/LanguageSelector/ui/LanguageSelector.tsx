@@ -33,7 +33,7 @@ export default function LanguageSelector ({ openDirection, config, className, op
   }
 
   return (
-    <div className={classNames(cls.languageSelector, {}, [className ?? ''])}>
+    <div className={classNames(cls.languageSelector, {}, [className])}>
       <AppSelector
         keyPropName={'id'}
         config={config}

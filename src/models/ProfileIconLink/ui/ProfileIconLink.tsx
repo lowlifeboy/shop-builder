@@ -11,7 +11,7 @@ interface ProfileIconLinkProps {
 
 export default function ProfileIconLink ({ className }: ProfileIconLinkProps) {
   return (
-    <Link to={'/profile'} className={classNames(cls.profileLink, {}, [className ?? ''])}>
+    <Link to={'/profile'} className={classNames(cls.profileLink, {}, [className])}>
       <ProfileIcon className={cls.profileIcon} />
     </Link>
   )

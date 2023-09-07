@@ -8,7 +8,7 @@ interface PageLoaderProps {
 
 export default function PageLoader ({ className }: PageLoaderProps) {
   return (
-    <div className={classNames('pageLoader', {}, [className ?? ''])}>
+    <div className={classNames('pageLoader', {}, [className])}>
       <div className="lds-grid">
         <div />
         <div />

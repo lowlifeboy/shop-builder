@@ -28,7 +28,7 @@ export default function CurrencySelector ({ openDirection, config, className, op
   }
 
   return (
-    <div className={classNames(cls.currencySelector, {}, [className ?? ''])}>
+    <div className={classNames(cls.currencySelector, {}, [className])}>
       <AppSelector
         keyPropName={'id'}
         config={config}

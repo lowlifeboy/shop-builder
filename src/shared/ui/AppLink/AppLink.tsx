@@ -19,7 +19,7 @@ export default function AppLink (props: AppLinkProps) {
   } = props
 
   return (
-    <Link to={to} className={classNames(cls.appLink, {}, [className ?? ''])} {...otherProps}>
+    <Link to={to} className={classNames(cls.appLink, {}, [className])} {...otherProps}>
       {children}
     </Link>
   )

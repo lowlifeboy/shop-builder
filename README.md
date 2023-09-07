@@ -3,6 +3,7 @@
 ## Technologies
 - [x] Webpack
 - [x] React
+- [x] React Portals
 - [x] CSS Modules
 - [x] i18next
 - [x] Storybook

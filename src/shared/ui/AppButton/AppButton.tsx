@@ -52,7 +52,7 @@ const AppButton = forwardRef<HTMLButtonElement, AppButtonProps>((
   return (
     <button
       ref={ref}
-      className={classNames(cls.appButton, { disabled }, [className ?? '', cls[theme], cls[fillTheme], cls[size]])}
+      className={classNames(cls.appButton, { disabled }, [className, cls[theme], cls[fillTheme], cls[size]])}
       onClick={onClick}
       disabled={disabled}
       {...otherProps}

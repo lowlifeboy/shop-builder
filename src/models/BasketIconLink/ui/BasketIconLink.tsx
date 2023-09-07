@@ -12,7 +12,7 @@ const itemsQuantity = 2
 
 export default function BasketIconLink ({ className }: BasketIconLinkProps) {
   return (
-    <Link to={'/basket'} className={classNames(cls.basketIconLink, {}, [className ?? ''])}>
+    <Link to={'/basket'} className={classNames(cls.basketIconLink, {}, [className])}>
       <BasketIcon className={cls.basketIcon} />
       <div className={cls.counter}>
         {itemsQuantity}

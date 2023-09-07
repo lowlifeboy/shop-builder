@@ -15,9 +15,9 @@ interface AppModalProps {
 const ANIMATION_DELAY = 300
 
 export default function AppModal ({ className, children, isOpen, onClose }: AppModalProps) {
+  const { theme } = useTheme()
   const [isClosing, setIsClosing] = useState(false)
   const timerRef = useRef<ReturnType<typeof setTimeout>>()
-  const { theme } = useTheme()
 
   const mods: Record<string, boolean> = {
     [cls.opened]: !!isOpen,
@@ -57,7 +57,7 @@ export default function AppModal ({ className, children, isOpen, onClose }: AppM
 
   return (
     <Portal>
-      <div className={classNames(cls.appModal, mods, [className ?? '', theme])}>
+      <div className={classNames(cls.appModal, mods, [className, theme])}>
         <div className={cls.overlay} onClick={closeHandler}>
           <div className={cls.content} onClick={onContentClick}>
             {children}

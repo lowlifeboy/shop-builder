@@ -9,6 +9,6 @@ interface InstagramIconComponentProps {
 
 export default function InstagramIconComponent ({ className }: InstagramIconComponentProps) {
   return (
-    <InstagramIcon className={classNames(cls.instagramIconComponent, {}, [className ?? ''])} />
+    <InstagramIcon className={classNames(cls.instagramIconComponent, {}, [className])} />
   )
 }

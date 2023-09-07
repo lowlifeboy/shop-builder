@@ -66,7 +66,7 @@ export default function Footer ({ className }: FooterProps) {
   const { theme } = useTheme()
 
   return (
-    <div data-testid="footer" className={classNames(cls.footer, {}, [className ?? ''])}>
+    <div data-testid="footer" className={classNames(cls.footer, {}, [className])}>
       <div className={classNames(cls.footerContent, {}, [])}>
         <LogoDescAndSocialNetworks
           logo={theme === Theme.LIGHT ? logoLight : logoDark }

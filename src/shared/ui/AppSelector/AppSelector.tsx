@@ -38,7 +38,7 @@ export default function AppSelector ({
   }
 
   return (
-    <div className={classNames(cls.appSelector, {}, [className ?? ''])}>
+    <div className={classNames(cls.appSelector, {}, [className])}>
       <div className={cls.appSelectorSelectedItem}>
         <div className={cls.appSelectorSelectedItemWrapper}>
           {selectedItem && itemRender(selectedItem)}

@@ -29,7 +29,7 @@ export function AppDropdownSimpleSelectedItem ({ title }: AppDropdownSimpleSelec
 
 export function AppDropdownSimple ({ className, children, title }: AppDropdownSimpleProps) {
   return (
-    <div className={classNames(cls.appDropdownSimple, {}, [className ?? ''])}>
+    <div className={classNames(cls.appDropdownSimple, {}, [className])}>
       <AppDropdownSimpleSelectedItem title={title} />
       <ul className={cls.appDropdownSimpleList}>
         {children}
