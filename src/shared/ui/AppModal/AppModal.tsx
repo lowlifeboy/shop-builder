@@ -21,8 +21,7 @@ export default function AppModal ({ className, children, isOpen, onClose }: AppM
 
   const mods: Record<string, boolean> = {
     [cls.opened]: !!isOpen,
-    [cls.closing]: isClosing,
-    [cls[theme]]: true
+    [cls.closing]: isClosing
   }
 
   const closeHandler = useCallback(() => {
@@ -58,7 +57,7 @@ export default function AppModal ({ className, children, isOpen, onClose }: AppM
 
   return (
     <Portal>
-      <div className={classNames(cls.appModal, mods, [className ?? ''])}>
+      <div className={classNames(cls.appModal, mods, [className ?? '', theme])}>
         <div className={cls.overlay} onClick={closeHandler}>
           <div className={cls.content} onClick={onContentClick}>
             {children}

@@ -5,11 +5,6 @@
   opacity: 0;
   pointer-events: none;
   color: var(--primary-color);
-
-  &.dark {
-    --secondary-bg-color: #404a69;
-    --primary-color: #fff;
-  }
 }
 
 .overlay {
