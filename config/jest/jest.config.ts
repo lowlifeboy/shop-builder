@@ -4,7 +4,14 @@
  */
 
 import type { Config } from 'jest'
+import { pathsToModuleNameMapper } from 'ts-jest'
 import path from 'path'
+
+const paths = {
+  'entities/*': ['src/entities/*']
+}
+
+const moduleNameMapper = pathsToModuleNameMapper(paths)
 
 const config: Config = {
   clearMocks: true,
@@ -16,7 +23,7 @@ const config: Config = {
     'node_modules',
     'src'
   ],
-  modulePaths: ['<rootDir>src'],
+  modulePaths: ['.'],
   moduleFileExtensions: [
     'js',
     'mjs',
@@ -28,7 +35,7 @@ const config: Config = {
     'node'
   ],
   moduleNameMapper: {
-    // '^(\\.{1,2}/.*)\\.tsx?$': '$1',
+    ...moduleNameMapper,
     '\\.svg$': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
     '\\.s?css$': 'identity-obj-proxy'
   },
@@ -38,6 +45,7 @@ const config: Config = {
   testMatch: [
     '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
   ]
+
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 

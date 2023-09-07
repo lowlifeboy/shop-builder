@@ -1,6 +1,6 @@
 import AppButton, { AppButtonFillTheme, AppButtonTheme } from 'shared/ui/AppButton/AppButton'
 import { useDispatch, useSelector } from 'react-redux'
-import { counterActions } from '../model/slice/counterSlice'
+import { counterActions } from 'entities/Counter'
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue'
 import { useTranslation } from 'react-i18next'
 
