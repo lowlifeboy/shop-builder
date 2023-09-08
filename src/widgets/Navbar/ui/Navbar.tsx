@@ -12,9 +12,9 @@ import { BasketIconLink } from 'models/BasketIconLink'
 import { getIconColorByTheme } from 'shared/lib/getMainColorByTheme/getIconColorByTheme'
 import { AppDropdownSimple } from 'shared/ui/AppDropdownSimple/AppDropdownSimple'
 import { type NavbarProps } from '../models/types'
-import AppModal from 'shared/ui/AppModal/AppModal'
 import AppButton, { AppButtonFillTheme, AppButtonSize, AppButtonTheme } from 'shared/ui/AppButton/AppButton'
 import { useTranslation } from 'react-i18next'
+import { LoginModal } from 'features/AuthByUsername'
 
 export default function Navbar ({ navigationDropdownsConfig, searchDropdownConfig, className }: NavbarProps) {
   const { t } = useTranslation()
@@ -22,8 +22,12 @@ export default function Navbar ({ navigationDropdownsConfig, searchDropdownConfi
 
   const [isAuthModal, setIsAuthModal] = useState(false)
 
-  const onToggleModal = useCallback(() => {
-    setIsAuthModal((prev) => !prev)
+  const onShowModal = useCallback(() => {
+    setIsAuthModal(true)
+  }, [])
+
+  const onCloseModal = useCallback(() => {
+    setIsAuthModal(false)
   }, [])
 
   return (
@@ -59,19 +63,14 @@ export default function Navbar ({ navigationDropdownsConfig, searchDropdownConfi
           theme={AppButtonTheme.CLEAR}
           fillTheme={AppButtonFillTheme.SOLID}
           size={AppButtonSize.M}
-          onClick={onToggleModal}
+          onClick={onShowModal}
         >
           {t('signIn')}
         </AppButton>
         <div><BasketIconLink /></div>
       </div>
 
-      <AppModal isOpen={isAuthModal} onClose={onToggleModal}>
-        {/* eslint-disable-next-line i18next/no-literal-string */}
-        <h1>Modal title</h1>
-        {/* eslint-disable-next-line i18next/no-literal-string */}
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aperiam autem beatae et ex exercitationem ipsa iste iusto laborum minima, necessitatibus nihil nulla, officiis porro quam quasi quis reiciendis soluta! Amet aperiam deleniti distinctio doloremque eius eveniet id inventore iste magni molestiae nihil ratione sapiente sunt tempore, unde veritatis vitae. At dicta dolore maiores molestias, nesciunt repellendus reprehenderit. Aliquam, architecto dignissimos ducimus exercitationem itaque odio vitae! Architecto commodi debitis excepturi illo magni porro possimus quod voluptatum. Asperiores, autem excepturi id magni nostrum numquam quia repudiandae sint ullam vero. Earum obcaecati optio quod rem tempore. Amet ducimus fugiat ipsa maxime temporibus!</p>
-      </AppModal>
+      <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
     </div>
   )
 }

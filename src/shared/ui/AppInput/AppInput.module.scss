@@ -1,10 +1,34 @@
 .appInput {
   height: 24px;
-  display: flex;
-  align-items: center;
 
   input {
     outline: none;
     color: var(--primary-color);
+
+    &::placeholder {
+      color: var(--primary-lighted-color);
+    }
+  }
+
+  .appInputField {
+    display: grid;
+    align-items: center;
+  }
+
+  &.underlined {
+    height: auto;
+
+    .appInputField {
+      width: 100%;
+      height: 52px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #CBCBCB;
+    }
+  }
+
+  .errorWrapper {
+    height: 32px;
+    padding: 4px;
+    box-sizing: border-box;
   }
 }

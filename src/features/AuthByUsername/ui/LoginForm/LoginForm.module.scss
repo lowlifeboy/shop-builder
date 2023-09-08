@@ -1,0 +1,30 @@
+.loginForm {
+  form {
+    display: grid;
+  }
+}
+
+.description {
+  display: flex;
+  margin-bottom: 32px;
+
+  p {
+    margin-right: 5px;
+  }
+
+  button {
+    font-weight: bold;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forgotPasswordWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}

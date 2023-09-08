@@ -1,0 +1,45 @@
+.appCheckbox {
+  color: var(--text-third-color);
+  font-family: var(--font-family-secondary);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+
+  .appCheckboxField {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .errorWrapper {
+    height: 32px;
+    padding: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type="checkbox"] {
+    appearance: none;
+    margin: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--text-third-color);
+    border-radius: 4px;
+    display: grid;
+    place-content: center;
+  }
+
+  input[type="checkbox"]::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+    background-color: var(--text-third-color);
+  }
+
+  input[type="checkbox"]:checked::before {
+    transform: scale(1);
+  }
+}

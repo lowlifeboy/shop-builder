@@ -8,5 +8,10 @@
   "throwError": "Throw error",
   "signIn": "Sign in",
   "increment": "increment",
-  "decrement": "decrement"
+  "decrement": "decrement",
+  "dontHaveAnAccount": "Don’t have an accout yet?",
+  "signUp": "Sign up",
+  "signInPasswordPlaceholder": "Password",
+  "signInUserNamePlaceholder": "Your username or email",
+  "forgotPassword": "Forgot password?"
 }

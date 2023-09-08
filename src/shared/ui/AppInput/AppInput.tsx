@@ -1,35 +1,64 @@
+import { type ChangeEvent, type InputHTMLAttributes, memo, useEffect, useRef } from 'react'
+
 import cls from './AppInput.module.scss'
 
 import { classNames } from '../../lib/classNames/classNames'
-import { type ChangeEvent, useEffect, useState } from 'react'
-import { useDebounce } from '../../lib/useDebounce/useDebounce'
 
-interface AppInputProps {
-  onChange: (value: string) => void
+export enum AppInputTheme {
+  CLEAR = 'clear',
+  UNDERLINED = 'underlined',
+}
+
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+
+interface AppInputProps extends HTMLInputProps {
+  value?: string
+  onChange?: (value: string) => void
+  type?: string
+  theme?: AppInputTheme
+  placeholder?: string
   debounceTimeMS?: number
   className?: string
+  showError?: boolean
+  autofocus?: boolean
 }
 
-export default function AppInput ({ onChange, debounceTimeMS, className }: AppInputProps) {
-  const [value, setValue] = useState<string>('')
+export const AppInput = memo((props: AppInputProps) => {
+  const {
+    value,
+    onChange,
+    type = 'text',
+    theme = AppInputTheme.CLEAR,
+    placeholder,
+    debounceTimeMS,
+    className,
+    showError,
+    autofocus,
+    ...otherProps
+  } = props
 
-  const debouncedValue = useDebounce(value, debounceTimeMS ?? 0)
-
-  function handleChange (event: ChangeEvent<HTMLInputElement>) {
-    setValue(event.target.value)
-  }
+  const ref = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    if (value && debouncedValue) {
-      onChange(value)
-    } else {
-      onChange('')
+    if (autofocus && ref.current) {
+      ref.current.focus()
     }
-  }, [debouncedValue, onChange, value])
+  }, [autofocus])
+
+  function handleChange (event: ChangeEvent<HTMLInputElement>) {
+    onChange?.(event.target.value)
+  }
 
   return (
-    <div className={classNames(cls.appInput, {}, [className])}>
-      <input value={value} type="text" onChange={handleChange} />
+    <div className={classNames(cls.appInput, {}, [className, cls[theme]])}>
+      <div className={cls.appInputField}>
+        <input ref={ref} type={type} value={value} placeholder={placeholder} onChange={handleChange} {...otherProps} />
+      </div>
+      {showError && (
+        <div className={cls.errorWrapper}>
+          <span className={cls.error}></span>
+        </div>
+      )}
     </div>
   )
-}
+})

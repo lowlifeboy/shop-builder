@@ -17,6 +17,8 @@
 }
 
 .content {
+  width: 100%;
+  max-width: var(--modal-max-width);
   padding: var(--modal-padding);
   border-radius: var(--modal-border-radius);
   background-color: var(--secondary-bg-color);
@@ -24,7 +26,6 @@
   // animation
   transform: scale(0.5);
   transition: 0.3s transform;
-  max-width: var(--modal-max-width);
 }
 
 .opened {
@@ -46,5 +47,24 @@
   .content{
     transform: scale(0.5);
     transition: 0.3s transform;
+  }
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+
+  h3 {
+    color: var(--primary-color);
+    font-family: var(--font-family-main);
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 44px;
+  }
+
+  .closeIcon {
+    fill: var(--primary-color);
   }
 }

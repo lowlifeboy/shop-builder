@@ -8,5 +8,10 @@
   "throwError": "Fehler werfen",
   "signIn": "Eintragen",
   "increment": "inkrementieren",
-  "decrement": "dekrementieren"
+  "decrement": "dekrementieren",
+  "dontHaveAnAccount": "Sie haben noch kein Konto?",
+  "signUp": "Anmelden",
+  "signInPasswordPlaceholder": "Kennwort",
+  "signInUserNamePlaceholder": "Ihr Benutzername oder Ihre E-Mail",
+  "forgotPassword": "Passwort vergessen?"
 }

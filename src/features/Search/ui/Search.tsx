@@ -1,7 +1,7 @@
 import cls from './Search.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
-import AppInput from 'shared/ui/AppInput/AppInput'
+import { AppInput } from 'shared/ui/AppInput/AppInput'
 import AppButton from 'shared/ui/AppButton/AppButton'
 import { useToggle } from 'shared/lib/useToggle/useToggle'
 import { AppDropdownSearch } from 'shared/ui/AppDropdownSearch/AppDropdownSearch'
