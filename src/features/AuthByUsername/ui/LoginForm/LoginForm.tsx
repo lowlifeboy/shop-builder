@@ -36,7 +36,7 @@ export default function LoginForm ({ className }: LoginFormProps) {
           showError
         />
         <div className={cls.row}>
-          <AppCheckbox checked={false} onChange={() => {}} text={'Remember me'} showError />
+          <AppCheckbox checked={false} onChange={() => {}} text={t('rememberMe')} showError />
           <div className={cls.forgotPasswordWrapper}>
             <AppButton onClick={() => {}} theme={AppButtonTheme.CLEAR}>{t('forgotPassword')}</AppButton>
           </div>

@@ -13,5 +13,6 @@
   "signUp": "Sign up",
   "signInPasswordPlaceholder": "Password",
   "signInUserNamePlaceholder": "Your username or email",
-  "forgotPassword": "Forgot password?"
+  "forgotPassword": "Forgot password?",
+  "rememberMe": "rememberMe"
 }

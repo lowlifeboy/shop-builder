@@ -13,5 +13,6 @@
   "signUp": "Anmelden",
   "signInPasswordPlaceholder": "Kennwort",
   "signInUserNamePlaceholder": "Ihr Benutzername oder Ihre E-Mail",
-  "forgotPassword": "Passwort vergessen?"
+  "forgotPassword": "Passwort vergessen?",
+  "rememberMe": "Erinnere dich an mich"
 }

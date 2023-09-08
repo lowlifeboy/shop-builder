@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { AppInput } from './AppInput'
+import { AppInput, AppInputTheme } from './AppInput'
 import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
 import StoryDecorator from 'shared/config/storybook/StoryDecorator/StoryDecorator'
@@ -15,12 +15,32 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Light: Story = {
-  args: {},
+export const ClearLight: Story = {
+  args: {
+    placeholder: 'Some text'
+  },
   decorators: [StoryDecorator, ThemeDecorator(Theme.LIGHT)]
 }
 
-export const Dark: Story = {
-  args: {},
+export const ClearDark: Story = {
+  args: {
+    placeholder: 'Some text'
+  },
+  decorators: [StoryDecorator, ThemeDecorator(Theme.DARK)]
+}
+
+export const UnderlinedLight: Story = {
+  args: {
+    placeholder: 'Some text',
+    theme: AppInputTheme.UNDERLINED
+  },
+  decorators: [StoryDecorator, ThemeDecorator(Theme.LIGHT)]
+}
+
+export const UnderlinedDark: Story = {
+  args: {
+    placeholder: 'Some text',
+    theme: AppInputTheme.UNDERLINED
+  },
   decorators: [StoryDecorator, ThemeDecorator(Theme.DARK)]
 }
