@@ -14,5 +14,8 @@
   "signInPasswordPlaceholder": "Password",
   "signInUserNamePlaceholder": "Your username or email",
   "forgotPassword": "Forgot password?",
-  "rememberMe": "rememberMe"
+  "rememberMe": "Remember me",
+  "loginError": "You have entered an invalid username or password",
+  "logout": "Logout",
+  "areYouSureLogout": "Are you sure you want to logout?"
 }

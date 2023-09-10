@@ -17,8 +17,8 @@ import {
   socialNetworkIcons,
   socialNetworks
 } from '../model/mockData'
-import { LanguageSelector } from 'models/LanguageSelector'
-import { CurrencySelector } from 'models/CurrencySelector'
+import { LanguageSelector } from 'widgets/Footer/ui/LanguageSelector'
+import { CurrencySelector } from 'widgets/Footer/ui/CurrencySelector'
 
 interface LogoDescAndSocialNetworksProps {
   logo: ReactNode

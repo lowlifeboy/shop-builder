@@ -1,34 +1,25 @@
-import { useCallback, useState } from 'react'
-
 import cls from './Navbar.module.scss'
 
-import { ThemeSwitcher } from 'models/ThemeSwitcher'
+import { ThemeSwitcher } from 'widgets/Navbar/ui/ThemeSwitcher'
 import { classNames } from 'shared/lib/classNames/classNames'
 import AppLink from 'shared/ui/AppLink/AppLink'
 import { HeaderLogoIcon } from 'shared/assets/icons'
 import { useTheme } from 'app/providers/ThemeProvider'
 import { Search } from 'features/Search'
-import { BasketIconLink } from 'models/BasketIconLink'
+import { BasketIconLink } from 'widgets/Navbar/ui/BasketIconLink'
 import { getIconColorByTheme } from 'shared/lib/getMainColorByTheme/getIconColorByTheme'
 import { AppDropdownSimple } from 'shared/ui/AppDropdownSimple/AppDropdownSimple'
 import { type NavbarProps } from '../models/types'
-import AppButton, { AppButtonFillTheme, AppButtonSize, AppButtonTheme } from 'shared/ui/AppButton/AppButton'
-import { useTranslation } from 'react-i18next'
-import { LoginModal } from 'features/AuthByUsername'
+import { LoginButton } from './LoginButton'
+import { LogoutButton } from './LogoutButton'
+import { useSelector } from 'react-redux'
+import { ProfileIconLink } from 'widgets/Navbar/ui/ProfileIconLink'
+import { getUserAuthData } from 'entities/User'
 
 export default function Navbar ({ navigationDropdownsConfig, searchDropdownConfig, className }: NavbarProps) {
-  const { t } = useTranslation()
   const { theme } = useTheme()
 
-  const [isAuthModal, setIsAuthModal] = useState(false)
-
-  const onShowModal = useCallback(() => {
-    setIsAuthModal(true)
-  }, [])
-
-  const onCloseModal = useCallback(() => {
-    setIsAuthModal(false)
-  }, [])
+  const authData = useSelector(getUserAuthData)
 
   return (
     <div data-testid="navbar" className={classNames(cls.navbar, {}, [className])}>
@@ -58,19 +49,11 @@ export default function Navbar ({ navigationDropdownsConfig, searchDropdownConfi
       <div className={cls.navbarActionButtons}>
         <div><Search config={searchDropdownConfig} /></div>
         <div><ThemeSwitcher /></div>
-        {/* <div><ProfileIconLink /></div> */}
-        <AppButton
-          theme={AppButtonTheme.CLEAR}
-          fillTheme={AppButtonFillTheme.SOLID}
-          size={AppButtonSize.M}
-          onClick={onShowModal}
-        >
-          {t('signIn')}
-        </AppButton>
+        {authData ? <div><ProfileIconLink/></div> : <div><LoginButton/></div>}
+        {authData && <div><LogoutButton/></div>}
         <div><BasketIconLink /></div>
       </div>
 
-      <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
     </div>
   )
 }

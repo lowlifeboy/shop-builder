@@ -1,6 +1,6 @@
 import { type NavigationColumnProps, type SocialNetwork, SocialNetworkKeys } from './types'
-import { type Currency } from 'models/CurrencySelector/ui/CurrencySelector'
-import { type Language } from 'models/LanguageSelector/ui/LanguageSelector'
+import { type Currency } from 'widgets/Footer/ui/CurrencySelector/ui/CurrencySelector'
+import { type Language } from 'widgets/Footer/ui/LanguageSelector/ui/LanguageSelector'
 import LogoIcon from 'shared/assets/icons/LogoIcon'
 import {
   EmailIconComponent,

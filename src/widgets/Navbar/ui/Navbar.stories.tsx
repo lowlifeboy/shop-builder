@@ -1,10 +1,13 @@
+import { type DeepPartial } from '@reduxjs/toolkit'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from 'app/providers/ThemeProvider'
-import StoryDecorator from 'shared/config/storybook/StoryDecorator/StoryDecorator'
 import Navbar from './Navbar'
+import { Theme } from 'app/providers/ThemeProvider'
+import { type StateSchema } from 'app/providers/StoreProvider'
 import { navigationDropdownsConfig, searchDropdownConfig } from 'widgets/Navbar/models/mocks'
+import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import StoryDecorator from 'shared/config/storybook/StoryDecorator/StoryDecorator'
+import StoreDecorator from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 
 const meta = {
   title: 'widgets/Navbar',
@@ -16,18 +19,47 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Light: Story = {
-  args: {
-    navigationDropdownsConfig,
-    searchDropdownConfig
-  },
-  decorators: [StoryDecorator, ThemeDecorator(Theme.LIGHT)]
+const stateDefault: DeepPartial<StateSchema> = {
+  user: {}
 }
 
-export const Dark: Story = {
+const stateLoggedIn: DeepPartial<StateSchema> = {
+  user: {
+    authData: {
+      username: 'testUser',
+      id: 1
+    }
+  }
+}
+
+export const LightDefault: Story = {
   args: {
     navigationDropdownsConfig,
     searchDropdownConfig
   },
-  decorators: [StoryDecorator, ThemeDecorator(Theme.DARK)]
+  decorators: [StoreDecorator(stateDefault), StoryDecorator, ThemeDecorator(Theme.LIGHT)]
+}
+
+export const LightLoggedIn: Story = {
+  args: {
+    navigationDropdownsConfig,
+    searchDropdownConfig
+  },
+  decorators: [StoreDecorator(stateLoggedIn), StoryDecorator, ThemeDecorator(Theme.LIGHT)]
+}
+
+export const DarkDefault: Story = {
+  args: {
+    navigationDropdownsConfig,
+    searchDropdownConfig
+  },
+  decorators: [StoreDecorator(stateDefault), StoryDecorator, ThemeDecorator(Theme.DARK)]
+}
+
+export const DarkLoggedIn: Story = {
+  args: {
+    navigationDropdownsConfig,
+    searchDropdownConfig
+  },
+  decorators: [StoreDecorator(stateLoggedIn), StoryDecorator, ThemeDecorator(Theme.DARK)]
 }

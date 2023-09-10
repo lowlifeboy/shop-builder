@@ -1,3 +1,5 @@
+import { memo, useCallback } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 
 import cls from './LoginForm.module.scss'
@@ -6,13 +8,38 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import AppButton, { AppButtonTheme } from 'shared/ui/AppButton/AppButton'
 import { AppInput, AppInputTheme } from 'shared/ui/AppInput/AppInput'
 import AppCheckbox from 'shared/ui/AppCheckbox/AppCheckbox'
+import AppErrorText from 'shared/ui/AppErrorText/AppErrorText'
+import { loginActions } from 'features/AuthByUsername'
+import getLoginStates from '../../model/selectors/getLoginStates/getLoginStates'
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
 
 interface LoginFormProps {
   className?: string
 }
 
-export default function LoginForm ({ className }: LoginFormProps) {
+export const LoginForm = memo(({ className }: LoginFormProps) => {
   const { t } = useTranslation()
+  const dispatch = useDispatch()
+  const loginForm = useSelector(getLoginStates)
+
+  const onChangeUsername = useCallback((value: string) => {
+    dispatch(loginActions.setUsername(value))
+  }, [dispatch])
+
+  const onChangePassword = useCallback((value: string) => {
+    dispatch(loginActions.setPassword(value))
+  }, [dispatch])
+
+  const onChangeRememberMe = useCallback((value: boolean) => {
+    dispatch(loginActions.setRememberMe(value))
+  }, [dispatch])
+
+  const onLoginClick = useCallback(() => {
+    if (loginForm) {
+      // @ts-expect-error unknown
+      dispatch(loginByUsername(loginForm))
+    }
+  }, [loginForm, dispatch])
 
   return (
     <div className={classNames(cls.loginForm, {}, [className])}>
@@ -21,28 +48,48 @@ export default function LoginForm ({ className }: LoginFormProps) {
         <AppButton onClick={() => {}} theme={AppButtonTheme.CLEAR}>{t('signUp')}</AppButton>
       </div>
 
-      <form action="">
+      <AppErrorText text={loginForm?.error === 'loginError' ? t('loginError') : ''} />
+
+      <div className={cls.form}>
         <AppInput
           theme={AppInputTheme.UNDERLINED}
-          onChange={() => {}}
+          value={loginForm?.username}
+          onChange={onChangeUsername}
           placeholder={t('signInUserNamePlaceholder')}
           showError
           autofocus
         />
         <AppInput
           theme={AppInputTheme.UNDERLINED}
-          onChange={() => {}}
+          value={loginForm?.password}
+          onChange={onChangePassword}
           placeholder={t('signInPasswordPlaceholder')}
           showError
         />
         <div className={cls.row}>
-          <AppCheckbox checked={false} onChange={() => {}} text={t('rememberMe')} showError />
+          <AppCheckbox
+            checked={!!loginForm?.rememberMe}
+            onChange={onChangeRememberMe}
+            text={t('rememberMe')}
+            showError
+          />
           <div className={cls.forgotPasswordWrapper}>
-            <AppButton onClick={() => {}} theme={AppButtonTheme.CLEAR}>{t('forgotPassword')}</AppButton>
+            <AppButton
+              onClick={() => {}}
+              theme={AppButtonTheme.CLEAR}
+            >
+              {t('forgotPassword')}
+            </AppButton>
           </div>
         </div>
-        <AppButton theme={AppButtonTheme.ROUNDED} onClick={() => {}}>{t('signIn')}</AppButton>
-      </form>
+        <AppButton
+          theme={AppButtonTheme.ROUNDED}
+          onClick={onLoginClick}
+          disabled={loginForm?.isLoading}
+        >
+          {t('signIn')}
+        </AppButton>
+      </div>
     </div>
   )
-}
+})

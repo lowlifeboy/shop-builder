@@ -3,12 +3,14 @@ import StoryDecorator from '../../src/shared/config/storybook/StoryDecorator/Sto
 import ThemeDecorator from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '../../src/app/providers/ThemeProvider'
 import RouterDecorator from '../../src/shared/config/storybook/RouterDecorator/RouterDecorator'
+import TranslationDecorator from '../../src/shared/config/storybook/TranslationDecorator/TranslationDecorator'
 
 const preview: Preview = {
   decorators: [
     RouterDecorator,
     StoryDecorator,
-    ThemeDecorator(Theme.LIGHT)
+    ThemeDecorator(Theme.LIGHT),
+    TranslationDecorator
   ],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },

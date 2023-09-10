@@ -14,5 +14,8 @@
   "signInPasswordPlaceholder": "Kennwort",
   "signInUserNamePlaceholder": "Ihr Benutzername oder Ihre E-Mail",
   "forgotPassword": "Passwort vergessen?",
-  "rememberMe": "Erinnere dich an mich"
+  "rememberMe": "Erinnere dich an mich",
+  "loginError": "Sie haben einen ungültigen Benutzernamen oder Passwort eingegeben",
+  "logout": "Abmelden",
+  "areYouSureLogout": "Sind Sie sicher, dass Sie abmelden wollen?"
 }

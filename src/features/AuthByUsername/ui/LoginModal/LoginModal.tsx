@@ -1,15 +1,14 @@
 import { useTranslation } from 'react-i18next'
 
 import AppModal from 'shared/ui/AppModal/AppModal'
-import LoginForm from '../LoginForm/LoginForm'
+import { LoginForm } from '../LoginForm/LoginForm'
 
 interface LoginModalProps {
-  className?: string
   isOpen?: boolean
   onClose?: () => void
 }
 
-export default function LoginModal ({ className, isOpen, onClose }: LoginModalProps) {
+export default function LoginModal ({ isOpen, onClose }: LoginModalProps) {
   const { t } = useTranslation()
 
   return (

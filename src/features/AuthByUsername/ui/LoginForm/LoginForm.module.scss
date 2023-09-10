@@ -1,12 +1,11 @@
 .loginForm {
-  form {
+  .form {
     display: grid;
   }
 }
 
 .description {
   display: flex;
-  margin-bottom: 32px;
 
   p {
     margin-right: 5px;
