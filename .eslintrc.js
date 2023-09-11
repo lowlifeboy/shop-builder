@@ -51,6 +51,7 @@ module.exports = {
         "@typescript-eslint/strict-boolean-expressions": "off",
         "react/display-name": "off",
         "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
-        "react-hooks/exhaustive-deps": "error" // Checks effect dependencies
+        "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
+        "@typescript-eslint/no-dynamic-delete": "off"
     }
 }

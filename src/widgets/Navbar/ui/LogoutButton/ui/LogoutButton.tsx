@@ -29,7 +29,7 @@ export default function LogoutButton ({ className }: LogoutButtonProps) {
       className={classNames(cls.logoutButton, {}, [className])}
     >
       <LogoutIcon className={cls.logoutIcon} />
-      <LogoutModal isOpen={isLogoutModal} onClose={onCloseModal} />
+      {isLogoutModal && <LogoutModal isOpen={isLogoutModal} onClose={onCloseModal}/>}
     </AppButton>
   )
 }

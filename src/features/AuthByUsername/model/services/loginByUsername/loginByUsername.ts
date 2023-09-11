@@ -13,11 +13,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { re
   'login/loginByUsername',
   async (data, thunkAPI) => {
     try {
-      console.log('login/loginByUsername', data)
-
       const response = await axios.post<User>('http://localhost:8000/login', data)
-
-      console.log(response.data)
 
       if (!response.data) {
         return thunkAPI.rejectWithValue('Server error')

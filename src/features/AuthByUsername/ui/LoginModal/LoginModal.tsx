@@ -1,7 +1,10 @@
+import { Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import { LoginFormAsync } from '../LoginForm/LoginForm.async'
+
 import AppModal from 'shared/ui/AppModal/AppModal'
-import { LoginForm } from '../LoginForm/LoginForm'
+import PageLoader from 'shared/ui/PageLoader/PageLoader'
 
 interface LoginModalProps {
   isOpen?: boolean
@@ -18,7 +21,9 @@ export default function LoginModal ({ isOpen, onClose }: LoginModalProps) {
       onClose={onClose}
       lazy
     >
-      <LoginForm />
+      <Suspense fallback={<PageLoader />}>
+        <LoginFormAsync />
+      </Suspense>
     </AppModal>
   )
 }

@@ -52,7 +52,7 @@ export const AppInput = memo((props: AppInputProps) => {
   return (
     <div className={classNames(cls.appInput, {}, [className, cls[theme]])}>
       <div className={cls.appInputField}>
-        <input ref={ref} type={type} value={value} placeholder={placeholder} onChange={handleChange} {...otherProps} />
+        <input ref={ref} type={type} value={value ?? ''} placeholder={placeholder} onChange={handleChange} {...otherProps} />
       </div>
       {showError && (
         <div className={cls.errorWrapper}>

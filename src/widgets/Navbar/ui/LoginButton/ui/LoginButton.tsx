@@ -28,7 +28,7 @@ export default function LoginButton ({ className }: LoginButtonProps) {
       className={classNames(cls.loginButton, {}, [className])}
     >
       <LoginIcon className={cls.loginIcon} />
-      <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+      {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal}/>}
     </AppButton>
   )
 }

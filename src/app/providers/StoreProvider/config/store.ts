@@ -2,17 +2,24 @@ import { configureStore, type ReducersMapObject } from '@reduxjs/toolkit'
 
 import { type StateSchema } from './StateSchema'
 import { userReducer } from 'entities/User'
-import { loginReducer } from 'features/AuthByUsername'
+import { createReducerManager } from './reducerManager'
 
-export default function createReduxStore (initialState?: StateSchema) {
+export default function createReduxStore (initialState?: StateSchema, asyncReducers?: ReducersMapObject<StateSchema>) {
   const rootReducer: ReducersMapObject<StateSchema> = {
-    user: userReducer,
-    loginForm: loginReducer
+    ...asyncReducers,
+    user: userReducer
   }
 
-  return configureStore<StateSchema>({
-    reducer: rootReducer,
+  const reducerManager = createReducerManager(rootReducer)
+
+  const store = configureStore<StateSchema>({
+    reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
     preloadedState: initialState
   })
+
+  // @ts-expect-error add unexpected property
+  store.reducerManager = reducerManager
+
+  return store
 }
