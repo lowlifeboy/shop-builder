@@ -1,5 +1,6 @@
-import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { createAsyncThunk } from '@reduxjs/toolkit'
+
 import { type User, userActions } from 'entities/User'
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
 
@@ -16,7 +17,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { re
       const response = await axios.post<User>('http://localhost:8000/login', data)
 
       if (!response.data) {
-        return thunkAPI.rejectWithValue('Server error')
+        return thunkAPI.rejectWithValue('error')
       }
 
       localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data))

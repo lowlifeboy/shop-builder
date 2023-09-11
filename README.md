@@ -4,6 +4,9 @@
 - [x] Webpack
 - [x] React
 - [x] React Portals
+- [x] Lazy Components
+- [x] Lazy Reducers
+- [x] Reducer Manager
 - [x] CSS Modules
 - [x] i18next
 - [x] Storybook

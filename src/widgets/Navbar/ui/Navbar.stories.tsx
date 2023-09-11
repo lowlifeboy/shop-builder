@@ -27,7 +27,7 @@ const stateLoggedIn: DeepPartial<StateSchema> = {
   user: {
     authData: {
       username: 'testUser',
-      id: 1
+      id: '1'
     }
   }
 }

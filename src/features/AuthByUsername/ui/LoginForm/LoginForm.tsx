@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 
 import cls from './LoginForm.module.scss'
-
-import getLoginStates from '../../model/selectors/getLoginStates/getLoginStates'
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
 
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -14,6 +12,12 @@ import AppCheckbox from 'shared/ui/AppCheckbox/AppCheckbox'
 import AppErrorText from 'shared/ui/AppErrorText/AppErrorText'
 import { loginActions, loginReducer } from 'features/AuthByUsername'
 import DynamicModuleLoader, { type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import getLoginUsernameState from 'features/AuthByUsername/model/selectors/getLoginUsernameState/getLoginUsernameState'
+import getLoginPasswordState from 'features/AuthByUsername/model/selectors/getLoginPasswordState/getLoginPasswordState'
+import getLoginRememberMeState
+  from 'features/AuthByUsername/model/selectors/getLoginRememberMeState/getLoginRememberMeState'
+import getLoginLoadingState from 'features/AuthByUsername/model/selectors/getLoginLoadingState/getLoginLoadingState'
+import getLoginErrorState from 'features/AuthByUsername/model/selectors/getLoginErrorState/getLoginErrorState'
 
 export interface LoginFormProps {
   className?: string
@@ -24,7 +28,13 @@ const initialReducers: ReducersList = { loginForm: loginReducer }
 const LoginForm = memo(({ className }: LoginFormProps) => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
-  const loginForm = useSelector(getLoginStates)
+
+  // Form states
+  const username = useSelector(getLoginUsernameState)
+  const password = useSelector(getLoginPasswordState)
+  const rememberMe = useSelector(getLoginRememberMeState)
+  const isLoading = useSelector(getLoginLoadingState)
+  const error = useSelector(getLoginErrorState)
 
   const onChangeUsername = useCallback((value: string) => {
     dispatch(loginActions.setUsername(value))
@@ -39,11 +49,11 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
   }, [dispatch])
 
   const onLoginClick = useCallback(() => {
-    if (loginForm) {
+    if (username && password && rememberMe !== undefined) {
       // @ts-expect-error unknown
-      dispatch(loginByUsername(loginForm))
+      return dispatch(loginByUsername({ username, password, rememberMe }))
     }
-  }, [loginForm, dispatch])
+  }, [dispatch, password, rememberMe, username])
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
@@ -53,12 +63,12 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
           <AppButton onClick={() => {}} theme={AppButtonTheme.CLEAR}>{t('signUp')}</AppButton>
         </div>
 
-        <AppErrorText text={loginForm?.error === 'loginError' ? t('loginError') : ''} />
+        <AppErrorText text={error === 'loginError' ? t('loginError') : ''} />
 
         <div className={cls.form}>
           <AppInput
             theme={AppInputTheme.UNDERLINED}
-            value={loginForm?.username}
+            value={username}
             onChange={onChangeUsername}
             placeholder={t('signInUserNamePlaceholder')}
             showError
@@ -66,14 +76,14 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
           />
           <AppInput
             theme={AppInputTheme.UNDERLINED}
-            value={loginForm?.password}
+            value={password}
             onChange={onChangePassword}
             placeholder={t('signInPasswordPlaceholder')}
             showError
           />
           <div className={cls.row}>
             <AppCheckbox
-              checked={!!loginForm?.rememberMe}
+              checked={!!rememberMe}
               onChange={onChangeRememberMe}
               text={t('rememberMe')}
               showError
@@ -90,7 +100,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
           <AppButton
             theme={AppButtonTheme.ROUNDED}
             onClick={onLoginClick}
-            disabled={loginForm?.isLoading}
+            disabled={isLoading ?? (!username || !password)}
           >
             {t('signIn')}
           </AppButton>
