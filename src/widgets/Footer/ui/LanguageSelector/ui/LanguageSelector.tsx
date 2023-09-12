@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import cls from './LanguageSelector.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -27,7 +29,7 @@ function LanguageItem (item: Language) {
   )
 }
 
-export default function LanguageSelector ({ openDirection, config, className, openPosition }: LanguageSelectorProps) {
+const LanguageSelector = memo(({ openDirection, config, className, openPosition }: LanguageSelectorProps) => {
   function onChange (item: Language) {
     void i18n.changeLanguage(item.key)
   }
@@ -45,4 +47,6 @@ export default function LanguageSelector ({ openDirection, config, className, op
       />
     </div>
   )
-}
+})
+
+export default LanguageSelector

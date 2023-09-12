@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import cls from './CurrencySelector.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -22,7 +24,7 @@ function CurrencyItem (item: Currency) {
   )
 }
 
-export default function CurrencySelector ({ openDirection, config, className, openPosition }: CurrencySelectorProps) {
+const CurrencySelector = memo(({ openDirection, config, className, openPosition }: CurrencySelectorProps) => {
   function onChange (item: Currency) {
     localStorage.setItem(LOCAL_STORAGE_CURRENCY_KEY, item.id)
   }
@@ -40,4 +42,6 @@ export default function CurrencySelector ({ openDirection, config, className, op
       />
     </div>
   )
-}
+})
+
+export default CurrencySelector

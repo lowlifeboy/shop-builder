@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import cls from './PageError.module.scss'
@@ -9,7 +10,7 @@ interface PageErrorProps {
   className?: string
 }
 
-export default function PageError ({ className }: PageErrorProps) {
+const PageError = memo(({ className }: PageErrorProps) => {
   const { t } = useTranslation()
 
   function reloadPage () {
@@ -30,4 +31,6 @@ export default function PageError ({ className }: PageErrorProps) {
       </AppButton>
     </div>
   )
-}
+})
+
+export default PageError

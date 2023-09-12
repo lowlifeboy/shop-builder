@@ -1,8 +1,10 @@
+import { memo } from 'react'
+
 import cls from './ThemeSwitcher.module.scss'
 import { Theme, useTheme } from 'app/providers/ThemeProvider'
 import { MoonIcon, SunIcon } from 'shared/assets/icons'
 
-export default function ThemeSwitcher () {
+const ThemeSwitcher = memo(() => {
   const { theme, toggleTheme } = useTheme()
 
   return (
@@ -10,4 +12,6 @@ export default function ThemeSwitcher () {
       {theme === Theme.DARK ? <MoonIcon className={cls.moonIcon} /> : <SunIcon className={cls.sunIcon} />}
     </button>
   )
-}
+})
+
+export default ThemeSwitcher

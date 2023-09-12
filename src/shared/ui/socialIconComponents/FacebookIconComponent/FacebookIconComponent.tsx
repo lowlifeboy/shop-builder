@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import cls from './FacebookIconComponent.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -7,8 +9,10 @@ interface FacebookIconComponentProps {
   className?: string
 }
 
-export default function FacebookIconComponent ({ className }: FacebookIconComponentProps) {
+const FacebookIconComponent = memo(({ className }: FacebookIconComponentProps) => {
   return (
     <FacebookIcon className={classNames(cls.facebookIconComponent, {}, [className])} />
   )
-}
+})
+
+export default FacebookIconComponent

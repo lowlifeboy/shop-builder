@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect, useState } from 'react'
+import { type ReactNode, useCallback, useEffect, useMemo, useState } from 'react'
 
 import cls from './AppSelector.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -32,10 +32,20 @@ export default function AppSelector ({
     setSelectedItem(defaultValue)
   }, [defaultValue])
 
-  function handleSelect (item: Record<string, any>) {
+  const handleSelect = useCallback((item: Record<string, any>) => {
     setSelectedItem(item)
     onChange(item)
-  }
+  }, [onChange])
+
+  const itemsList = useMemo(() => {
+    return config.map((item) => {
+      return (
+        <li key={item[keyPropName]} className={cls.appSelectorDropdownItem}>
+          <AppButton className={cls.appSelectorDropdownButton} onClick={() => { handleSelect(item) }} >{itemRender(item)}</AppButton>
+        </li>
+      )
+    })
+  }, [config, handleSelect, itemRender, keyPropName])
 
   return (
     <div className={classNames(cls.appSelector, {}, [className])}>
@@ -53,11 +63,7 @@ export default function AppSelector ({
           ...(openPosition === 'right' ? { right: 0 } : { left: 0 })
         }}
       >
-        {config.map((item) => (
-          <li key={item[keyPropName]} className={cls.appSelectorDropdownItem}>
-            <AppButton className={cls.appSelectorDropdownButton} onClick={() => { handleSelect(item) }} >{itemRender(item)}</AppButton>
-          </li>
-        ))}
+        {itemsList}
       </ul>
     </div>
   )

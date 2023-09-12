@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import cls from './EmailIconComponent.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -7,8 +9,10 @@ interface EmailIconComponentProps {
   className?: string
 }
 
-export default function EmailIconComponent ({ className }: EmailIconComponentProps) {
+const EmailIconComponent = memo(({ className }: EmailIconComponentProps) => {
   return (
     <EmailIcon className={classNames(cls.emailIconComponent, {}, [className])} />
   )
-}
+})
+
+export default EmailIconComponent

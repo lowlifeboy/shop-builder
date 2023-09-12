@@ -1,11 +1,11 @@
 import { type SearchDropdown } from 'features/Search/ui/Search'
 
-interface NavbarDropdownItem {
+export interface NavbarDropdownItem {
   text: string
   path: string
 }
 
-interface NavbarDropdown {
+export interface NavbarDropdown {
   title: string
   items: NavbarDropdownItem[]
 }

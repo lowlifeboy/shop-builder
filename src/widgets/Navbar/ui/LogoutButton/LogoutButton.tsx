@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 
 import cls from './LogoutButton.module.scss'
 
@@ -11,7 +11,7 @@ interface LogoutButtonProps {
   className?: string
 }
 
-export default function LogoutButton ({ className }: LogoutButtonProps) {
+const LogoutButton = memo(({ className }: LogoutButtonProps) => {
   const [isLogoutModal, setIsLogoutModal] = useState(false)
 
   const onShowModal = useCallback(() => {
@@ -32,4 +32,6 @@ export default function LogoutButton ({ className }: LogoutButtonProps) {
       {isLogoutModal && <LogoutModal isOpen={isLogoutModal} onClose={onCloseModal}/>}
     </AppButton>
   )
-}
+})
+
+export default LogoutButton

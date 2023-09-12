@@ -1,0 +1,29 @@
+.footerContentLeft {
+  max-width: 310px;
+
+  p {
+    margin-top: 16px;
+    color: var(--text-third-color);
+    font: var(--font-secondary-m);
+    font-weight: 400;
+    line-height: 26px;
+  }
+}
+
+.socialNetworks {
+  margin-top: 24px;
+  display: flex;
+
+  a {
+    width: 36px;
+    height: 36px;
+    border-radius: 100px;
+    background: var(--bg-color);
+    display: grid;
+    place-items: center;
+
+    &:not(:last-child) {
+      margin-right: 16px;
+    }
+  }
+}

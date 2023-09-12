@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import cls from './TwitterIconComponent.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -7,8 +9,10 @@ interface TwitterIconComponentProps {
   className?: string
 }
 
-export default function TwitterIconComponent ({ className }: TwitterIconComponentProps) {
+const TwitterIconComponent = memo(({ className }: TwitterIconComponentProps) => {
   return (
     <TwitterIcon className={classNames(cls.twitterIconComponent, {}, [className])} />
   )
-}
+})
+
+export default TwitterIconComponent

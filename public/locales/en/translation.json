@@ -17,5 +17,6 @@
   "rememberMe": "Remember me",
   "loginError": "You have entered an invalid username or password",
   "logout": "Logout",
-  "areYouSureLogout": "Are you sure you want to logout?"
+  "areYouSureLogout": "Are you sure you want to logout?",
+  "myAccount": "My account"
 }

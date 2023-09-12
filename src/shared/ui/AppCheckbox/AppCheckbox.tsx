@@ -1,4 +1,4 @@
-import { type ChangeEvent, type InputHTMLAttributes } from 'react'
+import { type ChangeEvent, type InputHTMLAttributes, memo } from 'react'
 
 import cls from './AppCheckbox.module.scss'
 
@@ -14,7 +14,7 @@ interface AppCheckboxProps extends HTMLInputProps {
   showError?: boolean
 }
 
-export default function AppCheckbox (props: AppCheckboxProps) {
+const AppCheckbox = memo((props: AppCheckboxProps) => {
   const {
     checked,
     onChange,
@@ -41,4 +41,6 @@ export default function AppCheckbox (props: AppCheckboxProps) {
       )}
     </label>
   )
-}
+})
+
+export default AppCheckbox

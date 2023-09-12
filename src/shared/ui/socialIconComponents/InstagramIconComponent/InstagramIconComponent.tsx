@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import cls from './InstagramIconComponent.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -7,8 +9,10 @@ interface InstagramIconComponentProps {
   className?: string
 }
 
-export default function InstagramIconComponent ({ className }: InstagramIconComponentProps) {
+const InstagramIconComponent = memo(({ className }: InstagramIconComponentProps) => {
   return (
     <InstagramIcon className={classNames(cls.instagramIconComponent, {}, [className])} />
   )
-}
+})
+
+export default InstagramIconComponent

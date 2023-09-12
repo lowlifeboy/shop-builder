@@ -9,13 +9,68 @@
     {
       "id": "1",
       "username": "admin",
-      "userId": "1"
+      "userId": "1",
+      "password": "123"
     },
     {
       "id": "2",
       "username": "defaultUser",
-      "userId": "2"
+      "userId": "2",
+      "password": "321"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "displayName": "John Doe",
+    "email": "johndoe@me.com",
+    "avatar": "https://via.placeholder.com/150",
+    "orders": [
+      {
+        "id": "1",
+        "productId": "1",
+        "quantity": 1,
+        "totalPrice": 100,
+        "date": "2021-01-01",
+        "status": "delivered"
+      },
+      {
+        "id": "2",
+        "productId": "2",
+        "quantity": 2,
+        "totalPrice": 200,
+        "date": "2021-01-02",
+        "status": "rejected"
+      }
+    ],
+    "addresses": [
+      {
+        "id": "1",
+        "name": "John Doe",
+        "address": "10 Strudwick CourtLondonSW4 6TE United Kingdom (UK)"
+      }
+    ],
+    "wishlist": [
+      {
+        "id": "1",
+        "price": 100,
+        "title": "Luxury Kanzo Shoes",
+        "properties": {
+          "size": "2XL",
+          "color": "Green"
+        },
+        "preview": "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg"
+      },
+      {
+        "id": "2",
+        "price": 200,
+        "title": "Luxury Kanzo Shoes",
+        "properties": {
+          "size": "2XL",
+          "color": "Green"
+        },
+        "preview": "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg"
+      }
+    ]
+  }
 }

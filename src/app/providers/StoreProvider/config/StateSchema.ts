@@ -8,12 +8,14 @@ import {
 
 import { type UserSchema } from 'entities/User'
 import { type LoginSchema } from 'features/AuthByUsername'
+import { type ProfileSchema } from 'entities/Profile'
 
 export interface StateSchema {
   user: UserSchema
 
   // Async reducers
   loginForm?: LoginSchema
+  profile?: ProfileSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

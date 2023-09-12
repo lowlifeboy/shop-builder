@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 
 import cls from './LoginForm.module.scss'
@@ -12,12 +12,12 @@ import AppCheckbox from 'shared/ui/AppCheckbox/AppCheckbox'
 import AppErrorText from 'shared/ui/AppErrorText/AppErrorText'
 import { loginActions, loginReducer } from 'features/AuthByUsername'
 import DynamicModuleLoader, { type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import getLoginUsernameState from 'features/AuthByUsername/model/selectors/getLoginUsernameState/getLoginUsernameState'
+import getLoginUsernameState from '../../model/selectors/getLoginUsernameState/getLoginUsernameState'
 import getLoginPasswordState from 'features/AuthByUsername/model/selectors/getLoginPasswordState/getLoginPasswordState'
-import getLoginRememberMeState
-  from 'features/AuthByUsername/model/selectors/getLoginRememberMeState/getLoginRememberMeState'
-import getLoginLoadingState from 'features/AuthByUsername/model/selectors/getLoginLoadingState/getLoginLoadingState'
-import getLoginErrorState from 'features/AuthByUsername/model/selectors/getLoginErrorState/getLoginErrorState'
+import getLoginRememberMeState from '../../model/selectors/getLoginRememberMeState/getLoginRememberMeState'
+import getLoginLoadingState from '../../model/selectors/getLoginLoadingState/getLoginLoadingState'
+import getLoginErrorState from '../../model/selectors/getLoginErrorState/getLoginErrorState'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 export interface LoginFormProps {
   className?: string
@@ -27,7 +27,7 @@ const initialReducers: ReducersList = { loginForm: loginReducer }
 
 const LoginForm = memo(({ className }: LoginFormProps) => {
   const { t } = useTranslation()
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   // Form states
   const username = useSelector(getLoginUsernameState)
@@ -50,8 +50,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
 
   const onLoginClick = useCallback(() => {
     if (username && password && rememberMe !== undefined) {
-      // @ts-expect-error unknown
-      return dispatch(loginByUsername({ username, password, rememberMe }))
+      void dispatch(loginByUsername({ username, password, rememberMe }))
     }
   }, [dispatch, password, rememberMe, username])
 

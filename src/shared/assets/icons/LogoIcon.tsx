@@ -4,7 +4,7 @@ interface LogoIconProps {
   color?: string
 }
 
-function LogoIcon ({ color = '#fff' }: LogoIconProps) {
+const LogoIcon = ({ color = '#fff' }: LogoIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

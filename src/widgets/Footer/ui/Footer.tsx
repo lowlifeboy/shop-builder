@@ -1,11 +1,10 @@
-import { type ReactNode } from 'react'
+import { memo } from 'react'
 
 import cls from './Footer.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Theme, useTheme } from 'app/providers/ThemeProvider'
-import AppLink from 'shared/ui/AppLink/AppLink'
-import { type FooterProps, type NavigationColumnProps, type SocialNetwork } from '../model/types'
+import { type FooterProps } from '../model/types'
 import {
   copyright,
   currencies,
@@ -14,55 +13,14 @@ import {
   logoDark,
   logoLight,
   navigation,
-  socialNetworkIcons,
   socialNetworks
 } from '../model/mockData'
 import { LanguageSelector } from 'widgets/Footer/ui/LanguageSelector'
 import { CurrencySelector } from 'widgets/Footer/ui/CurrencySelector'
+import { LogoDescAndSocialNetworks } from './LogoDescAndSocialNetworks'
+import { NavigationLists } from './NavigationLists'
 
-interface LogoDescAndSocialNetworksProps {
-  logo: ReactNode
-  text: string
-  socialNetworks: SocialNetwork[]
-}
-
-function LogoDescAndSocialNetworks ({ logo, text, socialNetworks }: LogoDescAndSocialNetworksProps) {
-  return (
-    <div className={cls.footerContentLeft}>
-      {logo}
-      {text && <p>{text}</p>}
-      <div className={cls.socialNetworks}>
-        {socialNetworks.map(({ link, key }) => {
-          const NetworkIconComponent = socialNetworkIcons[key]
-
-          return (
-            <AppLink target="_blank" rel="noopener noreferrer" key={key} to={link}><NetworkIconComponent /></AppLink>
-          )
-        })}
-      </div>
-    </div>
-  )
-}
-
-function NavigationColumn ({ title, items }: NavigationColumnProps) {
-  return (
-    <div>
-      <h3>{title}</h3>
-
-      <ul>
-        {items.map(({ path, text }) => (
-          <li key={path}>
-            <AppLink to={path} className={cls.footerNavLink}>
-              {text}
-            </AppLink>
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
-}
-
-export default function Footer ({ className }: FooterProps) {
+const Footer = memo(({ className }: FooterProps) => {
   const { theme } = useTheme()
 
   return (
@@ -74,13 +32,7 @@ export default function Footer ({ className }: FooterProps) {
           socialNetworks={socialNetworks}
         />
 
-        <ul className={cls.footerNavigationColumns}>
-          {navigation.map(({ title, items }) => (
-            <li key={title}>
-              <NavigationColumn title={title} items={items} />
-            </li>
-          ))}
-        </ul>
+        <NavigationLists navigation={navigation} />
       </div>
 
       <div className={cls.footerBottom}>
@@ -92,4 +44,6 @@ export default function Footer ({ className }: FooterProps) {
       </div>
     </div>
   )
-}
+})
+
+export default Footer

@@ -3,6 +3,7 @@ import cls from './BasketIconLink.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Link } from 'react-router-dom'
 import { BasketIcon } from 'shared/assets/icons'
+import { memo } from 'react'
 
 interface BasketIconLinkProps {
   className?: string
@@ -10,7 +11,7 @@ interface BasketIconLinkProps {
 
 const itemsQuantity = 2
 
-export default function BasketIconLink ({ className }: BasketIconLinkProps) {
+const BasketIconLink = memo(({ className }: BasketIconLinkProps) => {
   return (
     <Link to={'/basket'} className={classNames(cls.basketIconLink, {}, [className])}>
       <BasketIcon className={cls.basketIcon} />
@@ -19,4 +20,6 @@ export default function BasketIconLink ({ className }: BasketIconLinkProps) {
       </div>
     </Link>
   )
-}
+})
+
+export default BasketIconLink

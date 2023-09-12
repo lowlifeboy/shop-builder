@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import cls from './NotFoundPage.module.scss'
@@ -10,7 +11,7 @@ interface NotFoundPageProps {
   className?: string
 }
 
-export default function NotFoundPage ({ className }: NotFoundPageProps) {
+const NotFoundPage = memo(({ className }: NotFoundPageProps) => {
   const { t } = useTranslation()
 
   return (
@@ -28,4 +29,6 @@ export default function NotFoundPage ({ className }: NotFoundPageProps) {
       </AppButton>
     </div>
   )
-}
+})
+
+export default NotFoundPage

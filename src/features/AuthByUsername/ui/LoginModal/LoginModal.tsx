@@ -1,4 +1,4 @@
-import { Suspense } from 'react'
+import { memo, Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { LoginFormAsync } from '../LoginForm/LoginForm.async'
@@ -11,7 +11,7 @@ interface LoginModalProps {
   onClose?: () => void
 }
 
-export default function LoginModal ({ isOpen, onClose }: LoginModalProps) {
+const LoginModal = memo(({ isOpen, onClose }: LoginModalProps) => {
   const { t } = useTranslation()
 
   return (
@@ -26,4 +26,6 @@ export default function LoginModal ({ isOpen, onClose }: LoginModalProps) {
       </Suspense>
     </AppModal>
   )
-}
+})
+
+export default LoginModal

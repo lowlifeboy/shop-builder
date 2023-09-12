@@ -1,9 +1,9 @@
+import { memo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { AppInput, AppInputTheme } from 'shared/ui/AppInput/AppInput'
-import { useState } from 'react'
 
-export default function MainPage () {
+const MainPage = memo(() => {
   const { t } = useTranslation('main')
 
   const [value, setValue] = useState('')
@@ -19,4 +19,6 @@ export default function MainPage () {
       <AppInput autofocus theme={AppInputTheme.UNDERLINED} value={value} onChange={onChange} />
     </div>
   )
-}
+})
+
+export default MainPage

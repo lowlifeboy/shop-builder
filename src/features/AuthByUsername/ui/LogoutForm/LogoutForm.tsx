@@ -1,24 +1,32 @@
-import { useCallback } from 'react'
-import { useDispatch } from 'react-redux'
+import { memo, useCallback } from 'react'
+import { useDispatch, useStore } from 'react-redux'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 
 import cls from './LogoutForm.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
 import AppButton, { AppButtonTheme } from 'shared/ui/AppButton/AppButton'
 import { userActions } from 'entities/User'
+import { type ReduxStoreWithManager } from 'app/providers/StoreProvider'
+import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 
 interface LogoutFormProps {
   className?: string
 }
 
-export const LogoutForm = ({ className }: LogoutFormProps) => {
+const LogoutForm = memo(({ className }: LogoutFormProps) => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
+  const store = useStore() as ReduxStoreWithManager
+  const navigate = useNavigate()
 
   const onLogout = useCallback(() => {
     dispatch(userActions.logout())
-  }, [dispatch])
+    store.reducerManager.remove('profile')
+    dispatch({ type: `@DESTROY ${'profile'} reducer` })
+    navigate(RoutePath.main)
+  }, [dispatch, navigate, store.reducerManager])
 
   return (
     <div className={classNames(cls.logoutForm, {}, [className])}>
@@ -36,4 +44,6 @@ export const LogoutForm = ({ className }: LogoutFormProps) => {
       </div>
     </div>
   )
-}
+})
+
+export default LogoutForm
