@@ -14,6 +14,10 @@ module.exports = {
         "plugin:i18next/recommended",
         "plugin:storybook/recommended"
     ],
+    "globals": {
+        __IS_DEV__: true,
+        __API__: true
+    },
     "overrides": [
         {
             "env": {

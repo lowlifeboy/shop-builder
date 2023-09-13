@@ -1,5 +1,3 @@
-import { type DeepPartial } from '@reduxjs/toolkit'
-
 import { type StateSchema } from 'app/providers/StoreProvider'
 import getLoginRememberMeState
   from 'features/AuthByUsername/model/selectors/getLoginRememberMeState/getLoginRememberMeState'

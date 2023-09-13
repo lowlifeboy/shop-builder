@@ -10,7 +10,7 @@ interface AppSelectorProps {
   config: Array<Record<string, any>>
   defaultValue: Record<string, any>
   itemRender: (value: Record<string, any>) => ReactNode
-  onChange: (value: Record<string, any>) => void
+  onChange: (value: any) => void
   className?: string
   openDirection?: 'up' | 'down'
   openPosition?: 'left' | 'right'

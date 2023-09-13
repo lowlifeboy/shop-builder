@@ -1,4 +1,3 @@
-import { type DeepPartial } from '@reduxjs/toolkit'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import LoginModal from './LoginModal'

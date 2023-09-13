@@ -17,6 +17,5 @@
   "rememberMe": "Erinnere dich an mich",
   "loginError": "Sie haben einen ungültigen Benutzernamen oder Passwort eingegeben",
   "logout": "Abmelden",
-  "areYouSureLogout": "Sind Sie sicher, dass Sie abmelden wollen?",
-  "myAccount": "Mein Konto"
+  "areYouSureLogout": "Sind Sie sicher, dass Sie abmelden wollen?"
 }

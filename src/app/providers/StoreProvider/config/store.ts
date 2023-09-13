@@ -1,10 +1,17 @@
-import { configureStore, type ReducersMapObject } from '@reduxjs/toolkit'
+import { type CombinedState, configureStore, type Reducer, type ReducersMapObject } from '@reduxjs/toolkit'
 
-import { type StateSchema } from './StateSchema'
+import { type StateSchema, type ThunkExtraArg } from './StateSchema'
 import { userReducer } from 'entities/User'
 import { createReducerManager } from './reducerManager'
+import { $api } from 'shared/api/api'
+import { type To } from '@remix-run/router'
+import { type NavigateOptions } from 'react-router/dist/lib/context'
 
-export default function createReduxStore (initialState?: StateSchema, asyncReducers?: ReducersMapObject<StateSchema>) {
+export default function createReduxStore (
+  initialState?: StateSchema,
+  asyncReducers?: ReducersMapObject<StateSchema>,
+  navigate?: (to: To, options?: NavigateOptions) => void
+) {
   const rootReducer: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     user: userReducer
@@ -12,10 +19,20 @@ export default function createReduxStore (initialState?: StateSchema, asyncReduc
 
   const reducerManager = createReducerManager(rootReducer)
 
-  const store = configureStore<StateSchema>({
-    reducer: reducerManager.reduce,
+  const extraArg: ThunkExtraArg = {
+    api: $api,
+    navigate
+  }
+
+  const store = configureStore({
+    reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
     devTools: __IS_DEV__,
-    preloadedState: initialState
+    preloadedState: initialState,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+      thunk: {
+        extraArgument: extraArg
+      }
+    })
   })
 
   // @ts-expect-error add unexpected property
