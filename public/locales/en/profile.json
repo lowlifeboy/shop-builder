@@ -4,5 +4,12 @@
   "cancel": "cancel",
   "edit": "edit",
   "enterFirstName": "Enter first name",
-  "enterLastName": "Enter last name"
+  "enterLastName": "Enter last name",
+  "loadingProfileErrorHappened": "Loading profile error happened",
+  "tryToReloadPage": "Try to reload page",
+  "enterDisplayName": "Enter display name",
+  "enterEmail": "Enter email",
+  "saveChanges": "Save changes",
+  "profileDashboardDescriptionTitle": "Hello {{firstname}}!",
+  "profileDashboardDescriptionText": "From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details."
 }

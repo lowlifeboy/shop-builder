@@ -1,0 +1,17 @@
+.profilePageHeader {
+  width: 100%;
+  padding: 52px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    color: var(--text-third-color);
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: var(--font-family-main);
+    font-size: 54px;
+    font-weight: 500;
+    line-height: 58px;
+  }
+}

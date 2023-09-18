@@ -1,69 +1,91 @@
-import { type RouteProps } from 'react-router-dom'
+import { type RouteObject } from 'react-router-dom'
 
 import { MainPage } from 'pages/MainPage'
 import { AboutPage } from 'pages/AboutPage'
 import { NotFoundPage } from 'pages/NotFoundPage'
-import { ProfilePage } from 'pages/ProfilePage'
+import { AccountDetailsPage, Dashboard, Orders, Addresses, Wishlist, ProfileLayout } from 'pages/ProfilePage'
 
+// Route enums
 export enum AppRoutes {
   MAIN = 'main',
   ABOUT = 'about',
-  PROFILE = 'profile',
-  PROFILE_ORDERS = 'orders',
-  PROFILE_ADDRESSES = 'addresses',
-  PROFILE_ACCOUNT_DETAILS = 'accountDetails',
-  PROFILE_WISHLIST = 'wishlist',
 
   // last
   NOT_FOUND = 'not_found',
 }
 
+export enum ProfileRoutes {
+  PROFILE_DASHBOARD = 'profile_dashboard',
+  PROFILE_ORDERS = 'profile_orders',
+  PROFILE_ADDRESSES = 'profile_addresses',
+  PROFILE_ACCOUNT_DETAILS = 'profile_accountDetails',
+  PROFILE_WISHLIST = 'profile_wishlist',
+}
+
+// Route paths
+export const ProfileRoutePath: Record<ProfileRoutes, string> = {
+  [ProfileRoutes.PROFILE_DASHBOARD]: 'dashboard',
+  [ProfileRoutes.PROFILE_ORDERS]: 'orders',
+  [ProfileRoutes.PROFILE_ADDRESSES]: 'addresses',
+  [ProfileRoutes.PROFILE_ACCOUNT_DETAILS]: 'accountDetails',
+  [ProfileRoutes.PROFILE_WISHLIST]: 'wishlist'
+}
+
 export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: '/',
-  [AppRoutes.ABOUT]: '/about',
-  [AppRoutes.PROFILE]: '/profile',
-  [AppRoutes.PROFILE_ORDERS]: '/profile/orders',
-  [AppRoutes.PROFILE_ADDRESSES]: '/profile/addresses',
-  [AppRoutes.PROFILE_ACCOUNT_DETAILS]: '/profile/accountDetails',
-  [AppRoutes.PROFILE_WISHLIST]: '/profile/wishlist',
+  [AppRoutes.ABOUT]: 'about',
 
   // last
   [AppRoutes.NOT_FOUND]: '*'
 }
 
-export const routeConfig: Record<AppRoutes, RouteProps> = {
-  [AppRoutes.MAIN]: {
+// Route configs
+export const profileLayout: RouteObject = {
+  element: <ProfileLayout />,
+  children: [
+    {
+      path: ProfileRoutePath[ProfileRoutes.PROFILE_DASHBOARD],
+      element: <Dashboard />
+    },
+    {
+      path: ProfileRoutePath[ProfileRoutes.PROFILE_ORDERS],
+      element: <Orders />
+    },
+    {
+      path: ProfileRoutePath[ProfileRoutes.PROFILE_ADDRESSES],
+      element: <Addresses />
+    },
+    {
+      path: ProfileRoutePath[ProfileRoutes.PROFILE_ACCOUNT_DETAILS],
+      element: <AccountDetailsPage />
+    },
+    {
+      path: ProfileRoutePath[ProfileRoutes.PROFILE_WISHLIST],
+      element: <Wishlist />
+    }
+    // {
+    //   path: 'profile',
+    //   element: <Navigate to={ProfileRoutePath[ProfileRoutes.PROFILE_DASHBOARD]} replace />
+    // }
+  ]
+}
+
+export const routeConfig: RouteObject[] = [
+  {
     path: RoutePath[AppRoutes.MAIN],
     element: <MainPage />
   },
-  [AppRoutes.ABOUT]: {
+  {
     path: RoutePath[AppRoutes.ABOUT],
     element: <AboutPage />
   },
-  [AppRoutes.PROFILE]: {
-    path: RoutePath[AppRoutes.PROFILE],
-    element: <ProfilePage />
-  },
-  [AppRoutes.PROFILE_ORDERS]: {
-    path: RoutePath[AppRoutes.PROFILE_ORDERS],
-    element: <ProfilePage />
-  },
-  [AppRoutes.PROFILE_ADDRESSES]: {
-    path: RoutePath[AppRoutes.PROFILE_ADDRESSES],
-    element: <ProfilePage />
-  },
-  [AppRoutes.PROFILE_ACCOUNT_DETAILS]: {
-    path: RoutePath[AppRoutes.PROFILE_ACCOUNT_DETAILS],
-    element: <ProfilePage />
-  },
-  [AppRoutes.PROFILE_WISHLIST]: {
-    path: RoutePath[AppRoutes.PROFILE_WISHLIST],
-    element: <ProfilePage />
-  },
+
+  // Profile pages
+  profileLayout,
 
   // last
-  [AppRoutes.NOT_FOUND]: {
+  {
     path: RoutePath[AppRoutes.NOT_FOUND],
     element: <NotFoundPage />
   }
-}
+]

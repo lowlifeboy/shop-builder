@@ -3,6 +3,13 @@
   "dashboard": "Dashboard",
   "cancel": "cancel",
   "edit": "edit",
-  "enterFirstName": "enterFirstName",
-  "enterLastName": "enterLastName"
+  "enterFirstName": "Vornamen eingeben",
+  "enterLastName": "Nachname eingeben",
+  "loadingProfileErrorHappened": "Fehler beim Laden des Profils aufgetreten",
+  "tryToReloadPage": "Versuchen Sie, die Seite neu zu laden",
+  "enterDisplayName": "Benutzername eingeben",
+  "enterEmail": "E-Mail eingeben",
+  "saveChanges": "Änderungen speichern",
+  "profileDashboardDescriptionTitle": "Hallo {{firstname}}!",
+  "profileDashboardDescriptionText": "Aus Ihrem Konto-Dashboard können Sie Ihre letzten Bestellungen, Ihre Lieferadresse bearbeiten und Ihr Passwort und Ihre Konto-Daten ändern."
 }

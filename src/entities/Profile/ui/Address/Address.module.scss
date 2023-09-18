@@ -1,0 +1,38 @@
+.address {
+  padding: 32px;
+  display: grid;
+  grid-gap: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-color);
+
+  .addressRow, h4 {
+    color: var(--primary-color);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: var(--font-family-secondary);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+  }
+
+  .addressHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h4 {
+      font-weight: 600;
+    }
+
+    .editButton {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+  }
+
+  .addressRow {
+    display: flex;
+    gap: 16px;
+  }
+}

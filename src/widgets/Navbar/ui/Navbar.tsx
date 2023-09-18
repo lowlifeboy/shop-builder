@@ -54,22 +54,23 @@ const Navbar = memo(({ navigationDropdownsConfig, searchDropdownConfig, classNam
   const authData = useSelector(getUserAuthData)
 
   return (
-    <div data-testid="navbar" className={classNames(cls.navbar, {}, [className])}>
-      <LogoLink theme={theme}/>
+    <header data-testid="navbar" className={classNames(cls.navbar, {}, [className])}>
+      <div className={cls.container}>
+        <LogoLink theme={theme}/>
 
-      <nav className={cls.navbarNav}>
-        <NavigationLists items={navigationDropdownsConfig.items}/>
-      </nav>
+        <nav className={cls.navbarNav}>
+          <NavigationLists items={navigationDropdownsConfig.items}/>
+        </nav>
 
-      <div className={cls.navbarActionButtons}>
-        <div><Search config={searchDropdownConfig}/></div>
-        <div><ThemeSwitcher/></div>
-        {authData ? <div><ProfileIconLink/></div> : <div><LoginButton/></div>}
-        {authData && <div><LogoutButton/></div>}
-        <div><BasketIconLink/></div>
+        <div className={cls.navbarActionButtons}>
+          <div><Search config={searchDropdownConfig}/></div>
+          <div><ThemeSwitcher/></div>
+          {authData ? <div><ProfileIconLink/></div> : <div><LoginButton/></div>}
+          {authData && <div><LogoutButton/></div>}
+          <div><BasketIconLink/></div>
+        </div>
       </div>
-
-    </div>
+    </header>
   )
 })
 

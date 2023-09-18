@@ -12,7 +12,10 @@ export interface Order {
 export interface Address {
   id: string
   name: string
-  address: string
+  street: string
+  city: string
+  country: string
+  zip?: string
 }
 
 export interface Product {
@@ -27,19 +30,20 @@ export interface Product {
 }
 
 export interface Profile {
-  firstName: string
-  lastName: string
-  displayName: string
-  email: string
-  avatar: string
-  orders: Order[]
-  addresses: Address[]
-  wishlist: Product[]
+  firstName?: string
+  lastName?: string
+  displayName?: string
+  email?: string
+  avatar?: string
+  orders?: Order[]
+  addresses?: Address[]
+  wishlist?: Product[]
 }
 
 export interface ProfileSchema {
   isLoading: boolean
   readonly: boolean
   data?: Profile
+  form?: Profile
   error?: any
 }

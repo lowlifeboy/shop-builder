@@ -5,6 +5,7 @@ import cls from './ProfileIconLink.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
 import { ProfileIcon } from 'shared/assets/icons'
+import { ProfileRoutePath, ProfileRoutes } from 'shared/config/routeConfig/routeConfig'
 
 interface ProfileIconLinkProps {
   className?: string
@@ -12,7 +13,7 @@ interface ProfileIconLinkProps {
 
 const ProfileIconLink = memo(({ className }: ProfileIconLinkProps) => {
   return (
-    <Link to={'/profile'} className={classNames(cls.profileLink, {}, [className])}>
+    <Link to={ProfileRoutePath[ProfileRoutes.PROFILE_DASHBOARD]} className={classNames(cls.profileLink, {}, [className])}>
       <ProfileIcon className={cls.profileIcon} />
     </Link>
   )

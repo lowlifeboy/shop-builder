@@ -1,0 +1,11 @@
+.profilePage {
+  display: grid;
+  grid-template-columns: 1fr 196px;
+  grid-gap: 32px;
+}
+
+.profilePageWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

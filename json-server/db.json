@@ -1,9 +1,17 @@
 {
   "posts": [
-    { "id": "1", "title": "json-server", "author": "typicode" }
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    }
   ],
   "comments": [
-    { "id": "1", "body": "some comment", "postId": "1" }
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": "1"
+    }
   ],
   "users": [
     {
@@ -20,11 +28,11 @@
     }
   ],
   "profile": {
-    "firstName": "John",
-    "lastName": "Doe",
-    "displayName": "John Doe",
-    "email": "johndoe@me.com",
-    "avatar": "https://via.placeholder.com/150",
+    "firstName": "Kenny",
+    "lastName": "White",
+    "displayName": "Kenny White",
+    "email": "kennywhite@me.com",
+    "avatar": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
     "orders": [
       {
         "id": "1",
@@ -47,7 +55,10 @@
       {
         "id": "1",
         "name": "John Doe",
-        "address": "10 Strudwick CourtLondonSW4 6TE United Kingdom (UK)"
+        "street": "10 Strudwick Court",
+        "city": "London",
+        "country": "United Kingdom (UK)",
+        "zip": "SW4 6TE"
       }
     ],
     "wishlist": [

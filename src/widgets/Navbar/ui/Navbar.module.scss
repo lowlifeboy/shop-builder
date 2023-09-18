@@ -2,10 +2,18 @@
   width: 100%;
   height: var(--navbar-height);
   background-color: var(--secondary-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 52px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1336px;
   display: grid;
   align-items: center;
   grid-template-columns: repeat(3, 1fr);
-  padding: 0 52px;
 }
 
 .navbarNav {

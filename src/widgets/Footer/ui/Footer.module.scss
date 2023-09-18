@@ -1,9 +1,17 @@
 .footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
   padding: 72px 52px 32px;
+  background-color: var(--secondary-bg-color);
+}
+
+.container {
+  width: 100%;
+  max-width: 1336px;
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 72px;
-  background-color: var(--secondary-bg-color);
 }
 
 .footerContent {

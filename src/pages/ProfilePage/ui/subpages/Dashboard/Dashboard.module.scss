@@ -1,0 +1,21 @@
+.profileDashboard {
+  h3, p {
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: var(--font-family-secondary);
+  }
+
+  h3 {
+    color: var(--primary-color);
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 40px;
+    margin-bottom: 16px;
+  }
+
+  p {
+    color: var(--text-second-color);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+  }
+}

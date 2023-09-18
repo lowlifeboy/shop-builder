@@ -1,3 +1,3 @@
 import { type StateSchema } from 'app/providers/StoreProvider'
 
-export const getProfileAddresses = (state: StateSchema) => state.profile?.data?.addresses ?? []
+export const getProfileAddresses = (state: StateSchema) => state.profile?.form?.addresses ?? []

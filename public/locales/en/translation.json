@@ -17,5 +17,12 @@
   "rememberMe": "Remember me",
   "loginError": "You have entered an invalid username or password",
   "logout": "Logout",
-  "areYouSureLogout": "Are you sure you want to logout?"
+  "areYouSureLogout": "Are you sure you want to logout?",
+  "avatar": "Avatar",
+  "delivered": "Delivered",
+  "rejected": "Rejected",
+  "track": "Track",
+  "billingAddress": "billingAddress",
+  "edit": "edit",
+  "somethingWentWrong": "Something went wrong"
 }

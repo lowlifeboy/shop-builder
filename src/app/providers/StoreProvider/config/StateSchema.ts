@@ -16,10 +16,10 @@ import { type ProfileSchema } from 'entities/Profile'
 
 export interface StateSchema {
   user: UserSchema
+  profile: ProfileSchema
 
   // Async reducers
   loginForm?: LoginSchema
-  profile?: ProfileSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
@@ -43,5 +43,6 @@ export interface ThunkExtraArg {
 export interface ThunkConfig<T> {
   extra: ThunkExtraArg
   rejectValue: T
+  state: StateSchema
   dispatch?: Dispatch
 }

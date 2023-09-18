@@ -1,0 +1,21 @@
+.profileLayoutContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .profileLayoutWrapper {
+    width: 100%;
+    max-width: 1108px;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.profileLayoutRow {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 196px 1fr;
+  grid-gap: 32px;
+  padding: 52px 0;
+}

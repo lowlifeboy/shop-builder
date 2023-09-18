@@ -1,7 +1,38 @@
-.appErrorText {
+.appError {
+  min-height: 32px;
+  display: grid;
+  align-items: center;
+  color: var(--error-text-color);
+
+  &.left {
+    text-align: left;
+  }
+
+  &.center {
+    text-align: center;
+  }
+
+  &.right {
+    text-align: right;
+  }
+}
+
+.appErrorTitle {
   min-height: 32px;
   display: flex;
   align-items: center;
   color: var(--error-text-color);
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.appErrorDescription {
+  color: var(--text-second-color);
   font-size: 14px;
+  margin-top: 12px;
+
+  &.textHighlighted {
+    color: var(--error-text-color);
+    margin-top: 0;
+  }
 }

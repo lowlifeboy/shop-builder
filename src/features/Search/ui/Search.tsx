@@ -46,7 +46,7 @@ const Search = memo(({ config, className }: SearchProps) => {
   return (
     <div className={classNames(cls.searchWrapper, { [cls.opened]: opened }, [className])}>
       <div className={cls.search}>
-        <AppInput value={value} onChange={handleSearch} debounceTimeMS={500} />
+        <AppInput name="search" value={value} onChange={handleSearch} debounceTimeMS={500} />
         <AppButton onClick={toggle}><SearchIcon className={cls.searchIcon} /></AppButton>
       </div>
 

@@ -24,25 +24,27 @@ const Footer = memo(({ className }: FooterProps) => {
   const { theme } = useTheme()
 
   return (
-    <div data-testid="footer" className={classNames(cls.footer, {}, [className])}>
-      <div className={classNames(cls.footerContent, {}, [])}>
-        <LogoDescAndSocialNetworks
-          logo={theme === Theme.LIGHT ? logoLight : logoDark }
-          text={description}
-          socialNetworks={socialNetworks}
-        />
+    <footer data-testid="footer" className={classNames(cls.footer, {}, [className])}>
+      <div className={cls.container}>
+        <div className={classNames(cls.footerContent, {}, [])}>
+          <LogoDescAndSocialNetworks
+            logo={theme === Theme.LIGHT ? logoLight : logoDark }
+            text={description}
+            socialNetworks={socialNetworks}
+          />
 
-        <NavigationLists navigation={navigation} />
-      </div>
+          <NavigationLists navigation={navigation} />
+        </div>
 
-      <div className={cls.footerBottom}>
-        <div className={cls.footerCopyrightText}>{copyright}</div>
-        <div className={cls.footerBottomSelectors}>
-          <LanguageSelector className={cls.languageSelectorMargin} openDirection={'up'} openPosition={'right'} config={languages} />
-          <CurrencySelector openDirection={'up'} openPosition={'right'} config={currencies} />
+        <div className={cls.footerBottom}>
+          <div className={cls.footerCopyrightText}>{copyright}</div>
+          <div className={cls.footerBottomSelectors}>
+            <LanguageSelector className={cls.languageSelectorMargin} openDirection={'up'} openPosition={'right'} config={languages} />
+            <CurrencySelector openDirection={'up'} openPosition={'right'} config={currencies} />
+          </div>
         </div>
       </div>
-    </div>
+    </footer>
   )
 })
 

@@ -4,15 +4,24 @@ import cls from './AppErrorText.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
 
-interface AppErrorTextProps {
-  text?: string
-  className?: string
+export enum TextAlign {
+  LEFT = 'left',
+  CENTER = 'center',
+  RIGHT = 'right',
 }
 
-const AppErrorText = memo(({ text, className }: AppErrorTextProps) => {
+interface AppErrorTextProps {
+  title?: string
+  text?: string
+  className?: string
+  align?: TextAlign
+}
+
+const AppErrorText = memo(({ title, text, className, align = TextAlign.LEFT }: AppErrorTextProps) => {
   return (
-    <div className={classNames(cls.appErrorText, {}, [className])}>
-      <p>{text}</p>
+    <div className={classNames(cls.appError, {}, [className, cls[align]])}>
+      {title && <h3 className={cls.appErrorTitle}>{title}</h3>}
+      {text && <p className={classNames(cls.appErrorDescription, { [cls.textHighlighted]: !title }, [])}>{text}</p>}
     </div>
   )
 })

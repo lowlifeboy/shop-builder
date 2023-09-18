@@ -1,0 +1,35 @@
+.profileSidebar {
+  // flex-grow: 1;
+
+  .avatarWrapper {
+    margin-bottom: 32px;
+  }
+
+  .profileNavigation {
+    display: grid;
+    grid-gap: 8px;
+
+    li {
+      border-bottom: 1px solid var(--bg-color);
+      transition: border-bottom-color ease-in 0.3s;
+
+      a {
+        color: var(--text-third-color);
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-family: var(--font-family-main);
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 32px;
+      }
+
+      &.active {
+        border-bottom-color: var(--primary-color);
+        transition: border-bottom-color ease-in 0.3s;
+
+        a {
+          color: var(--primary-color)
+        }
+      }
+    }
+  }
+}

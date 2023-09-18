@@ -21,7 +21,7 @@ export default function App () {
     <div className={classNames('app', {}, [theme])}>
       <Suspense fallback="Loading localization...">
         <Navbar navigationDropdownsConfig={navigationDropdownsConfig} searchDropdownConfig={searchDropdownConfig} />
-        <main>
+        <main className="container">
           <AppRouter />
         </main>
         <Footer />
