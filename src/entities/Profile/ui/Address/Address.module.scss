@@ -28,6 +28,12 @@
       display: flex;
       align-items: center;
       gap: 4px;
+
+      svg {
+        path {
+          fill: var(--primary-color);
+        }
+      }
     }
   }
 

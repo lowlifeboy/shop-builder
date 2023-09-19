@@ -22,7 +22,9 @@
   "delivered": "Geliefert",
   "rejected": "Abgelehnt",
   "track": "Track",
-  "billingAddress": "billingAddress",
-  "edit": "edit",
-  "somethingWentWrong": "Etwas ist schief gelaufen"
+  "billingAddress": "Rechnungsadresse",
+  "edit": "Bearbeiten",
+  "somethingWentWrong": "Etwas ist schief gelaufen",
+  "selectOptions": "Optionen auswählen",
+  "remove": "Entfernen"
 }

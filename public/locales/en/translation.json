@@ -22,7 +22,9 @@
   "delivered": "Delivered",
   "rejected": "Rejected",
   "track": "Track",
-  "billingAddress": "billingAddress",
-  "edit": "edit",
-  "somethingWentWrong": "Something went wrong"
+  "billingAddress": "Billing address",
+  "edit": "Edit",
+  "somethingWentWrong": "Something went wrong",
+  "selectOptions": "Select options",
+  "remove": "Remove"
 }

@@ -9,10 +9,11 @@ export { getProfileDisplayName } from './model/selectors/getProfileDisplayName/g
 export { default as AccountDetailsForm } from './ui/AccountDetailsForm/AccountDetailsForm'
 export { default as OrderRow } from './ui/Order/Order'
 export { default as AddressRow } from './ui/Address/Address'
+export { default as WishlistProduct } from './ui/WishlistProduct/WishlistProduct'
 
 export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData'
 export { updateProfileData } from './model/services/updateProfileData/updateProfileData'
 
 export { profileActions, profileReducer } from './model/slice/profileSlice'
 
-export type { Address, Order, Product, Profile, ProfileSchema } from './model/types/profile'
+export type { Address, Order, Product, Profile, ProfileSchema, ProductProperties } from './model/types/profile'

@@ -33,16 +33,18 @@ const Address = memo(({ name, street, city, country, zip, className }: AddressPr
         </AppButton>
       </div>
 
-      <div className={cls.addressRow}>
-        <div className={cls.name}>{name}</div>
-      </div>
-      <div className={cls.addressRow}>
-        <div className={cls.street}>{street}</div>
-        <div className={cls.city}>{city}</div>
-      </div>
-      <div className={cls.addressRow}>
-        <div className={cls.country}>{country}</div>
-        <div className={cls.zip}>{zip}</div>
+      <div className={cls.addressContent}>
+        <div className={cls.addressRow}>
+          <div className={cls.name}>{name}</div>
+        </div>
+        <div className={cls.addressRow}>
+          <div className={cls.street}>{street}</div>
+          <div className={cls.city}>{city}</div>
+        </div>
+        <div className={cls.addressRow}>
+          <div className={cls.country}>{country}</div>
+          <div className={cls.zip}>{zip}</div>
+        </div>
       </div>
     </div>
   )

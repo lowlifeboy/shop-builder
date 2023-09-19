@@ -16,9 +16,11 @@ const Addresses = memo(({ className }: AddressesProps) => {
 
   return (
     <div className={classNames(cls.addresses, {}, [className])}>
-      {addresses.map(({ id, name, street, city, country, zip }) => (
-        <AddressRow key={id} name={name} street={street} city={city} country={country} zip={zip} />
-      ))}
+      <div className={cls.addressesWrapper}>
+        {addresses.map(({ id, name, street, city, country, zip }) => (
+          <AddressRow key={id} name={name} street={street} city={city} country={country} zip={zip} />
+        ))}
+      </div>
     </div>
   )
 })
