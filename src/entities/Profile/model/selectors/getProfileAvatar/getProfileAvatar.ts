@@ -1,3 +1,7 @@
-import { type StateSchema } from 'app/providers/StoreProvider'
+import { createSelector } from '@reduxjs/toolkit'
+import { getProfileForm } from '../getProfileForm/getProfileForm'
 
-export const getProfileAvatar = (state: StateSchema) => state.profile?.form?.avatar ?? ''
+export const getProfileAvatar = createSelector(
+  getProfileForm,
+  form => form?.avatar ?? ''
+)

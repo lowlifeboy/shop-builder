@@ -8,7 +8,8 @@ import { pathsToModuleNameMapper } from 'ts-jest'
 import path from 'path'
 
 const paths = {
-  'entities/*': ['src/entities/*']
+  'entities/*': ['src/entities/*'],
+  'shared/*': ['src/shared/*']
 }
 
 const moduleNameMapper = pathsToModuleNameMapper(paths)

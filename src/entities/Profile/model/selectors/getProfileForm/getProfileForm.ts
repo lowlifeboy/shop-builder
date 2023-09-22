@@ -1,5 +1,7 @@
-import { type StateSchema } from 'app/providers/StoreProvider'
+import { createSelector } from '@reduxjs/toolkit'
+import { getProfile } from '../getProfile/getProfile'
 
-export default function getProfileForm (state: StateSchema) {
-  return state.profile?.form
-}
+export const getProfileForm = createSelector(
+  getProfile,
+  profile => profile?.form ?? {}
+)

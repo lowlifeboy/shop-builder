@@ -1,6 +1,6 @@
 export { getProfileError } from './model/selectors/getProfileError/getProfileError'
 export { getProfileLoading } from './model/selectors/getProfileLoading/getProfileLoading'
-export { default as getProfileForm } from './model/selectors/getProfileForm/getProfileForm'
+export { getProfileForm } from './model/selectors/getProfileForm/getProfileForm'
 export { getProfileData } from './model/selectors/getProfileData/getProfileData'
 export { getProfileReadOnly } from './model/selectors/getProfileReadOnly/getProfileReadOnly'
 export { getProfileAvatar } from './model/selectors/getProfileAvatar/getProfileAvatar'

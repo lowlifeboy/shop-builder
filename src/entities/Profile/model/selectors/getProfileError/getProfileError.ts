@@ -1,3 +1,7 @@
-import { type StateSchema } from 'app/providers/StoreProvider'
+import { createSelector } from '@reduxjs/toolkit'
+import { getProfile } from '../getProfile/getProfile'
 
-export const getProfileError = (state: StateSchema) => state.profile?.error
+export const getProfileError = createSelector(
+  getProfile,
+  profile => profile?.error
+)

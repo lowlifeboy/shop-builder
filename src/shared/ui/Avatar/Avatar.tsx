@@ -3,25 +3,26 @@ import { type CSSProperties, memo, useMemo } from 'react'
 import cls from './Avatar.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
+import DefaultAvatar from './defaultAvatar.jpg'
 
 interface AvatarProps {
-  className?: string
   src?: string
   size?: number
   alt?: string
+  className?: string
 }
 
-const Avatar = memo(({ className, src, size, alt }: AvatarProps) => {
+const Avatar = memo(({ src, size, alt, className }: AvatarProps) => {
   const styles = useMemo<CSSProperties>(() => {
     return {
-      width: size,
-      height: size
+      width: size ?? 100,
+      height: size ?? 100
     }
   }, [size])
 
   return (
     <div className={classNames(cls.avatar, {}, [className])} style={styles}>
-      <img src={src} alt={alt} />
+      <img src={src ?? DefaultAvatar} alt={alt} />
     </div>
   )
 })

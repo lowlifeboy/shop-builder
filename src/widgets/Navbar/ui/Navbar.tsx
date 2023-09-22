@@ -51,7 +51,7 @@ const NavigationLists = ({ items }: NavigationListsProps) => {
 const Navbar = memo(({ navigationDropdownsConfig, searchDropdownConfig, className }: NavbarProps) => {
   const { theme } = useTheme()
 
-  const authData = useSelector(getUserAuthData)
+  const isAuth = useSelector(getUserAuthData)
 
   return (
     <header data-testid="navbar" className={classNames(cls.navbar, {}, [className])}>
@@ -65,8 +65,8 @@ const Navbar = memo(({ navigationDropdownsConfig, searchDropdownConfig, classNam
         <div className={cls.navbarActionButtons}>
           <div><Search config={searchDropdownConfig}/></div>
           <div><ThemeSwitcher/></div>
-          {authData ? <div><ProfileIconLink/></div> : <div><LoginButton/></div>}
-          {authData && <div><LogoutButton/></div>}
+          {isAuth ? <div><ProfileIconLink/></div> : <div><LoginButton/></div>}
+          {isAuth && <div><LogoutButton/></div>}
           <div><BasketIconLink/></div>
         </div>
       </div>

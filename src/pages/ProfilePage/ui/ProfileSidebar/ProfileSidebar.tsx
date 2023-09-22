@@ -7,7 +7,6 @@ import cls from './ProfileSidebar.module.scss'
 // Shared
 import { classNames } from 'shared/lib/classNames/classNames'
 import Avatar from 'shared/ui/Avatar/Avatar'
-import { AVATAR_PLACEHOLDER } from 'shared/const/common'
 import { ProfileRoutePath, ProfileRoutes } from 'shared/config/routeConfig/routeConfig'
 import { useSelector } from 'react-redux'
 import { getProfileDisplayName } from 'entities/Profile/model/selectors/getProfileDisplayName/getProfileDisplayName'
@@ -46,7 +45,7 @@ const ProfileSidebar = memo(() => {
   return (
     <div className={cls.profileSidebar}>
       <div className={cls.avatarWrapper}>
-        <Avatar src={avatar ?? AVATAR_PLACEHOLDER} alt={displayName} size={82} />
+        <Avatar src={avatar} alt={displayName} size={82} />
       </div>
 
       <ul className={cls.profileNavigation}>

@@ -1,3 +1,7 @@
-import { type StateSchema } from 'app/providers/StoreProvider'
+import { createSelector } from '@reduxjs/toolkit'
+import { getProfile } from '../getProfile/getProfile'
 
-export const getProfileReadOnly = (state: StateSchema) => state.profile?.readonly
+export const getProfileReadOnly = createSelector(
+  getProfile,
+  profile => profile?.readonly ?? true
+)

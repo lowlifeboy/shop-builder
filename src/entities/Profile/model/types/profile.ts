@@ -32,6 +32,7 @@ export interface Product {
 }
 
 export interface Profile {
+  id?: string
   firstName?: string
   lastName?: string
   displayName?: string

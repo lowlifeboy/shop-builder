@@ -70,9 +70,10 @@ const WishlistProduct = memo(({ id, title, price, preview, properties, className
 
           <AppButton
             onClick={selectOptions}
-            theme={AppButtonTheme.ROUNDED}
+            theme={AppButtonTheme.SHARP}
             fillTheme={AppButtonFillTheme.OUTLINE}
             size={AppButtonSize.M}
+            className={cls.selectButton}
           >
             {t('selectOptions')}
           </AppButton>

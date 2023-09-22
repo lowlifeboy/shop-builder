@@ -2,9 +2,7 @@
   padding: 32px;
   display: grid;
   grid-gap: 10px;
-  border-radius: 6px;
-  border: 1px solid var(--border-color);
-  background: var(--bg-color);
+  background-color: var(--secondary-bg-color);
 
   .addressRow, h4 {
     color: var(--primary-color);

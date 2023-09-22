@@ -1,3 +1,7 @@
-import { type StateSchema } from 'app/providers/StoreProvider'
+import { createSelector } from '@reduxjs/toolkit'
+import { getProfile } from '../getProfile/getProfile'
 
-export const getProfileLoading = (state: StateSchema) => state.profile?.isLoading
+export const getProfileLoading = createSelector(
+  getProfile,
+  profile => profile?.isLoading ?? false
+)

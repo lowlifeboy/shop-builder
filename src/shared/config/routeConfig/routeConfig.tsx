@@ -5,6 +5,10 @@ import { AboutPage } from 'pages/AboutPage'
 import { NotFoundPage } from 'pages/NotFoundPage'
 import { AccountDetailsPage, Dashboard, Orders, Addresses, Wishlist, ProfileLayout } from 'pages/ProfilePage'
 
+type AppRouteProps = RouteObject & {
+  authOnly?: boolean
+}
+
 // Route enums
 export enum AppRoutes {
   MAIN = 'main',
@@ -40,8 +44,9 @@ export const RoutePath: Record<AppRoutes, string> = {
 }
 
 // Route configs
-export const profileLayout: RouteObject = {
+export const profileLayout: AppRouteProps = {
   element: <ProfileLayout />,
+  authOnly: true,
   children: [
     {
       path: ProfileRoutePath[ProfileRoutes.PROFILE_DASHBOARD],
@@ -70,7 +75,7 @@ export const profileLayout: RouteObject = {
   ]
 }
 
-export const routeConfig: RouteObject[] = [
+export const routeConfig: AppRouteProps[] = [
   {
     path: RoutePath[AppRoutes.MAIN],
     element: <MainPage />
