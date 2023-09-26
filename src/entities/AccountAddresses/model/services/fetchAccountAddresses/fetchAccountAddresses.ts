@@ -11,7 +11,7 @@ export const fetchAccountAddresses = createAsyncThunk<AccountAddressSchema[], un
     const { extra, rejectWithValue } = thunkAPI
 
     try {
-      const response = await extra.api.get<AccountAddressSchema[]>('/profile/accountAddresses')
+      const response = await extra.api.get<AccountAddressSchema[]>('/accountAddresses')
 
       if (!response.data) {
         return rejectWithValue('error')

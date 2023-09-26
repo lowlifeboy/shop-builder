@@ -11,7 +11,7 @@ export const fetchAccountOrders = createAsyncThunk<AccountOrderSchema[], undefin
     const { extra, rejectWithValue } = thunkAPI
 
     try {
-      const response = await extra.api.get<AccountOrderSchema[]>('/profile/accountOrders')
+      const response = await extra.api.get<AccountOrderSchema[]>('/accountOrders')
 
       if (!response.data) {
         return rejectWithValue('error')

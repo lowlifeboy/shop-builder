@@ -1,17 +1,26 @@
-import { memo } from 'react'
+import { memo, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 import cls from './AccountAddresses.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
-import { AccountAddress, getAccountAddressesData } from 'entities/AccountAddresses'
+import { AccountAddress, fetchAccountAddresses, getAccountAddressesData } from 'entities/AccountAddresses'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 interface AddressesProps {
   className?: string
 }
 
 const AccountAddresses = memo(({ className }: AddressesProps) => {
+  const dispatch = useAppDispatch()
+
   const addresses = useSelector(getAccountAddressesData)
+
+  useEffect(() => {
+    if (!addresses) {
+      void dispatch(fetchAccountAddresses())
+    }
+  }, [addresses, dispatch])
 
   return (
     <div className={classNames(cls.addresses, {}, [className])}>

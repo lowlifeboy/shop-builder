@@ -19,9 +19,7 @@ const AccountDashboard = memo(({ className }: ProfileDashboardProps) => {
   const data = useSelector(getAccountDetailsData)
 
   useEffect(() => {
-    console.log('data', data)
     if (!data) {
-      console.log('need data')
       void dispatch(fetchAccountDetails())
     }
   }, [data, dispatch])

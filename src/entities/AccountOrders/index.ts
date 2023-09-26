@@ -1,3 +1,5 @@
+export { fetchAccountOrders } from './model/services/fetchAccountOrders/fetchAccountOrders'
+
 export { default as AccountOrder } from './ui/AccountOrder/AccountOrder'
 
 export { getAccountOrdersData } from './model/selectors/getAccountOrdersData/getAccountOrdersData'

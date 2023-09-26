@@ -35,7 +35,7 @@
     "email": "kennywhite@me.com",
     "avatar": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg"
   },
-  "orders": [
+  "accountOrders": [
     {
       "id": "1",
       "productId": "1",
@@ -53,7 +53,7 @@
       "status": "rejected"
     }
   ],
-  "addresses": [
+  "accountAddresses": [
     {
       "id": "1",
       "name": "John Doe",
@@ -71,7 +71,7 @@
       "zip": "10001"
     }
   ],
-  "wishlist": [
+  "accountWishlist": [
     {
       "id": "1",
       "price": 574,

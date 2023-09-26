@@ -1,4 +1,4 @@
-import { memo, useCallback, useState } from 'react'
+import { memo, useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useFormik } from 'formik'
 
@@ -10,6 +10,7 @@ import AppButton, { AppButtonFillTheme, AppButtonSize, AppButtonTheme } from 'sh
 import { updateAccountDetails } from '../../model/services/updateAccountDetails/updateAccountDetails'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { validationSchema } from '../../model/services/formValidation/accountDetails'
+import { fetchAccountDetails } from 'entities/AccountDetails'
 
 interface AccountDetailsFormProps {
   className?: string
@@ -22,7 +23,7 @@ export interface AccountDetailsFormState {
   email: string
 }
 
-const initialValues: AccountDetailsFormState = {
+const defaultInitialValues: AccountDetailsFormState = {
   firstName: '',
   lastName: '',
   displayName: '',
@@ -34,6 +35,19 @@ const AccountDetailsForm = memo(({ className }: AccountDetailsFormProps) => {
   const { t } = useTranslation('profile')
 
   const [readOnly, setReadOnly] = useState(false)
+  const [initialValues, setInitialValues] = useState<AccountDetailsFormState>(defaultInitialValues)
+
+  const initAccountDetails = useCallback(async () => {
+    const accountDetails = await dispatch(fetchAccountDetails())
+
+    if (accountDetails.payload && typeof accountDetails.payload !== 'string') {
+      setInitialValues(accountDetails.payload)
+    }
+  }, [dispatch])
+
+  useEffect(() => {
+    void initAccountDetails()
+  }, [initAccountDetails])
 
   const handleSubmit = useCallback((values: AccountDetailsFormState) => {
     void dispatch(updateAccountDetails(values))
@@ -42,7 +56,8 @@ const AccountDetailsForm = memo(({ className }: AccountDetailsFormProps) => {
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: handleSubmit
+    onSubmit: handleSubmit,
+    enableReinitialize: true
   })
 
   const onEdit = useCallback(() => {

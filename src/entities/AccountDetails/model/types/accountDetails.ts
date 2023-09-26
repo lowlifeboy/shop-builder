@@ -1,9 +1,9 @@
 export interface AccountDetailsSchema {
   id?: string
-  firstName?: string
-  lastName?: string
-  displayName?: string
-  email?: string
+  firstName: string
+  lastName: string
+  displayName: string
+  email: string
   avatar?: string
 }
 

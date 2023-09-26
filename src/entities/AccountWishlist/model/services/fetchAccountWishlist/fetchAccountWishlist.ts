@@ -11,7 +11,7 @@ export const fetchAccountWishlist = createAsyncThunk<Product[], undefined, Thunk
     const { extra, rejectWithValue } = thunkAPI
 
     try {
-      const response = await extra.api.get<Product[]>('/profile/accountWishlist')
+      const response = await extra.api.get<Product[]>('/accountWishlist')
 
       if (!response.data) {
         return rejectWithValue('error')

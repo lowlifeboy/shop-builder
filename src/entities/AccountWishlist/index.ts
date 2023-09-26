@@ -1,3 +1,5 @@
+export { fetchAccountWishlist } from './model/services/fetchAccountWishlist/fetchAccountWishlist'
+
 export { default as AccountWishlistProduct } from './ui/AccountWishlistProduct/AccountWishlistProduct'
 
 export { getAccountWishlistData } from './model/selectors/getAccountWishlistData/getAccountWishlistData'
