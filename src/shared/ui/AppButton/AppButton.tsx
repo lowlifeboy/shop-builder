@@ -25,8 +25,9 @@ export enum AppButtonSize {
 }
 
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  onClick: () => void
   children: ReactNode
+  type?: 'button' | 'submit'
+  onClick?: () => void
   theme?: AppButtonTheme
   fillTheme?: AppButtonFillTheme
   size?: AppButtonSize
@@ -46,12 +47,14 @@ const AppButton = forwardRef<HTMLButtonElement, AppButtonProps>((
     disabled = false,
     children,
     onClick,
+    type = 'button',
     ...otherProps
   } = props
 
   return (
     <button
       ref={ref}
+      type={type}
       className={classNames(cls.appButton, { [cls.disabled]: disabled }, [className, cls[theme], cls[fillTheme], cls[size]])}
       onClick={onClick}
       disabled={disabled}

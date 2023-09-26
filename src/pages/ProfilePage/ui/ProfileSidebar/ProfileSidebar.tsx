@@ -1,4 +1,5 @@
 import { memo } from 'react'
+import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { NavLink, useLocation } from 'react-router-dom'
 
@@ -8,16 +9,14 @@ import cls from './ProfileSidebar.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
 import Avatar from 'shared/ui/Avatar/Avatar'
 import { ProfileRoutePath, ProfileRoutes } from 'shared/config/routeConfig/routeConfig'
-import { useSelector } from 'react-redux'
-import { getProfileDisplayName } from 'entities/Profile/model/selectors/getProfileDisplayName/getProfileDisplayName'
-import { getProfileAvatar } from 'entities/Profile/model/selectors/getProfileAvatar/getProfileAvatar'
+import { getAccountAvatar, getAccountDetailsData } from 'entities/AccountDetails'
 
 const ProfileSidebar = memo(() => {
   const { t } = useTranslation('profile')
   const { pathname } = useLocation()
 
-  const displayName = useSelector(getProfileDisplayName)
-  const avatar = useSelector(getProfileAvatar)
+  const accountDetails = useSelector(getAccountDetailsData)
+  const avatar = useSelector(getAccountAvatar)
 
   const menuItems: Array<{ key: string, text: string }> = [
     {
@@ -45,7 +44,7 @@ const ProfileSidebar = memo(() => {
   return (
     <div className={cls.profileSidebar}>
       <div className={cls.avatarWrapper}>
-        <Avatar src={avatar} alt={displayName} size={82} />
+        <Avatar src={avatar} alt={accountDetails?.displayName} size={82} />
       </div>
 
       <ul className={cls.profileNavigation}>

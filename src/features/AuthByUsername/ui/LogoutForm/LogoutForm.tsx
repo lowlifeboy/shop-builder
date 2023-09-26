@@ -23,10 +23,10 @@ const LogoutForm = memo(({ className }: LogoutFormProps) => {
 
   const onLogout = useCallback(() => {
     dispatch(userActions.logout())
-    store.reducerManager.remove('profile')
+    // store.reducerManager.remove('profile')
     dispatch({ type: `@DESTROY ${'profile'} reducer` })
     navigate(RoutePath.main)
-  }, [dispatch, navigate, store.reducerManager])
+  }, [dispatch, navigate])
 
   return (
     <div className={classNames(cls.logoutForm, {}, [className])}>

@@ -12,11 +12,17 @@ import { type NavigateOptions } from 'react-router'
 
 import { type UserSchema } from 'entities/User'
 import { type LoginSchema } from 'features/AuthByUsername'
-import { type ProfileSchema } from 'entities/Profile'
+import { type AccountDetailsState } from 'entities/AccountDetails'
+import { type AccountAddressesState } from 'entities/AccountAddresses'
+import { type AccountOrdersState } from 'entities/AccountOrders'
+import { type AccountWishlistState } from 'entities/AccountWishlist'
 
 export interface StateSchema {
   user: UserSchema
-  profile: ProfileSchema
+  accountDetails: AccountDetailsState
+  accountAddresses: AccountAddressesState
+  accountOrders: AccountOrdersState
+  accountWishlist: AccountWishlistState
 
   // Async reducers
   loginForm?: LoginSchema

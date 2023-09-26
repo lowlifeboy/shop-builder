@@ -1,12 +1,15 @@
 import { type CombinedState, configureStore, type Reducer, type ReducersMapObject } from '@reduxjs/toolkit'
+import { type To } from '@remix-run/router'
+import { type NavigateOptions } from 'react-router/dist/lib/context'
 
 import { type StateSchema, type ThunkExtraArg } from './StateSchema'
 import { userReducer } from 'entities/User'
 import { createReducerManager } from './reducerManager'
 import { $api } from 'shared/api/api'
-import { type To } from '@remix-run/router'
-import { type NavigateOptions } from 'react-router/dist/lib/context'
-import { profileReducer } from 'entities/Profile'
+import { accountDetailsReducer } from 'entities/AccountDetails'
+import { accountAddressesReducer } from 'entities/AccountAddresses'
+import { accountOrdersReducer } from 'entities/AccountOrders'
+import { accountWishlistReducer } from 'entities/AccountWishlist'
 
 export default function createReduxStore (
   initialState?: StateSchema,
@@ -16,7 +19,10 @@ export default function createReduxStore (
   const rootReducer: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     user: userReducer,
-    profile: profileReducer
+    accountDetails: accountDetailsReducer,
+    accountAddresses: accountAddressesReducer,
+    accountOrders: accountOrdersReducer,
+    accountWishlist: accountWishlistReducer
   }
 
   const reducerManager = createReducerManager(rootReducer)

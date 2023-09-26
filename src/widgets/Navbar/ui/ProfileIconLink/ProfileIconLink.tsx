@@ -10,7 +10,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { ProfileRoutePath, ProfileRoutes } from 'shared/config/routeConfig/routeConfig'
 
 import { getUserAuthData } from 'entities/User'
-import { getProfileAvatar } from 'entities/Profile'
+import { getAccountAvatar } from 'entities/AccountDetails'
 
 interface ProfileIconLinkProps {
   className?: string
@@ -18,7 +18,7 @@ interface ProfileIconLinkProps {
 
 const ProfileIconLink = memo(({ className }: ProfileIconLinkProps) => {
   const isAuth = useSelector(getUserAuthData)
-  const avatar = useSelector(getProfileAvatar)
+  const avatar = useSelector(getAccountAvatar)
 
   return (
     <Link to={ProfileRoutePath[ProfileRoutes.PROFILE_DASHBOARD]} className={classNames(cls.profileLink, {}, [className])}>

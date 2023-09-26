@@ -27,90 +27,90 @@
       "password": "321"
     }
   ],
-  "profile": {
+  "accountDetails": {
     "id": "1",
     "firstName": "Kenny",
     "lastName": "White",
     "displayName": "Kenny White",
     "email": "kennywhite@me.com",
-    "avatar": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
-    "orders": [
-      {
-        "id": "1",
-        "productId": "1",
-        "quantity": 1,
-        "totalPrice": 100,
-        "date": "2021-01-01",
-        "status": "delivered"
+    "avatar": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg"
+  },
+  "orders": [
+    {
+      "id": "1",
+      "productId": "1",
+      "quantity": 1,
+      "totalPrice": 100,
+      "date": "2021-01-01",
+      "status": "delivered"
+    },
+    {
+      "id": "2",
+      "productId": "2",
+      "quantity": 2,
+      "totalPrice": 200,
+      "date": "2021-01-02",
+      "status": "rejected"
+    }
+  ],
+  "addresses": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "street": "10 Strudwick Court",
+      "city": "London",
+      "country": "United Kingdom (UK)",
+      "zip": "SW4 6TE"
+    },
+    {
+      "id": "2",
+      "name": "John Doe",
+      "street": "10 Wall Street",
+      "city": "New York",
+      "country": "United States (US)",
+      "zip": "10001"
+    }
+  ],
+  "wishlist": [
+    {
+      "id": "1",
+      "price": 574,
+      "title": "Easy Iron Button Down Oxford Shirt",
+      "properties": {
+        "size": "XS - 4XL",
+        "color": "Grey Marl"
       },
-      {
-        "id": "2",
-        "productId": "2",
-        "quantity": 2,
-        "totalPrice": 200,
-        "date": "2021-01-02",
-        "status": "rejected"
-      }
-    ],
-    "addresses": [
-      {
-        "id": "1",
-        "name": "John Doe",
-        "street": "10 Strudwick Court",
-        "city": "London",
-        "country": "United Kingdom (UK)",
-        "zip": "SW4 6TE"
+      "preview": "https://xcdn.next.co.uk/COMMON/Items/Default/Default/ItemImages/AltItemShot/315x472/D38591s.jpg"
+    },
+    {
+      "id": "2",
+      "price": 1292,
+      "title": "Shower Resistant Duratrek Anorak Jacket",
+      "properties": {
+        "size": "M, XL",
+        "color": "Green"
       },
-      {
-        "id": "2",
-        "name": "John Doe",
-        "street": "10 Wall Street",
-        "city": "New York",
-        "country": "United States (US)",
-        "zip": "10001"
-      }
-    ],
-    "wishlist": [
-      {
-        "id": "1",
-        "price": 574,
-        "title": "Easy Iron Button Down Oxford Shirt",
-        "properties": {
-          "size": "XS - 4XL",
-          "color": "Grey Marl"
-        },
-        "preview": "https://xcdn.next.co.uk/COMMON/Items/Default/Default/ItemImages/AltItemShot/315x472/D38591s.jpg"
+      "preview": "https://xcdn.next.co.uk/common/Items/Default/Default/Publications/G88/shotview-315x472/2029/C82-998s.jpg"
+    },
+    {
+      "id": "3",
+      "price": 1866,
+      "title": "Jersey Sleeve Puffer Jacket",
+      "properties": {
+        "size": "XS - 4XL",
+        "color": "Navy Blue / Grey"
       },
-      {
-        "id": "2",
-        "price": 1292,
-        "title": "Shower Resistant Duratrek Anorak Jacket",
-        "properties": {
-          "size": "M, XL",
-          "color": "Green"
-        },
-        "preview": "https://xcdn.next.co.uk/common/Items/Default/Default/Publications/G88/shotview-315x472/2029/C82-998s.jpg"
+      "preview": "https://xcdn.next.co.uk/Common/Items/Default/Default/ItemImages/AltItemShot/315x472/D45800s.jpg"
+    },
+    {
+      "id": "4",
+      "price": 746,
+      "title": "Joggers",
+      "properties": {
+        "size": "XS - XL",
+        "color": "Charcoal Grey With Stag Logo"
       },
-      {
-        "id": "3",
-        "price": 1866,
-        "title": "Jersey Sleeve Puffer Jacket",
-        "properties": {
-          "size": "XS - 4XL",
-          "color": "Navy Blue / Grey"
-        },
-        "preview": "https://xcdn.next.co.uk/Common/Items/Default/Default/ItemImages/AltItemShot/315x472/D45800s.jpg"
-      },
-      {
-        "id": "4",
-        "price": 746,
-        "title": "Joggers",
-        "properties": {
-          "size": "XS - XL",
-          "color": "Charcoal Grey With Stag Logo"
-        },
-        "preview": "https://xcdn.next.co.uk/COMMON/Items/Default/Default/Publications/G26/shotview/2089/M50-789s.jpg"
-      }
-    ]
-  }
+      "preview": "https://xcdn.next.co.uk/COMMON/Items/Default/Default/Publications/G26/shotview/2089/M50-789s.jpg"
+    }
+  ]
 }
