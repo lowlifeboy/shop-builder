@@ -1,4 +1,4 @@
-import { type ButtonHTMLAttributes, forwardRef, type ReactNode } from 'react'
+import { type ButtonHTMLAttributes, forwardRef, type ReactNode, memo } from 'react'
 
 import cls from './AppButton.module.scss'
 
@@ -65,4 +65,4 @@ const AppButton = forwardRef<HTMLButtonElement, AppButtonProps>((
   )
 })
 
-export default AppButton
+export default memo(AppButton)

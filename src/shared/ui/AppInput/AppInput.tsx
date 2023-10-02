@@ -16,7 +16,7 @@ interface AppInputProps extends HTMLInputProps {
   label?: string
   value?: string
   required?: boolean
-  onChange?: (value: string) => void
+  onChange?: (e: ChangeEvent<any>) => any
   type?: string
   theme?: AppInputTheme
   placeholder?: string
@@ -44,8 +44,6 @@ export const AppInput = memo((props: AppInputProps) => {
     ...otherProps
   } = props
 
-  console.log(props)
-
   const ref = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
@@ -53,10 +51,6 @@ export const AppInput = memo((props: AppInputProps) => {
       ref.current.focus()
     }
   }, [autofocus])
-
-  function handleChange (event: ChangeEvent<HTMLInputElement>) {
-    onChange?.(event.target.value)
-  }
 
   return (
     <div className={classNames(cls.appInput, { [cls.disabled]: !!disabled }, [className, cls[theme]])}>
@@ -71,7 +65,7 @@ export const AppInput = memo((props: AppInputProps) => {
           type={type}
           value={value ?? ''}
           placeholder={placeholder}
-          onChange={handleChange}
+          onChange={onChange}
           disabled={disabled}
           {...otherProps}
         />

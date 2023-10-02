@@ -21,11 +21,11 @@ export interface StateSchema {
   user: UserSchema
   accountDetails: AccountDetailsState
   accountAddresses: AccountAddressesState
-  accountOrders: AccountOrdersState
-  accountWishlist: AccountWishlistState
 
   // Async reducers
   loginForm?: LoginSchema
+  accountOrders?: AccountOrdersState
+  accountWishlist?: AccountWishlistState
 }
 
 export type StateSchemaKey = keyof StateSchema

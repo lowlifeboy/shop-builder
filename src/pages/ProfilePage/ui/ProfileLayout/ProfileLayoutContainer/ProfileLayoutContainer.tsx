@@ -11,6 +11,8 @@ interface ProfileLayoutContainerProps {
 }
 
 const ProfileLayoutContainer = ({ children }: ProfileLayoutContainerProps) => {
+  console.log('ProfileLayoutContainer render')
+
   return (
     <div className={cls.profileLayoutContainer}>
       <div className={cls.profileLayoutWrapper}>

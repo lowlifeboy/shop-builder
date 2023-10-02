@@ -1,36 +1,35 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
+import React, { memo, useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
+import { useStore } from 'react-redux'
+
 import ProfileLayoutContainer from './ProfileLayoutContainer/ProfileLayoutContainer'
+import { type ReduxStoreWithManager } from 'app/providers/StoreProvider'
+import DynamicModuleLoader, { type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { accountOrdersReducer } from 'entities/AccountOrders'
+import { accountWishlistReducer } from 'entities/AccountWishlist'
 
-const ProfileLayout = () => {
-  const { t } = useTranslation()
+const initialReducers: ReducersList = {
+  accountOrders: accountOrdersReducer,
+  accountWishlist: accountWishlistReducer
+}
 
-  // if (isLoading) {
-  //   return (
-  //     <ProfileLayoutContainer>
-  //       <div className={cls.loaderWrapper}>
-  //         <PageLoader />
-  //       </div>
-  //     </ProfileLayoutContainer>
-  //   )
-  // }
-  //
-  // if (error) {
-  //   return (
-  //     <ProfileLayoutContainer>
-  //       <div className={cls.errorWrapper}>
-  //         <AppErrorText text={t('errorText')} title={t('errorTitle')} align={TextAlign.CENTER} />
-  //       </div>
-  //     </ProfileLayoutContainer>
-  //   )
-  // }
+const ProfileLayout = memo(() => {
+  const store = useStore() as ReduxStoreWithManager
+
+  useEffect(() => {
+    return () => {
+      store.reducerManager.remove('accountOrders')
+      store.reducerManager.remove('accountWishlist')
+    }
+  }, [store.reducerManager])
 
   return (
-    <ProfileLayoutContainer>
-      <Outlet />
-    </ProfileLayoutContainer>
+    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
+      <ProfileLayoutContainer>
+        <Outlet />
+      </ProfileLayoutContainer>
+    </DynamicModuleLoader>
   )
-}
+})
 
 export default ProfileLayout

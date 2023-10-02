@@ -10,7 +10,7 @@ export const updateAccountDetails = createAsyncThunk<AccountDetailsSchema, Accou
     const { extra, rejectWithValue } = thunkAPI
 
     try {
-      const response = await extra.api.put<AccountDetailsSchema>('/profile/accountDetails', data)
+      const response = await extra.api.put<AccountDetailsSchema>('/accountDetails', data)
       return response.data
     } catch (e) {
       return rejectWithValue('loginError')

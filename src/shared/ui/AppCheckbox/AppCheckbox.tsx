@@ -8,7 +8,7 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 
 interface AppCheckboxProps extends HTMLInputProps {
   checked: boolean
-  onChange: (value: boolean) => void
+  onChange: (e: ChangeEvent<any>) => any
   text?: string
   className?: string
   showError?: boolean
@@ -24,14 +24,10 @@ const AppCheckbox = memo((props: AppCheckboxProps) => {
     ...otherProps
   } = props
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    onChange(event.target.checked)
-  }
-
   return (
     <label className={classNames(cls.appCheckbox, {}, [className])}>
       <div className={cls.appCheckboxField}>
-        <input type="checkbox" checked={checked} onChange={handleChange} {...otherProps} />
+        <input type="checkbox" checked={checked} onChange={onChange} {...otherProps} />
         <span>{text}</span>
       </div>
       {showError && (

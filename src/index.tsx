@@ -14,13 +14,13 @@ import { ThemeProvider } from 'app/providers/ThemeProvider'
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
-  <BrowserRouter>
-    <StoreProvider>
+  <StoreProvider>
+    <BrowserRouter>
       <ErrorBoundary fallback={<PageError />}>
         <ThemeProvider>
           <App />
         </ThemeProvider>
       </ErrorBoundary>
-    </StoreProvider>
-  </BrowserRouter>
+    </BrowserRouter>
+  </StoreProvider>
 )

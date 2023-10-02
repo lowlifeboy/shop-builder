@@ -1,4 +1,6 @@
-import { memo, useMemo, useState } from 'react'
+import { memo, useMemo } from 'react'
+import { useFormik } from 'formik'
+import { useDebouncedCallback } from 'use-debounce'
 
 import cls from './Search.module.scss'
 
@@ -9,6 +11,7 @@ import { useToggle } from 'shared/lib/hooks/useToggle/useToggle'
 import { AppDropdownSearch } from 'shared/ui/AppDropdownSearch/AppDropdownSearch'
 import AppLink from 'shared/ui/AppLink/AppLink'
 import { SearchIcon } from 'shared/assets/icons'
+import { validationSchema } from '../model/services/formValidation/serchForm'
 
 interface SearchDropdownItem {
   text: string
@@ -25,15 +28,31 @@ interface SearchProps {
   className?: string
 }
 
+export interface SearchFormState {
+  search: string
+}
+
+const initialValues: SearchFormState = {
+  search: ''
+}
+
 // TODO: complete Search component
 const Search = memo(({ config, className }: SearchProps) => {
   const { opened, toggle } = useToggle()
 
-  const [value, setValue] = useState('')
+  const formik = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit: () => {},
+    enableReinitialize: true
+  })
 
-  function handleSearch (text: string) {
-    setValue(text)
-  }
+  const debounced = useDebouncedCallback(
+    async (field: string, value: string) => {
+      console.log({ field, value })
+    },
+    1000
+  )
 
   const itemsList = useMemo(() => {
     return config.items.map((dropDownItem) => (
@@ -46,7 +65,14 @@ const Search = memo(({ config, className }: SearchProps) => {
   return (
     <div className={classNames(cls.searchWrapper, { [cls.opened]: opened }, [className])}>
       <div className={cls.search}>
-        <AppInput name="search" value={value} onChange={handleSearch} debounceTimeMS={500} />
+        <AppInput
+          name="search"
+          value={formik.values.search}
+          onChange={(e) => {
+            formik.handleChange(e)
+            void debounced('search', e.target.value)
+          }}
+        />
         <AppButton onClick={toggle}><SearchIcon className={cls.searchIcon} /></AppButton>
       </div>
 

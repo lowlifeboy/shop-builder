@@ -15,7 +15,9 @@ import LogoutButton from './LogoutButton/LogoutButton'
 import ProfileIconLink from './ProfileIconLink/ProfileIconLink'
 import { getUserAuthData } from 'entities/User'
 import LogoLink from './LogoLink/LogoLink'
-import { memo } from 'react'
+import { memo, useEffect } from 'react'
+import { fetchAccountDetails, getAccountAvatar } from 'entities/AccountDetails'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 export interface NavigationListsProps {
   items: NavbarDropdown[]
@@ -49,9 +51,17 @@ const NavigationLists = ({ items }: NavigationListsProps) => {
 }
 
 const Navbar = memo(({ navigationDropdownsConfig, searchDropdownConfig, className }: NavbarProps) => {
+  const dispatch = useAppDispatch()
   const { theme } = useTheme()
 
   const isAuth = useSelector(getUserAuthData)
+  const avatar = useSelector(getAccountAvatar)
+
+  useEffect(() => {
+    if (!avatar) {
+      void dispatch(fetchAccountDetails())
+    }
+  }, [avatar, dispatch])
 
   return (
     <header data-testid="navbar" className={classNames(cls.navbar, {}, [className])}>

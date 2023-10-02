@@ -3,5 +3,5 @@ import { getAccountWishlist } from '../getAccountWishlist/getAccountWishlist'
 
 export const getAccountWishlistData = createSelector(
   getAccountWishlist,
-  accountWishlist => accountWishlist.data
+  accountWishlist => accountWishlist?.data
 )

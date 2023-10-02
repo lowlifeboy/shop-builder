@@ -28,16 +28,16 @@ export enum ProfileRoutes {
 
 // Route paths
 export const ProfileRoutePath: Record<ProfileRoutes, string> = {
-  [ProfileRoutes.PROFILE_DASHBOARD]: 'dashboard',
-  [ProfileRoutes.PROFILE_ORDERS]: 'orders',
-  [ProfileRoutes.PROFILE_ADDRESSES]: 'addresses',
-  [ProfileRoutes.PROFILE_ACCOUNT_DETAILS]: 'accountDetails',
-  [ProfileRoutes.PROFILE_WISHLIST]: 'wishlist'
+  [ProfileRoutes.PROFILE_DASHBOARD]: '/profile/dashboard',
+  [ProfileRoutes.PROFILE_ORDERS]: '/profile/orders',
+  [ProfileRoutes.PROFILE_ADDRESSES]: '/profile/addresses',
+  [ProfileRoutes.PROFILE_ACCOUNT_DETAILS]: '/profile/accountDetails',
+  [ProfileRoutes.PROFILE_WISHLIST]: '/profile/wishlist'
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: '/',
-  [AppRoutes.ABOUT]: 'about',
+  [AppRoutes.ABOUT]: '/about',
 
   // last
   [AppRoutes.NOT_FOUND]: '*'

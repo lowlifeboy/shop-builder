@@ -1,5 +1,6 @@
 import { memo, useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
 import { useFormik } from 'formik'
 
 import cls from './AccountDetailsForm.module.scss'
@@ -10,7 +11,7 @@ import AppButton, { AppButtonFillTheme, AppButtonSize, AppButtonTheme } from 'sh
 import { updateAccountDetails } from '../../model/services/updateAccountDetails/updateAccountDetails'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { validationSchema } from '../../model/services/formValidation/accountDetails'
-import { fetchAccountDetails } from 'entities/AccountDetails'
+import { getAccountDisplayName, getAccountEmail, getAccountFirstname, getAccountLastname } from 'entities/AccountDetails'
 
 interface AccountDetailsFormProps {
   className?: string
@@ -34,23 +35,40 @@ const AccountDetailsForm = memo(({ className }: AccountDetailsFormProps) => {
   const dispatch = useAppDispatch()
   const { t } = useTranslation('profile')
 
-  const [readOnly, setReadOnly] = useState(false)
+  const firstName = useSelector(getAccountFirstname)
+  const lastName = useSelector(getAccountLastname)
+  const displayName = useSelector(getAccountDisplayName)
+  const email = useSelector(getAccountEmail)
+
+  // States
+  const [readOnly, setReadOnly] = useState(true)
   const [initialValues, setInitialValues] = useState<AccountDetailsFormState>(defaultInitialValues)
 
-  const initAccountDetails = useCallback(async () => {
-    const accountDetails = await dispatch(fetchAccountDetails())
-
-    if (accountDetails.payload && typeof accountDetails.payload !== 'string') {
-      setInitialValues(accountDetails.payload)
-    }
-  }, [dispatch])
+  // Initialize form values
+  // const initAccountDetails = useCallback(async () => {
+  //   const accountDetails = await dispatch(fetchAccountDetails())
+  //
+  //   if (accountDetails.payload && typeof accountDetails.payload !== 'string') {
+  //     setInitialValues(accountDetails.payload)
+  //   }
+  // }, [dispatch])
 
   useEffect(() => {
-    void initAccountDetails()
-  }, [initAccountDetails])
+    // if (!firstName) {
+    //   void initAccountDetails()
+    // } else {
+    // }
+    setInitialValues({
+      firstName: firstName ?? '',
+      lastName: lastName ?? '',
+      displayName: displayName ?? '',
+      email: email ?? ''
+    })
+  }, [displayName, email, firstName, lastName])
 
   const handleSubmit = useCallback((values: AccountDetailsFormState) => {
     void dispatch(updateAccountDetails(values))
+    setReadOnly(true)
   }, [dispatch])
 
   const formik = useFormik({
@@ -65,7 +83,7 @@ const AccountDetailsForm = memo(({ className }: AccountDetailsFormProps) => {
   }, [])
 
   const onCancelEdit = useCallback(() => {
-    setReadOnly(false)
+    setReadOnly(true)
     formik.resetForm()
   }, [formik])
 

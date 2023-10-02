@@ -2,6 +2,10 @@ export { default as AccountDetailsForm } from './ui/AccountDetailsForm/AccountDe
 
 export { getAccountDetailsData } from './model/selectors/getAccountDetailsData/getAccountDetailsData'
 export { getAccountAvatar } from './model/selectors/getAccountAvatar/getAccountAvatar'
+export { getAccountFirstname } from './model/selectors/getAccountFirstname/getAccountFirstname'
+export { getAccountLastname } from './model/selectors/getAccountLastname/getAccountLastname'
+export { getAccountDisplayName } from './model/selectors/getAccountDisplayName/getAccountDisplayName'
+export { getAccountEmail } from './model/selectors/getAccountEmail/getAccountEmail'
 
 export { fetchAccountDetails } from './model/services/fetchAccountDetails/fetchAccountDetails'
 

@@ -3,7 +3,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type User, userActions } from 'entities/User'
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
 import { type ThunkConfig } from 'app/providers/StoreProvider'
-import { ProfileRoutePath, ProfileRoutes } from 'shared/config/routeConfig/routeConfig'
 
 interface LoginByUsernameProps {
   username: string
@@ -29,7 +28,6 @@ ThunkConfig<string>
 
       localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data))
       dispatch(userActions.setAuthData(response.data))
-      extra.navigate?.(ProfileRoutePath[ProfileRoutes.PROFILE_DASHBOARD])
 
       return response.data
     } catch (e) {

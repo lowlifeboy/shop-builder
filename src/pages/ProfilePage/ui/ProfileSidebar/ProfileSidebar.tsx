@@ -9,13 +9,13 @@ import cls from './ProfileSidebar.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
 import Avatar from 'shared/ui/Avatar/Avatar'
 import { ProfileRoutePath, ProfileRoutes } from 'shared/config/routeConfig/routeConfig'
-import { getAccountAvatar, getAccountDetailsData } from 'entities/AccountDetails'
+import { getAccountAvatar, getAccountDisplayName } from 'entities/AccountDetails'
 
 const ProfileSidebar = memo(() => {
   const { t } = useTranslation('profile')
   const { pathname } = useLocation()
 
-  const accountDetails = useSelector(getAccountDetailsData)
+  const displayName = useSelector(getAccountDisplayName)
   const avatar = useSelector(getAccountAvatar)
 
   const menuItems: Array<{ key: string, text: string }> = [
@@ -44,7 +44,7 @@ const ProfileSidebar = memo(() => {
   return (
     <div className={cls.profileSidebar}>
       <div className={cls.avatarWrapper}>
-        <Avatar src={avatar} alt={accountDetails?.displayName} size={82} />
+        <Avatar src={avatar} alt={displayName} size={82} />
       </div>
 
       <ul className={cls.profileNavigation}>

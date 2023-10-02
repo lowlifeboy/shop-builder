@@ -6,7 +6,7 @@ import { routeConfig } from 'shared/config/routeConfig/routeConfig'
 import PageLoader from 'shared/ui/PageLoader/PageLoader'
 import { getUserAuthData } from 'entities/User'
 
-const AppRouter = () => {
+const AppRouter = memo(() => {
   const isAuth = useSelector(getUserAuthData)
 
   const filteredRouteConfig = useMemo(() => {
@@ -18,11 +18,8 @@ const AppRouter = () => {
   return (
     <Suspense fallback={<PageLoader />}>
       {routes}
-      {/* <Routes> */}
-      {/*  {displayRoutes(routeConfig)} */}
-      {/* </Routes> */}
     </Suspense>
   )
-}
+})
 
 export default memo(AppRouter)
