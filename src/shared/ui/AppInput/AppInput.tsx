@@ -2,7 +2,8 @@ import { type ChangeEvent, type InputHTMLAttributes, memo, useEffect, useRef } f
 
 import cls from './AppInput.module.scss'
 
-import { classNames } from '../../lib/classNames/classNames'
+import { classNames } from 'shared/lib/classNames/classNames'
+import AppErrorText from 'shared/ui/AppErrorText/AppErrorText'
 
 export enum AppInputTheme {
   CLEAR = 'clear',
@@ -15,6 +16,7 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 interface AppInputProps extends HTMLInputProps {
   label?: string
   value?: string
+  error?: string
   required?: boolean
   onChange?: (e: ChangeEvent<any>) => any
   type?: string
@@ -31,6 +33,7 @@ export const AppInput = memo((props: AppInputProps) => {
   const {
     label,
     value,
+    error,
     required,
     onChange,
     type = 'text',
@@ -72,7 +75,7 @@ export const AppInput = memo((props: AppInputProps) => {
       </div>
       {showError && (
         <div className={cls.errorWrapper}>
-          <span className={cls.error}></span>
+          <AppErrorText text={error} />
         </div>
       )}
     </div>

@@ -44,20 +44,7 @@ const AccountDetailsForm = memo(({ className }: AccountDetailsFormProps) => {
   const [readOnly, setReadOnly] = useState(true)
   const [initialValues, setInitialValues] = useState<AccountDetailsFormState>(defaultInitialValues)
 
-  // Initialize form values
-  // const initAccountDetails = useCallback(async () => {
-  //   const accountDetails = await dispatch(fetchAccountDetails())
-  //
-  //   if (accountDetails.payload && typeof accountDetails.payload !== 'string') {
-  //     setInitialValues(accountDetails.payload)
-  //   }
-  // }, [dispatch])
-
   useEffect(() => {
-    // if (!firstName) {
-    //   void initAccountDetails()
-    // } else {
-    // }
     setInitialValues({
       firstName: firstName ?? '',
       lastName: lastName ?? '',
@@ -128,6 +115,7 @@ const AccountDetailsForm = memo(({ className }: AccountDetailsFormProps) => {
           name="firstName"
           theme={AppInputTheme.OUTLINED}
           value={formik.values.firstName}
+          error={formik.errors.firstName}
           onChange={formik.handleChange}
           placeholder={t('enterFirstName')}
           showError
@@ -139,6 +127,7 @@ const AccountDetailsForm = memo(({ className }: AccountDetailsFormProps) => {
           name="lastName"
           theme={AppInputTheme.OUTLINED}
           value={formik.values.lastName}
+          error={formik.errors.lastName}
           onChange={formik.handleChange}
           placeholder={t('enterLastName')}
           showError
@@ -149,6 +138,7 @@ const AccountDetailsForm = memo(({ className }: AccountDetailsFormProps) => {
           name="displayName"
           theme={AppInputTheme.OUTLINED}
           value={formik.values.displayName}
+          error={formik.errors.displayName}
           onChange={formik.handleChange}
           placeholder={t('enterDisplayName')}
           showError
@@ -159,6 +149,7 @@ const AccountDetailsForm = memo(({ className }: AccountDetailsFormProps) => {
           name="email"
           theme={AppInputTheme.OUTLINED}
           value={formik.values.email}
+          error={formik.errors.email}
           onChange={formik.handleChange}
           placeholder={t('enterEmail')}
           showError

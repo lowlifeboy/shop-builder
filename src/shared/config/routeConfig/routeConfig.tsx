@@ -28,11 +28,11 @@ export enum ProfileRoutes {
 
 // Route paths
 export const ProfileRoutePath: Record<ProfileRoutes, string> = {
-  [ProfileRoutes.PROFILE_DASHBOARD]: '/profile/dashboard',
-  [ProfileRoutes.PROFILE_ORDERS]: '/profile/orders',
-  [ProfileRoutes.PROFILE_ADDRESSES]: '/profile/addresses',
-  [ProfileRoutes.PROFILE_ACCOUNT_DETAILS]: '/profile/accountDetails',
-  [ProfileRoutes.PROFILE_WISHLIST]: '/profile/wishlist'
+  [ProfileRoutes.PROFILE_DASHBOARD]: '/profile_dashboard',
+  [ProfileRoutes.PROFILE_ORDERS]: '/profile_orders',
+  [ProfileRoutes.PROFILE_ADDRESSES]: '/profile_addresses',
+  [ProfileRoutes.PROFILE_ACCOUNT_DETAILS]: '/profile_accountDetails',
+  [ProfileRoutes.PROFILE_WISHLIST]: '/profile_wishlist'
 }
 
 export const RoutePath: Record<AppRoutes, string> = {

@@ -71,6 +71,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
           <AppInput
             theme={AppInputTheme.UNDERLINED}
             value={formik.values.username}
+            error={formik.errors.username}
             onChange={async (event) => await formik.setFieldValue('username', event.target.value)}
             placeholder={t('signInUserNamePlaceholder')}
             showError
@@ -79,6 +80,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
           <AppInput
             theme={AppInputTheme.UNDERLINED}
             value={formik.values.password}
+            error={formik.errors.password}
             onChange={async (event) => await formik.setFieldValue('password', event.target.value)}
             placeholder={t('signInPasswordPlaceholder')}
             showError

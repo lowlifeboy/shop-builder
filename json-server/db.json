@@ -28,12 +28,10 @@
     }
   ],
   "accountDetails": {
-    "id": "1",
     "firstName": "Kenny",
     "lastName": "White",
     "displayName": "Kenny White",
-    "email": "kennywhite@me.com",
-    "avatar": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg"
+    "email": "kennywhite@me.com"
   },
   "accountOrders": [
     {
