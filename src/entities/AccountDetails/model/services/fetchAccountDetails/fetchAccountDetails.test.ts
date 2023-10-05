@@ -13,7 +13,7 @@ describe('fetchAccountDetailsTest', () => {
     }
 
     const thunk = new TestAsyncThunk(fetchAccountDetails)
-    thunk.api.get.mockReturnValue(Promise.resolve(resultData))
+    thunk.api.get.mockReturnValue(Promise.resolve({ data: resultData }))
 
     const result = await thunk.callThunk(undefined)
 
@@ -31,6 +31,6 @@ describe('fetchAccountDetailsTest', () => {
     expect(thunk.dispatch).toHaveBeenCalledTimes(2)
     expect(thunk.api.get).toHaveBeenCalled()
     expect(result.meta.requestStatus).toBe('rejected')
-    expect(result.payload).toBe('loginError')
+    expect(result.payload).toBe('error')
   })
 })

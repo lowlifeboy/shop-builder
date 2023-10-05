@@ -18,6 +18,6 @@ export const fetchAccountDetails = createAsyncThunk<AccountDetailsSchema, undefi
 
       return response.data
     } catch (e) {
-      return rejectWithValue('loginError')
+      return rejectWithValue('serverError')
     }
   })

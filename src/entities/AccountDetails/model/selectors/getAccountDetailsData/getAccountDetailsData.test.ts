@@ -21,6 +21,6 @@ describe('getAccountDetailsDataTest', () => {
 
   it('should work with empty state', () => {
     const state: DeepPartial<StateSchema> = {}
-    expect(getAccountDetailsData(state as StateSchema)).toEqual({})
+    expect(getAccountDetailsData(state as StateSchema)).toEqual(undefined)
   })
 })

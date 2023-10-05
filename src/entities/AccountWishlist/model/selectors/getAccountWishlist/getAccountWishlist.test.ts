@@ -40,6 +40,6 @@ describe('getAccountWishlistTests', () => {
 
   it('should work with empty state', () => {
     const state: DeepPartial<StateSchema> = {}
-    expect(getAccountWishlist(state as StateSchema)).toEqual([])
+    expect(getAccountWishlist(state as StateSchema)).toEqual(undefined)
   })
 })

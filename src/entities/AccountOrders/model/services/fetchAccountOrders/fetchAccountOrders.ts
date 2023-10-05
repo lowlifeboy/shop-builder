@@ -19,6 +19,6 @@ export const fetchAccountOrders = createAsyncThunk<AccountOrderSchema[], undefin
 
       return response.data
     } catch (e) {
-      return rejectWithValue('loginError')
+      return rejectWithValue('serverError')
     }
   })

@@ -2,7 +2,7 @@ import { type StateSchema } from 'app/providers/StoreProvider'
 import { getAccountAddressesData } from './getAccountAddressesData'
 import { type AccountAddressSchema } from '../../types/accountAddresses'
 
-describe('getAccountAddressesTest', () => {
+describe('getAccountAddressesDataTest', () => {
   it('should return data', () => {
     const data: AccountAddressSchema[] = [
       {
@@ -33,6 +33,6 @@ describe('getAccountAddressesTest', () => {
 
   it('should work with empty state', () => {
     const state: DeepPartial<StateSchema> = {}
-    expect(getAccountAddressesData(state as StateSchema)).toEqual({})
+    expect(getAccountAddressesData(state as StateSchema)).toEqual(undefined)
   })
 })

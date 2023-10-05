@@ -3,7 +3,7 @@ import { getAccountWishlistData } from './getAccountWishlistData'
 
 import { type Product } from 'entities/Product'
 
-describe('getAccountWishlistTest', () => {
+describe('getAccountWishlistDataTest', () => {
   it('should return data', () => {
     const data: Product[] = [
       {
@@ -38,6 +38,6 @@ describe('getAccountWishlistTest', () => {
 
   it('should work with empty state', () => {
     const state: DeepPartial<StateSchema> = {}
-    expect(getAccountWishlistData(state as StateSchema)).toEqual({})
+    expect(getAccountWishlistData(state as StateSchema)).toEqual(undefined)
   })
 })

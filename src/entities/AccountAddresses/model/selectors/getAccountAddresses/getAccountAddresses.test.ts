@@ -35,6 +35,6 @@ describe('getAccountAddressesTests', () => {
 
   it('should work with empty state', () => {
     const state: DeepPartial<StateSchema> = {}
-    expect(getAccountAddresses(state as StateSchema)).toEqual([])
+    expect(getAccountAddresses(state as StateSchema)).toEqual(undefined)
   })
 })

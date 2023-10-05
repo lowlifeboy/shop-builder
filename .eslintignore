@@ -14,3 +14,5 @@ coverage
 .webpack.config.js
 
 json-server
+
+svgTransform.js

@@ -3,5 +3,5 @@ import { getAccountDetails } from '../getAccountDetails/getAccountDetails'
 
 export const getAccountDetailsData = createSelector(
   getAccountDetails,
-  accountDetails => accountDetails.data
+  accountDetails => accountDetails?.data
 )

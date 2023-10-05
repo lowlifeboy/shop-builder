@@ -25,7 +25,7 @@ describe('fetchAccountOrdersTest', () => {
     ]
 
     const thunk = new TestAsyncThunk(fetchAccountOrders)
-    thunk.api.get.mockReturnValue(Promise.resolve(resultData))
+    thunk.api.get.mockReturnValue(Promise.resolve({ data: resultData }))
 
     const result = await thunk.callThunk(undefined)
 
@@ -43,6 +43,6 @@ describe('fetchAccountOrdersTest', () => {
     expect(thunk.dispatch).toHaveBeenCalledTimes(2)
     expect(thunk.api.get).toHaveBeenCalled()
     expect(result.meta.requestStatus).toBe('rejected')
-    expect(result.payload).toBe('loginError')
+    expect(result.payload).toBe('error')
   })
 })

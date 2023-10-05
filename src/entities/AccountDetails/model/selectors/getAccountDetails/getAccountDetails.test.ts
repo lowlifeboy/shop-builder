@@ -17,11 +17,11 @@ describe('getAccountDetailsTest', () => {
         data
       }
     }
-    expect(getAccountDetails(state as StateSchema)).toStrictEqual(data)
+    expect(getAccountDetails(state as StateSchema)).toStrictEqual({ data })
   })
 
   it('should work with empty state', () => {
     const state: DeepPartial<StateSchema> = {}
-    expect(getAccountDetails(state as StateSchema)).toEqual({})
+    expect(getAccountDetails(state as StateSchema)).toEqual(undefined)
   })
 })

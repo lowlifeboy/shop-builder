@@ -41,14 +41,19 @@ const config: Config = {
   moduleNameMapper: {
     ...moduleNameMapper,
     '\\.svg$': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
-    '\\.s?css$': 'identity-obj-proxy'
+    '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'identity-obj-proxy'
   },
   rootDir: '../../',
   setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
   testEnvironment: 'jsdom',
   testMatch: [
     '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
-  ]
+  ],
+  transform: {
+    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.svg$': '<rootDir>/svgTransform.js'
+    // '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub'
+  }
 
   // All imported modules in your tests should be mocked automatically
   // automock: false,
@@ -193,7 +198,6 @@ const config: Config = {
   // testRunner: "jest-circus/runner",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [

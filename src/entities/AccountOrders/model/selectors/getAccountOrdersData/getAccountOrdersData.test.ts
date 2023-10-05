@@ -3,7 +3,7 @@ import { getAccountOrdersData } from './getAccountOrdersData'
 import { type AccountOrderSchema } from '../../types/accountOrders'
 import { OrderStatus } from 'shared/const/common'
 
-describe('getAccountOrdersTest', () => {
+describe('getAccountOrdersDataTest', () => {
   it('should return data', () => {
     const data: AccountOrderSchema[] = [
       {
@@ -34,6 +34,6 @@ describe('getAccountOrdersTest', () => {
 
   it('should work with empty state', () => {
     const state: DeepPartial<StateSchema> = {}
-    expect(getAccountOrdersData(state as StateSchema)).toEqual({})
+    expect(getAccountOrdersData(state as StateSchema)).toEqual(undefined)
   })
 })

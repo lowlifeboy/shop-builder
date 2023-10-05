@@ -19,6 +19,6 @@ export const fetchAccountWishlist = createAsyncThunk<Product[], undefined, Thunk
 
       return response.data
     } catch (e) {
-      return rejectWithValue('loginError')
+      return rejectWithValue('serverError')
     }
   })
