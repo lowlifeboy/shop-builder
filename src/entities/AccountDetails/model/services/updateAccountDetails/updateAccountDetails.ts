@@ -11,8 +11,15 @@ export const updateAccountDetails = createAsyncThunk<AccountDetailsSchema, Accou
 
     try {
       const response = await extra.api.put<AccountDetailsSchema>('/accountDetails', data)
+
+      console.log(response.data)
+
+      if (!response.data) {
+        return rejectWithValue('error')
+      }
+
       return response.data
     } catch (e) {
-      return rejectWithValue('loginError')
+      return rejectWithValue('serverError')
     }
   })

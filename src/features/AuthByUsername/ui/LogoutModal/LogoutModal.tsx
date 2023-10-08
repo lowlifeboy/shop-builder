@@ -1,8 +1,8 @@
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import AppModal from 'shared/ui/AppModal/AppModal'
-import LogoutForm from '../LogoutForm/LogoutForm'
-import { memo } from 'react'
+import { LogoutFormAsync } from '../LogoutForm/LogoutForm.async'
 
 interface LogoutModalProps {
   isOpen?: boolean
@@ -19,7 +19,7 @@ const LogoutModal = memo(({ isOpen, onClose }: LogoutModalProps) => {
       onClose={onClose}
       lazy
     >
-      <LogoutForm />
+      <LogoutFormAsync />
     </AppModal>
   )
 })

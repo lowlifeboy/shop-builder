@@ -27,7 +27,7 @@ const config: Config = {
     'node_modules',
     'src'
   ],
-  modulePaths: ['.'],
+  modulePaths: ['<rootDir>'],
   moduleFileExtensions: [
     'js',
     'mjs',

@@ -11,7 +11,7 @@ import { userActions } from 'entities/User'
 import { type ReduxStoreWithManager } from 'app/providers/StoreProvider'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 
-interface LogoutFormProps {
+export interface LogoutFormProps {
   className?: string
 }
 
