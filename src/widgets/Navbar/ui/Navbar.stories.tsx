@@ -28,6 +28,11 @@ const stateLoggedIn: DeepPartial<StateSchema> = {
       username: 'testUser',
       id: '1'
     }
+  },
+  accountDetails: {
+    data: {
+      avatar: 'https://avatars.githubusercontent.com/u/1?v=4'
+    }
   }
 }
 

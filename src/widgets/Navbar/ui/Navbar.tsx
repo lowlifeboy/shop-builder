@@ -58,7 +58,7 @@ const Navbar = memo(({ navigationDropdownsConfig, searchDropdownConfig, classNam
   const avatar = useSelector(getAccountAvatar)
 
   useEffect(() => {
-    if (!avatar) {
+    if (__PROJECT__ !== 'storybook' && !avatar) {
       void dispatch(fetchAccountDetails())
     }
   }, [avatar, dispatch])

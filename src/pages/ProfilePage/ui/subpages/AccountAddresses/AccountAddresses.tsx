@@ -17,7 +17,7 @@ const AccountAddresses = memo(({ className }: AddressesProps) => {
   const addresses = useSelector(getAccountAddressesData)
 
   useEffect(() => {
-    if (!addresses) {
+    if (__PROJECT__ !== 'storybook' && !addresses) {
       void dispatch(fetchAccountAddresses())
     }
   }, [addresses, dispatch])

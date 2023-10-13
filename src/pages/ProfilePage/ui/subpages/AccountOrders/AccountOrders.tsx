@@ -29,7 +29,7 @@ const AccountOrders = memo(({ className }: AccountOrdersProps) => {
   const error = useSelector(getAccountOrdersError)
 
   useEffect(() => {
-    if (!orders) {
+    if (__PROJECT__ !== 'storybook' && !orders) {
       void dispatch(fetchAccountOrders())
     }
   }, [orders, dispatch])

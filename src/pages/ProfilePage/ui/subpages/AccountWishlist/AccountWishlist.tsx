@@ -29,7 +29,7 @@ const AccountWishlist = memo(({ className }: WishlistProps) => {
   const error = useSelector(getAccountWishlistError)
 
   useEffect(() => {
-    if (!wishlist) {
+    if (__PROJECT__ !== 'storybook' && !wishlist) {
       void dispatch(fetchAccountWishlist())
     }
   }, [wishlist, dispatch])

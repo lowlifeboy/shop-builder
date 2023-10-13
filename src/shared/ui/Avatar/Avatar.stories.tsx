@@ -5,7 +5,6 @@ import { Theme } from 'app/providers/ThemeProvider'
 import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import BorderedStoryDecorator from 'shared/config/storybook/StoryDecorator/BorderedStoryDecorator'
 import StoreDecorator from 'shared/config/storybook/StoreDecorator/StoreDecorator'
-import DefaultAvatar from './defaultAvatar.jpg'
 
 const meta = {
   title: 'shared/Avatar',
@@ -19,7 +18,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    src: DefaultAvatar,
+    src: 'https://avatars.githubusercontent.com/u/1?v=4',
     alt: 'avatar',
     size: 150
   },
@@ -28,7 +27,7 @@ export const Default: Story = {
 
 export const Small: Story = {
   args: {
-    src: DefaultAvatar,
+    src: 'https://avatars.githubusercontent.com/u/1?v=4',
     alt: 'avatar',
     size: 82
   },

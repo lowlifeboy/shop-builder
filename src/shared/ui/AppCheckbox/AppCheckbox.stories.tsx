@@ -17,32 +17,36 @@ type Story = StoryObj<typeof meta>
 
 export const LightDefault: Story = {
   args: {
-    title: 'Checkbox',
-    checked: false
+    text: 'Checkbox',
+    checked: false,
+    onClick: () => {}
   },
   decorators: [BorderedStoryDecorator, ThemeDecorator(Theme.LIGHT)]
 }
 
 export const LightChecked: Story = {
   args: {
-    title: 'Checkbox',
-    checked: true
+    text: 'Checkbox',
+    checked: true,
+    onClick: () => {}
   },
   decorators: [BorderedStoryDecorator, ThemeDecorator(Theme.LIGHT)]
 }
 
 export const DarkDefault: Story = {
   args: {
-    title: 'Checkbox',
-    checked: false
+    text: 'Checkbox',
+    checked: false,
+    onClick: () => {}
   },
   decorators: [BorderedStoryDecorator, ThemeDecorator(Theme.DARK)]
 }
 
 export const DarkChecked: Story = {
   args: {
-    title: 'Checkbox',
-    checked: true
+    text: 'Checkbox',
+    checked: true,
+    onClick: () => {}
   },
   decorators: [BorderedStoryDecorator, ThemeDecorator(Theme.DARK)]
 }

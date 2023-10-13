@@ -15,8 +15,8 @@ import DynamicModuleLoader, { type ReducersList } from 'shared/lib/components/Dy
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { validationSchema } from '../../model/services/formValidation/loginForm'
 import { useSelector } from 'react-redux'
-import { ProfileRoutePath, ProfileRoutes } from 'shared/config/routeConfig/routeConfig'
-import { useNavigate } from 'react-router-dom'
+import { AppRoutes, ProfileRoutePath, ProfileRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export interface LoginFormProps {
   className?: string
@@ -40,15 +40,20 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
+  const { pathname } = useLocation()
 
   const error = useSelector(getLoginErrorState)
   const isLoading = useSelector(getLoginLoadingState)
 
-  const handleSubmit = useCallback((values: LoginFormState) => {
-    void dispatch(loginByUsername(values)).then(() => {
+  const handleSubmit = useCallback(async (values: LoginFormState) => {
+    const res = await dispatch(loginByUsername(values)).unwrap()
+
+    if (pathname === RoutePath[AppRoutes.MAIN]) {
       navigate(ProfileRoutePath[ProfileRoutes.PROFILE_DASHBOARD])
-    })
-  }, [dispatch, navigate])
+    } else {
+      navigate(0)
+    }
+  }, [dispatch, navigate, pathname])
 
   const formik = useFormik({
     initialValues,

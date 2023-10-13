@@ -4,6 +4,8 @@ import ProfileIconLink from './ProfileIconLink'
 import { Theme } from 'app/providers/ThemeProvider'
 import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import StoryDecorator from 'shared/config/storybook/StoryDecorator/StoryDecorator'
+import StoreDecorator from 'shared/config/storybook/StoreDecorator/StoreDecorator'
+import { type StateSchema } from 'app/providers/StoreProvider'
 
 const meta = {
   title: 'models/ProfileIconLink',
@@ -15,12 +17,42 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Light: Story = {
-  args: {},
-  decorators: [StoryDecorator, ThemeDecorator(Theme.LIGHT)]
+const defaultState: DeepPartial<StateSchema> = {
+  user: {
+    authData: {}
+  }
 }
 
-export const Dark: Story = {
+const autorizedState: DeepPartial<StateSchema> = {
+  user: {
+    authData: {
+      id: '1',
+      username: 'Test User'
+    }
+  },
+  accountDetails: {
+    data: {
+      avatar: 'https://avatars.githubusercontent.com/u/1?v=4'
+    }
+  }
+}
+
+export const UnauthorizedLight: Story = {
   args: {},
-  decorators: [StoryDecorator, ThemeDecorator(Theme.DARK)]
+  decorators: [StoreDecorator(defaultState), StoryDecorator, ThemeDecorator(Theme.LIGHT)]
+}
+
+export const UnauthorizedDark: Story = {
+  args: {},
+  decorators: [StoreDecorator(defaultState), StoryDecorator, ThemeDecorator(Theme.DARK)]
+}
+
+export const AuthorizedLight: Story = {
+  args: {},
+  decorators: [StoreDecorator(autorizedState), StoryDecorator, ThemeDecorator(Theme.LIGHT)]
+}
+
+export const AuthorizedDark: Story = {
+  args: {},
+  decorators: [StoreDecorator(autorizedState), StoryDecorator, ThemeDecorator(Theme.DARK)]
 }

@@ -1,12 +1,14 @@
 import React, { memo, useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
-import { useStore } from 'react-redux'
+import { useSelector, useStore } from 'react-redux'
 
 import ProfileLayoutContainer from './ProfileLayoutContainer/ProfileLayoutContainer'
 import { type ReduxStoreWithManager } from 'app/providers/StoreProvider'
 import DynamicModuleLoader, { type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { accountOrdersReducer } from 'entities/AccountOrders'
 import { accountWishlistReducer } from 'entities/AccountWishlist'
+import { getUserAuthData } from 'entities/User'
+import NotAuthPage from 'pages/NotAuthPage/NotAuthPage'
 
 const initialReducers: ReducersList = {
   accountOrders: accountOrdersReducer,
@@ -15,6 +17,8 @@ const initialReducers: ReducersList = {
 
 const ProfileLayout = memo(() => {
   const store = useStore() as ReduxStoreWithManager
+
+  const isAuth = useSelector(getUserAuthData)
 
   useEffect(() => {
     return () => {
@@ -25,9 +29,13 @@ const ProfileLayout = memo(() => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-      <ProfileLayoutContainer>
-        <Outlet />
-      </ProfileLayoutContainer>
+      {isAuth
+        ? (
+            <ProfileLayoutContainer>
+              <Outlet/>
+            </ProfileLayoutContainer>
+          )
+        : <NotAuthPage />}
     </DynamicModuleLoader>
   )
 })
