@@ -1,4 +1,6 @@
+import { memo, useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 import cls from './Navbar.module.scss'
 
@@ -15,9 +17,9 @@ import LogoutButton from './LogoutButton/LogoutButton'
 import ProfileIconLink from './ProfileIconLink/ProfileIconLink'
 import { getUserAuthData } from 'entities/User'
 import LogoLink from './LogoLink/LogoLink'
-import { memo, useEffect } from 'react'
 import { fetchAccountDetails, getAccountAvatar } from 'entities/AccountDetails'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { AppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig'
 
 export interface NavigationListsProps {
   items: NavbarDropdown[]
@@ -52,6 +54,7 @@ const NavigationLists = ({ items }: NavigationListsProps) => {
 
 const Navbar = memo(({ navigationDropdownsConfig, searchDropdownConfig, className }: NavbarProps) => {
   const dispatch = useAppDispatch()
+  const { t } = useTranslation()
   const { theme } = useTheme()
 
   const isAuth = useSelector(getUserAuthData)
@@ -70,6 +73,14 @@ const Navbar = memo(({ navigationDropdownsConfig, searchDropdownConfig, classNam
 
         <nav className={cls.navbarNav}>
           <NavigationLists items={navigationDropdownsConfig.items}/>
+          <li className={cls.navbarItem}>
+            <AppLink
+              className={cls.navbarItemLink}
+              to={RoutePath[AppRoutes.BLOG]}
+            >
+              {t('blog')}
+            </AppLink>
+          </li>
         </nav>
 
         <div className={cls.navbarActionButtons}>

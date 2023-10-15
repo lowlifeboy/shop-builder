@@ -4,6 +4,8 @@ import { MainPage } from 'pages/MainPage'
 import { AboutPage } from 'pages/AboutPage'
 import { NotFoundPage } from 'pages/NotFoundPage'
 import { AccountDetailsPage, Dashboard, Orders, Addresses, Wishlist, ProfileLayout } from 'pages/ProfilePage'
+import { ArticlesPage } from 'pages/ArticlesPage'
+import { ArticleDetailsPage } from 'pages/ArticleDetailsPage'
 
 type AppRouteProps = RouteObject & {
   authOnly?: boolean
@@ -13,6 +15,8 @@ type AppRouteProps = RouteObject & {
 export enum AppRoutes {
   MAIN = 'main',
   ABOUT = 'about',
+  BLOG = 'blog',
+  ARTICLE = 'article',
 
   // last
   NOT_FOUND = 'not_found',
@@ -28,16 +32,18 @@ export enum ProfileRoutes {
 
 // Route paths
 export const ProfileRoutePath: Record<ProfileRoutes, string> = {
-  [ProfileRoutes.PROFILE_DASHBOARD]: '/profile_dashboard',
-  [ProfileRoutes.PROFILE_ORDERS]: '/profile_orders',
-  [ProfileRoutes.PROFILE_ADDRESSES]: '/profile_addresses',
-  [ProfileRoutes.PROFILE_ACCOUNT_DETAILS]: '/profile_accountDetails',
-  [ProfileRoutes.PROFILE_WISHLIST]: '/profile_wishlist'
+  [ProfileRoutes.PROFILE_DASHBOARD]: '/profile/dashboard',
+  [ProfileRoutes.PROFILE_ORDERS]: '/profile/orders',
+  [ProfileRoutes.PROFILE_ADDRESSES]: '/profile/addresses',
+  [ProfileRoutes.PROFILE_ACCOUNT_DETAILS]: '/profile/accountDetails',
+  [ProfileRoutes.PROFILE_WISHLIST]: '/profile/wishlist'
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: '/',
   [AppRoutes.ABOUT]: '/about',
+  [AppRoutes.BLOG]: '/blog',
+  [AppRoutes.ARTICLE]: '/article/:articleId',
 
   // last
   [AppRoutes.NOT_FOUND]: '*'
@@ -83,6 +89,14 @@ export const routeConfig: AppRouteProps[] = [
   {
     path: RoutePath[AppRoutes.ABOUT],
     element: <AboutPage />
+  },
+  {
+    path: RoutePath[AppRoutes.BLOG],
+    element: <ArticlesPage />
+  },
+  {
+    path: RoutePath[AppRoutes.ARTICLE],
+    element: <ArticleDetailsPage />
   },
 
   // Profile pages

@@ -7,13 +7,13 @@ export default function buildBabelLoader(isDev: boolean) {
       options: {
         presets: ['@babel/preset-env'],
         plugins: [
-          [
-            'i18next-extract',
-            {
-              locales: ['en', 'de'],
-              keyAsDefaultValue: true
-            }
-          ],
+          // [
+          //   'i18next-extract',
+          //   {
+          //     locales: ['en', 'de'],
+          //     keyAsDefaultValue: true
+          //   }
+          // ],
           isDev && require.resolve('react-refresh/babel')
         ].filter(Boolean)
       }

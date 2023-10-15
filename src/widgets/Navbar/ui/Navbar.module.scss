@@ -22,6 +22,22 @@
   display: flex;
   list-style: none;
 
+  .navbarItem {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbarItemLink {
+    color: var(--primary-color);
+    transition: color 0.3s;
+
+    &:hover {
+      color: var(--text-third-color);
+      transition: color 0.3s;
+    }
+  }
+
+
   & > li:not(:last-child) {
     margin-right: 40px;
   }
