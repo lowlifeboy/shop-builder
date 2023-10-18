@@ -1,3 +1,4 @@
 {
-  "test": "Test"
+  "articleNotFound": "Artikel nicht gefunden",
+  "articleLoading": "Artikel wird geladen"
 }

@@ -16,6 +16,7 @@ import { type AccountDetailsState } from 'entities/AccountDetails'
 import { type AccountAddressesState } from 'entities/AccountAddresses'
 import { type AccountOrdersState } from 'entities/AccountOrders'
 import { type AccountWishlistState } from 'entities/AccountWishlist'
+import { type ArticleDetailsState } from 'entities/Article'
 
 export interface StateSchema {
   user: UserSchema
@@ -26,6 +27,7 @@ export interface StateSchema {
   loginForm?: LoginSchema
   accountOrders?: AccountOrdersState
   accountWishlist?: AccountWishlistState
+  articleDetails?: ArticleDetailsState
 }
 
 export type StateSchemaKey = keyof StateSchema

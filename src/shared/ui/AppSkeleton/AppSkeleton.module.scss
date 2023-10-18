@@ -1,0 +1,12 @@
+.appSkeleton {
+  background: linear-gradient(100deg, var(--skeleton-glare-color-40) 40%, var(--skeleton-glare-color-50) 50%, var(--skeleton-glare-color-60) 60%) var(--secondary-bg-color);
+  background-size: 200% 100%;
+  background-position-x: 180%;
+  animation: 1.5s loading ease-in-out infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position-x: -20%;
+  }
+}

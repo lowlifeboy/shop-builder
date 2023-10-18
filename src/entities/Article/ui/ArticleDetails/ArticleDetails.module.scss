@@ -1,0 +1,28 @@
+.articleDetails {
+  flex-grow: 1;
+  padding: 72px 0 152px;
+}
+
+.contentCentered {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.tagsList {
+  margin-bottom: 8px;
+}
+
+.titleWrapper {
+  margin-bottom: 16px;
+}
+
+.paramsWrapper {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.bannerWrapper {
+  margin-bottom: 56px;
+}

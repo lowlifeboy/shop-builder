@@ -27,6 +27,124 @@
       "password": "321"
     }
   ],
+  "articles": [
+    {
+      "id": "1",
+      "title": "This summer fashion trends are tasty",
+      "description": "This summer, explore delectable fashion trends that are both stylish and satisfying. Uncover the latest tastes in clothing and accessories, as we guide you through the season's most appetizing looks. From refreshing colors to mouth-watering patterns, this article is your ultimate fashion menu for a trendy and flavorful summer wardrobe.",
+      "categories": ["Fashion"],
+      "author": "Danny Roman",
+      "date": "2023-10-16 11:43:00 PM",
+      "commentsNumber": 6,
+      "banner": "https://cdn.pixabay.com/photo/2017/03/28/12/11/chairs-2181960_960_720.jpg",
+      "preview": "https://cdn.pixabay.com/photo/2017/03/28/12/11/chairs-2181960_640.jpg",
+      "time" : 1550476186479,
+      "blocks": [
+        {
+          "id": "oUq2g_tl8y",
+          "type": "header",
+          "data": {
+            "text": "Editor.js",
+            "level": 2
+          }
+        },
+        {
+          "id": "zbGZFPM-iI",
+          "type": "paragraph",
+          "data": {
+            "text": "Hey. Meet the new Editor. On this page you can see it in action — try to edit this text. Source code of the page contains the example of connection and configuration."
+          }
+        },
+        {
+          "id": "qYIGsjS5rt",
+          "type": "header",
+          "data": {
+            "text": "Key features",
+            "level": 3
+          }
+        },
+        {
+          "id": "XV87kJS_H1",
+          "type": "list",
+          "data": {
+            "style": "unordered",
+            "items": [
+              "It is a block-styled editor",
+              "It returns clean data output in JSON",
+              "Designed to be extendable and pluggable with a simple API"
+            ]
+          }
+        },
+        {
+          "id": "AOulAjL8XM",
+          "type": "header",
+          "data": {
+            "text": "What does it mean «block-styled editor»",
+            "level": 3
+          }
+        },
+        {
+          "id": "cyZjplMOZ0",
+          "type": "paragraph",
+          "data": {
+            "text": "Workspace in classic editors is made of a single contenteditable element, used to create different HTML markups. Editor.js <mark class=\"cdx-marker\">workspace consists of separate Blocks: paragraphs, headings, images, lists, quotes, etc</mark>. Each of them is an independent contenteditable element (or more complex structure) provided by Plugin and united by Editor's Core."
+          }
+        }
+      ]
+    }
+  ],
+  "articleComments": [
+    {
+      "id": "1",
+      "articleId": "1",
+      "userId": "1",
+      "text": "I like this article",
+      "date": "2023-10-16 11:43:00 PM",
+      "likes": 5,
+      "dislikes": 1,
+      "author": {
+        "firstName": "Danny",
+        "lastName": "Roman",
+        "displayName": "Danny Roman",
+        "avatar": "https://xcdn.next.co.uk/COMMON/Items/Default/Default/ItemImages/AltItemShot/315x472/D38591s.jpg",
+        "id": "1"
+      },
+      "replies": [
+        {
+          "id": "2",
+          "articleId": "1",
+          "userId": "2",
+          "text": "I like this article too",
+          "date": "2023-10-16 11:45:00 PM",
+          "likes": 1,
+          "dislikes": 0,
+          "author": {
+            "firstName": "John",
+            "lastName": "Doe",
+            "displayName": "John Doe",
+            "avatar": "https://xcdn.next.co.uk/COMMON/Items/Default/Default/ItemImages/AltItemShot/315x472/D38591s.jpg",
+            "id": "2"
+          }
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "articleId": "1",
+      "userId": "2",
+      "text": "Can you recommend some resources for this theme?",
+      "date": "2023-10-16 11:45:00 PM",
+      "likes": 1,
+      "dislikes": 0,
+      "author": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "displayName": "John Doe",
+        "avatar": "https://xcdn.next.co.uk/COMMON/Items/Default/Default/ItemImages/AltItemShot/315x472/D38591s.jpg",
+        "id": "2"
+      }
+    }
+  ],
   "accountDetails": {
     "firstName": "Kenny",
     "lastName": "White",

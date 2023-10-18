@@ -5,6 +5,7 @@
 - [x] React
 - [x] React Portals
 - [x] React memo
+- [x] Skeleton
 - [x] Lazy Components
 - [x] Lazy Reducers
 - [x] Reducer Manager

@@ -43,7 +43,7 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: '/',
   [AppRoutes.ABOUT]: '/about',
   [AppRoutes.BLOG]: '/blog',
-  [AppRoutes.ARTICLE]: '/article/:articleId',
+  [AppRoutes.ARTICLE]: '/article/:id',
 
   // last
   [AppRoutes.NOT_FOUND]: '*'
