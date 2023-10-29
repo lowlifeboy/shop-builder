@@ -1,3 +1,5 @@
+export { ArticleBlockType } from './model/types/articleSchema'
+
 export { fetchArticleById } from './model/services/fetchArticleById/fetchArticleById'
 
 export { articleDetailsReducer, articleDetailsActions } from './model/slice/articleDetailsSlice'

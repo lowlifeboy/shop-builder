@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 import cls from './ArticleDetails.module.scss'
 
+import { ClockIcon, CommentIcon, ProfileIcon } from 'shared/assets/icons'
 import AppSkeleton from 'shared/ui/AppSkeleton/AppSkeleton'
 import AppErrorText, { TextAlign } from 'shared/ui/AppErrorText/AppErrorText'
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -14,6 +15,9 @@ import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData'
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError'
 import { getArticleDetailsLoading } from '../../model/selectors/getArticleDetailsLoading/getArticleDetailsLoading'
+import ArticleParam from './ui/ArticleParam'
+import { TextEditorOutput } from 'widgets/TextEditorOutput'
+import { editorDefaultData2 } from 'widgets/TextEditorOutput/models/constants/editorDefaultData'
 
 interface ArticleDetailsProps {
   id: string
@@ -40,7 +44,7 @@ const ArticleDetails = memo(({ id, className }: ArticleDetailsProps) => {
   if (isLoading) {
     content = (
       <>
-        <AppSkeleton width={160} height={30} className={cls.tagsList} />
+        <AppSkeleton width={160} height={30} className={cls.categoriesList} />
         <AppSkeleton width={900} height={58} className={cls.titleWrapper} />
         <div className={cls.paramsWrapper}>
           <AppSkeleton width={127} height={26} />
@@ -58,7 +62,27 @@ const ArticleDetails = memo(({ id, className }: ArticleDetailsProps) => {
       </div>
     )
   } else {
-    content = data?.title
+    content = (
+      <>
+        <div className={cls.categoriesList}>
+          {data?.categories.map((item) => (
+            <p key={item} className={cls.category}>{item}</p>
+          ))}
+        </div>
+        <h1 className={cls.titleWrapper}>{data?.title}</h1>
+        <div className={cls.paramsWrapper}>
+          <ArticleParam Icon={() => <ProfileIcon height={18} />} text={data?.author.displayName ?? ''} />
+          <ArticleParam Icon={() => <ClockIcon height={18} />} text={data?.date ?? ''} />
+          <ArticleParam Icon={() => <CommentIcon height={18} />} text={`${data?.commentsNumber ?? 0} ${t('comments')}`} />
+        </div>
+        <div className={cls.bannerWrapper}>
+          <img src={data?.banner} alt={data?.title} />
+        </div>
+        <div className={cls.content}>
+          <TextEditorOutput content={editorDefaultData2} />
+        </div>
+      </>
+    )
   }
 
   return (

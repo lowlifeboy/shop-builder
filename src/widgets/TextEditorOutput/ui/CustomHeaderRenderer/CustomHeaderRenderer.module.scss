@@ -1,0 +1,12 @@
+.customHeaderRenderer {
+  h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: var(--font-family-main);
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 34px;
+    letter-spacing: -0.6px;
+    margin-bottom: 24px;
+  }
+}

@@ -1,0 +1,23 @@
+.articleParam {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  svg {
+    width: 18px;
+    height: 18px;
+
+    path {
+      fill: var(--text-second-color)
+    }
+  }
+
+  span {
+    color: var(--text-second-color);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: var(--font-family-secondary);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+  }
+}

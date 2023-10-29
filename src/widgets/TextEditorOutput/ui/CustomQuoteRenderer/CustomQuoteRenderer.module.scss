@@ -1,0 +1,28 @@
+.customQuoteRenderer {
+  display: flex;
+  padding: 56px 71px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  border-radius: 6px;
+  background-color: var(--secondary-bg-color);
+  margin: 56px 0;
+
+  svg {
+    path {
+      fill: var(--primary-color);
+    }
+  }
+
+  p {
+    width: 100%;
+    max-width: 770px;
+    color: var(--primary-color);
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: var(--font-family-secondary);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 32px;
+  }
+}

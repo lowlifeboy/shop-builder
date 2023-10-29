@@ -1,32 +1,41 @@
 export enum ArticleBlockType {
-  CODE = 'CODE',
-  IMAGE = 'IMAGE',
-  TEXT = 'TEXT'
+  IMAGE = 'image',
+  PARAGRAPH = 'paragraph',
+  HEADER = 'header',
+  QUOTE = 'quote',
 }
 
-export interface ArticleBlockBase {
-  id: string
-  type: ArticleBlockType
+export interface ArticleImageBlock {
+  data: {
+    caption: string
+    stretched: boolean
+    url: string
+    withBorder: boolean
+    withBackground: boolean
+  }
 }
 
-export interface ArticleCodeBlock extends ArticleBlockBase {
-  type: ArticleBlockType.CODE
-  code: string
+export interface ArticleHeaderBlock {
+  data: {
+    text: string
+    level: number
+  }
 }
 
-export interface ArticleImageBlock extends ArticleBlockBase {
-  type: ArticleBlockType.IMAGE
-  src: string
-  title: string
+export interface ArticleParagraphBlock {
+  data: {
+    text: string
+  }
 }
 
-export interface ArticleTextBlock extends ArticleBlockBase {
-  type: ArticleBlockType.TEXT
-  paragraphs: string[]
-  title?: string
+export interface ArticleQuoteBlock {
+  data: {
+    caption: string
+    text: string
+  }
 }
 
-export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock
+export type ArticleBlock = ArticleQuoteBlock | ArticleImageBlock | ArticleHeaderBlock | ArticleParagraphBlock
 
 export enum ArticleCategories {
   IT = 'it',
@@ -41,12 +50,11 @@ export default interface ArticleSchema {
   categories: ArticleCategories[]
   author: {
     id: string
-    username: string
+    displayName: string
   }
   date: string
   commentsNumber: number
   banner: string
   preview: string
-  time: number
   blocks: ArticleBlock[]
 }

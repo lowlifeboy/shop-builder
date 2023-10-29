@@ -33,7 +33,13 @@
       "title": "This summer fashion trends are tasty",
       "description": "This summer, explore delectable fashion trends that are both stylish and satisfying. Uncover the latest tastes in clothing and accessories, as we guide you through the season's most appetizing looks. From refreshing colors to mouth-watering patterns, this article is your ultimate fashion menu for a trendy and flavorful summer wardrobe.",
       "categories": ["Fashion"],
-      "author": "Danny Roman",
+      "author": {
+        "firstName": "Danny",
+        "lastName": "Roman",
+        "displayName": "Danny Roman",
+        "avatar": "https://xcdn.next.co.uk/COMMON/Items/Default/Default/ItemImages/AltItemShot/315x472/D38591s.jpg",
+        "id": "1"
+      },
       "date": "2023-10-16 11:43:00 PM",
       "commentsNumber": 6,
       "banner": "https://cdn.pixabay.com/photo/2017/03/28/12/11/chairs-2181960_960_720.jpg",
@@ -43,52 +49,56 @@
         {
           "id": "oUq2g_tl8y",
           "type": "header",
-          "data": {
-            "text": "Editor.js",
-            "level": 2
-          }
+          "text": "Editor.js",
+          "level": 2
         },
         {
           "id": "zbGZFPM-iI",
           "type": "paragraph",
-          "data": {
-            "text": "Hey. Meet the new Editor. On this page you can see it in action — try to edit this text. Source code of the page contains the example of connection and configuration."
-          }
+          "text": "Hey. Meet the new Editor. On this page you can see it in action — try to edit this text. Source code of the page contains the example of connection and configuration."
+        },
+        {
+          "id": "zbGZFPM-iI",
+          "type": "image",
+          "src": "https://cdn.pixabay.com/photo/2017/03/28/12/11/chairs-2181960_960_720.jpg",
+          "alt": "image"
         },
         {
           "id": "qYIGsjS5rt",
           "type": "header",
-          "data": {
-            "text": "Key features",
-            "level": 3
-          }
+          "text": "Key features",
+          "level": 3
         },
         {
           "id": "XV87kJS_H1",
           "type": "list",
-          "data": {
-            "style": "unordered",
-            "items": [
-              "It is a block-styled editor",
-              "It returns clean data output in JSON",
-              "Designed to be extendable and pluggable with a simple API"
-            ]
-          }
+          "style": "unordered",
+          "items": [
+            "It is a block-styled editor",
+            "It returns clean data output in JSON",
+            "Designed to be extendable and pluggable with a simple API"
+          ]
         },
         {
           "id": "AOulAjL8XM",
           "type": "header",
-          "data": {
-            "text": "What does it mean «block-styled editor»",
-            "level": 3
-          }
+          "text": "What does it mean «block-styled editor»",
+          "level": 3
+        },
+        {
+          "id": "cyZjplMOZ1",
+          "type": "paragraph",
+          "text": "Workspace in classic editors is made of a single contenteditable element, used to create different HTML markups. Editor.js <mark class=\"cdx-marker\">workspace consists of separate Blocks: paragraphs, headings, images, lists, quotes, etc</mark>. Each of them is an independent contenteditable element (or more complex structure) provided by Plugin and united by Editor's Core."
+        },
+        {
+          "id": "cyZjplMOZ2",
+          "type": "code",
+          "code": "import type { Meta, StoryObj } from '@storybook/react'\n\nimport ArticleCodeBlockComponent from './ArticleCodeBlockComponent'\nimport ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'\nimport { Theme } from 'app/providers/ThemeProvider'\nimport BorderedStoryDecorator from 'shared/config/storybook/StoryDecorator/BorderedStoryDecorator'\nimport { ArticleBlockType, type ArticleCodeBlock } from '../../model/types/articleSchema'\n\nconst meta = {\n  title: 'entities/Article/ArticleCodeBlockComponent',\n  component: ArticleCodeBlockComponent,\n  tags: ['autodocs'],\n  argTypes: {}\n} satisfies Meta<typeof ArticleCodeBlockComponent>"
         },
         {
           "id": "cyZjplMOZ0",
           "type": "paragraph",
-          "data": {
-            "text": "Workspace in classic editors is made of a single contenteditable element, used to create different HTML markups. Editor.js <mark class=\"cdx-marker\">workspace consists of separate Blocks: paragraphs, headings, images, lists, quotes, etc</mark>. Each of them is an independent contenteditable element (or more complex structure) provided by Plugin and united by Editor's Core."
-          }
+          "text": "Workspace in classic editors is made of a single contenteditable element, used to create different HTML markups. Editor.js <mark class=\"cdx-marker\">workspace consists of separate Blocks: paragraphs, headings, images, lists, quotes, etc</mark>. Each of them is an independent contenteditable element (or more complex structure) provided by Plugin and united by Editor's Core."
         }
       ]
     }
