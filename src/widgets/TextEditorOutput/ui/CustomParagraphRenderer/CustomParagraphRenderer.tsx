@@ -2,13 +2,9 @@ import ReactHtmlParser from 'react-html-parser'
 
 import cls from './CustomParagraphRenderer.module.scss'
 
-interface CustomParagraphRendererProps {
-  data: {
-    text: string
-  }
-}
+import { type ArticleParagraphBlock } from 'entities/Article'
 
-const CustomParagraphRenderer = ({ data }: CustomParagraphRendererProps) => {
+const CustomParagraphRenderer = ({ data }: ArticleParagraphBlock) => {
   return <p className={cls.customParagraphRenderer}>{ReactHtmlParser(data.text)}</p>
 }
 

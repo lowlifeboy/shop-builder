@@ -13,19 +13,19 @@ const TextEditor = memo(() => {
   const initializeEditor = async () => {
     const EditorJS = (await import('@editorjs/editorjs')).default
     const Header = (await import('@editorjs/header')).default
-    const Table = (await import('@editorjs/table')).default
-    const List = (await import('@editorjs/list')).default
-    const Embed = (await import('@editorjs/embed')).default
+    // const Table = (await import('@editorjs/table')).default
+    // const List = (await import('@editorjs/list')).default
+    // const Embed = (await import('@editorjs/embed')).default
     const Delimiter = (await import('@editorjs/delimiter')).default
-    const CheckList = (await import('@editorjs/checklist')).default
+    // const CheckList = (await import('@editorjs/checklist')).default
     const Paragraph = (await import('@editorjs/paragraph')).default
     const SimpleImage = (await import('@editorjs/simple-image')).default
-    const Code = (await import('@editorjs/code')).default
-    const InlineCode = (await import('@editorjs/inline-code')).default
-    const Marker = (await import('@editorjs/marker')).default
+    // const Code = (await import('@editorjs/code')).default
+    // const InlineCode = (await import('@editorjs/inline-code')).default
+    // const Marker = (await import('@editorjs/marker')).default
     const Quote = (await import('@editorjs/quote')).default
-    const Raw = (await import('@editorjs/raw')).default
-    const Warning = (await import('@editorjs/warning')).default
+    // const Raw = (await import('@editorjs/raw')).default
+    // const Warning = (await import('@editorjs/warning')).default
 
     if (ref.current) {
       ref.current = new EditorJS({
@@ -42,38 +42,38 @@ const TextEditor = memo(() => {
               defaultLevel: 1
             }
           },
-          table: {
-            class: Table,
-            inlineToolbar: true,
-            config: {
-              rows: 2,
-              cols: 3
-            }
-          },
-          list: {
-            class: List,
-            inlineToolbar: true,
-            config: {
-              defaultStyle: 'unordered'
-            }
-          },
-          embed: {
-            class: Embed,
-            inlineToolbar: true
-          },
+          // table: {
+          //   class: Table,
+          //   inlineToolbar: true,
+          //   config: {
+          //     rows: 2,
+          //     cols: 3
+          //   }
+          // },
+          // list: {
+          //   class: List,
+          //   inlineToolbar: true,
+          //   config: {
+          //     defaultStyle: 'unordered'
+          //   }
+          // },
+          // embed: {
+          //   class: Embed,
+          //   inlineToolbar: true
+          // },
           image: SimpleImage,
-          checkList: CheckList,
+          // checkList: CheckList,
           delimiter: Delimiter,
           paragraph: {
             class: Paragraph,
             inlineToolbar: true
           },
-          code: Code,
-          inlineCode: InlineCode,
-          marker: Marker,
-          quote: Quote,
-          raw: Raw,
-          warning: Warning
+          // code: Code,
+          // inlineCode: InlineCode,
+          // marker: Marker,
+          quote: Quote
+          // raw: Raw,
+          // warning: Warning
         }
       })
     }

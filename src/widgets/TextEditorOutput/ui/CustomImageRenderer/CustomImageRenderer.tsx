@@ -1,22 +1,25 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './CustomImageRenderer.module.scss'
+import { type ArticleImageBlock } from 'entities/Article'
 
-interface CustomImageRendererProps {
-  data: {
-    caption: string
-    stretched: boolean
-    url: string
-    withBorder: boolean
-    withBackground: boolean
-  }
-}
+const CustomImageRenderer = ({ data }: ArticleImageBlock) => {
+  const { caption, stretched, url, withBorder, withBackground } = data
 
-const CustomImageRenderer = ({ data }: CustomImageRendererProps) => {
-  return data.url
+  return url
     ? (
-      <div className={classNames(cls.customImageRenderer, { [cls.stretched]: data.stretched, [cls.withBorder]: data.withBorder, [cls.withBackground]: data.withBackground }, [])}>
-        <img src={data.url} alt={data.caption}/>
-        <p>{data.caption}</p>
+      <div className={
+        classNames(
+          cls.customImageRenderer,
+          {
+            [cls.stretched]: stretched,
+            [cls.withBorder]: withBorder,
+            [cls.withBackground]: withBackground
+          },
+          []
+        )
+      }>
+        <img src={url} alt={caption}/>
+        <p>{caption}</p>
       </div>
       )
     : null

@@ -1,15 +1,9 @@
 import ReactHtmlParser from 'react-html-parser'
 
 import cls from './CustomHeaderRenderer.module.scss'
+import { type ArticleHeaderBlock } from 'entities/Article'
 
-interface CustomHeaderRendererProps {
-  data: {
-    text: string
-    level: number
-  }
-}
-
-const renderHeader = ({ text, level }: { text: string, level: number }) => {
+const renderHeader = ({ data: { text, level } }: ArticleHeaderBlock) => {
   switch (level) {
     case 1:
       return <h1>{ReactHtmlParser(text)}</h1>
@@ -28,8 +22,8 @@ const renderHeader = ({ text, level }: { text: string, level: number }) => {
   }
 }
 
-const CustomHeaderRenderer = ({ data }: CustomHeaderRendererProps) => {
-  return <div className={cls.customHeaderRenderer}>{renderHeader({ text: data.text, level: data.level })}</div>
+const CustomHeaderRenderer = ({ data }: ArticleHeaderBlock) => {
+  return <div className={cls.customHeaderRenderer}>{renderHeader({ data })}</div>
 }
 
 export default CustomHeaderRenderer

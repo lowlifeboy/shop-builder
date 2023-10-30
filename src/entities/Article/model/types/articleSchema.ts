@@ -1,10 +1,3 @@
-export enum ArticleBlockType {
-  IMAGE = 'image',
-  PARAGRAPH = 'paragraph',
-  HEADER = 'header',
-  QUOTE = 'quote',
-}
-
 export interface ArticleImageBlock {
   data: {
     caption: string
@@ -35,19 +28,20 @@ export interface ArticleQuoteBlock {
   }
 }
 
-export type ArticleBlock = ArticleQuoteBlock | ArticleImageBlock | ArticleHeaderBlock | ArticleParagraphBlock
-
-export enum ArticleCategories {
-  IT = 'it',
-  SCIENCE = 'science',
-  OTHER = 'other'
+export interface ArticleListBlock {
+  data: {
+    style: 'ordered' | 'unordered'
+    items: string[]
+  }
 }
+
+export type ArticleBlock = ArticleQuoteBlock | ArticleImageBlock | ArticleHeaderBlock | ArticleParagraphBlock | ArticleListBlock
 
 export default interface ArticleSchema {
   id: string
   title: string
   description: string
-  categories: ArticleCategories[]
+  categories: string[]
   author: {
     id: string
     displayName: string
@@ -56,5 +50,9 @@ export default interface ArticleSchema {
   commentsNumber: number
   banner: string
   preview: string
-  blocks: ArticleBlock[]
+  content: {
+    time: number
+    blocks: ArticleBlock[]
+    version: string
+  }
 }

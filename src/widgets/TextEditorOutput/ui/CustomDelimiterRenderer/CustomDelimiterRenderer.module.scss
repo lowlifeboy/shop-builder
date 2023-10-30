@@ -1,0 +1,12 @@
+.customDelimiterRendererWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin: 72px 0;
+
+  div {
+    color: var(--delimiter-color);
+    font-size: 16px;
+  }
+}

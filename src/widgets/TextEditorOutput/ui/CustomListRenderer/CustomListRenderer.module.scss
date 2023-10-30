@@ -1,0 +1,21 @@
+.customListRenderer {
+  color: var(--text-second-color);
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: var(--font-family-secondary);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+  margin-bottom: 36px;
+  padding-left: 24px;
+
+  &.ordered {
+    padding-left: 48px;
+  }
+
+  li {
+    span {
+      font-size: 16px;
+      color: var(--text-forth-color);
+    }
+  }
+}

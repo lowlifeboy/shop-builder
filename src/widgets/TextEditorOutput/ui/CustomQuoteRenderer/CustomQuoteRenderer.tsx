@@ -2,16 +2,9 @@ import cls from './CustomQuoteRenderer.module.scss'
 
 import { QuoteIcon } from 'shared/assets/icons'
 
-interface CustomQuoteRendererProps {
-  data: {
-    caption: string
-    text: string
-  }
-}
+import { type ArticleQuoteBlock } from 'entities/Article'
 
-const CustomQuoteRenderer = ({ data }: CustomQuoteRendererProps) => {
-  console.log(data)
-
+const CustomQuoteRenderer = ({ data }: ArticleQuoteBlock) => {
   return (
     <div className={cls.customQuoteRenderer}>
       <QuoteIcon />

@@ -17,7 +17,6 @@ import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsE
 import { getArticleDetailsLoading } from '../../model/selectors/getArticleDetailsLoading/getArticleDetailsLoading'
 import ArticleParam from './ui/ArticleParam'
 import { TextEditorOutput } from 'widgets/TextEditorOutput'
-import { editorDefaultData2 } from 'widgets/TextEditorOutput/models/constants/editorDefaultData'
 
 interface ArticleDetailsProps {
   id: string
@@ -79,7 +78,7 @@ const ArticleDetails = memo(({ id, className }: ArticleDetailsProps) => {
           <img src={data?.banner} alt={data?.title} />
         </div>
         <div className={cls.content}>
-          <TextEditorOutput content={editorDefaultData2} />
+          <TextEditorOutput content={data?.content} />
         </div>
       </>
     )
