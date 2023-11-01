@@ -3,11 +3,13 @@ import { loginReducer } from 'features/AuthByUsername'
 import { type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { accountOrdersReducer } from 'entities/AccountOrders'
 import { accountWishlistReducer } from 'entities/AccountWishlist'
+import { articleDetailsReducer } from 'entities/Article'
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
   accountOrders: accountOrdersReducer,
-  accountWishlist: accountWishlistReducer
+  accountWishlist: accountWishlistReducer,
+  articleDetails: articleDetailsReducer
 }
 
 export default function StoreDecorator (
@@ -16,7 +18,10 @@ export default function StoreDecorator (
 ) {
   return function (Story: any) {
     return (
-      <StoreProvider initialState={state} asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}>
+      <StoreProvider
+        initialState={state}
+        asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+      >
         <Story />
       </StoreProvider>
     )

@@ -35,7 +35,9 @@ const ArticleDetails = memo(({ id, className }: ArticleDetailsProps) => {
   const data = useSelector(getArticleDetailsData)
 
   useEffect(() => {
-    void dispatch(fetchArticleById(id))
+    if (__PROJECT__ !== 'storybook') {
+      void dispatch(fetchArticleById(id))
+    }
   }, [dispatch, id])
 
   let content
@@ -85,7 +87,7 @@ const ArticleDetails = memo(({ id, className }: ArticleDetailsProps) => {
   }
 
   return (
-    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount >
+    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <div className={classNames(cls.articleDetails, { [cls.contentCentered]: !!error }, [className])}>
         {content}
       </div>

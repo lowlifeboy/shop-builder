@@ -42,8 +42,7 @@ describe('loginByUsernameTest', () => {
   //   expect(dispatch).toHaveBeenCalledTimes(2)
   //   expect(mockedAxios.post).toHaveBeenCalled()
   //   expect(result.meta.requestStatus).toBe('rejected')
-  //   expect(result.payload).toBe('error')
-  // })
+  //   expch
 
   it('success login', async () => {
     const userValue = { username: 'testUsername', id: '1' }

@@ -4,7 +4,7 @@ import cls from './ArticleParam.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
 
-interface ArticleParamProps {
+export interface ArticleParamProps {
   Icon: () => ReactNode
   text: string
   className?: string
