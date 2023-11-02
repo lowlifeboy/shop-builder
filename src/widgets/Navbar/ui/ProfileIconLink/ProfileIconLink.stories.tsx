@@ -6,9 +6,10 @@ import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorato
 import StoryDecorator from 'shared/config/storybook/StoryDecorator/StoryDecorator'
 import StoreDecorator from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import { type StateSchema } from 'app/providers/StoreProvider'
+import RouterDecorator from 'shared/config/storybook/RouterDecorator/RouterDecorator'
 
 const meta = {
-  title: 'models/ProfileIconLink',
+  title: 'widgets/Navbar/ProfileIconLink',
   component: ProfileIconLink,
   tags: ['autodocs'],
   argTypes: {}
@@ -39,20 +40,20 @@ const autorizedState: DeepPartial<StateSchema> = {
 
 export const UnauthorizedLight: Story = {
   args: {},
-  decorators: [StoreDecorator(defaultState), StoryDecorator, ThemeDecorator(Theme.LIGHT)]
+  decorators: [RouterDecorator, StoreDecorator(defaultState), StoryDecorator, ThemeDecorator(Theme.LIGHT)]
 }
 
 export const UnauthorizedDark: Story = {
   args: {},
-  decorators: [StoreDecorator(defaultState), StoryDecorator, ThemeDecorator(Theme.DARK)]
+  decorators: [RouterDecorator, StoreDecorator(defaultState), StoryDecorator, ThemeDecorator(Theme.DARK)]
 }
 
 export const AuthorizedLight: Story = {
   args: {},
-  decorators: [StoreDecorator(autorizedState), StoryDecorator, ThemeDecorator(Theme.LIGHT)]
+  decorators: [RouterDecorator, StoreDecorator(autorizedState), StoryDecorator, ThemeDecorator(Theme.LIGHT)]
 }
 
 export const AuthorizedDark: Story = {
   args: {},
-  decorators: [StoreDecorator(autorizedState), StoryDecorator, ThemeDecorator(Theme.DARK)]
+  decorators: [RouterDecorator, StoreDecorator(autorizedState), StoryDecorator, ThemeDecorator(Theme.DARK)]
 }

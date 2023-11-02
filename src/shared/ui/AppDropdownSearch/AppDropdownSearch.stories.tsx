@@ -7,6 +7,7 @@ import AppLink from 'shared/ui/AppLink/AppLink'
 import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
 import StoryDecorator from 'shared/config/storybook/StoryDecorator/StoryDecorator'
+import RouterDecorator from 'shared/config/storybook/RouterDecorator/RouterDecorator'
 
 const meta = {
   title: 'shared/AppDropdownSearch',
@@ -35,7 +36,7 @@ export const Light: Story = {
     title: 'AppDropdownSearch',
     children: <ItemsList />
   },
-  decorators: [StoryDecorator, ThemeDecorator(Theme.LIGHT)]
+  decorators: [RouterDecorator, StoryDecorator, ThemeDecorator(Theme.LIGHT)]
 }
 
 export const Dark: Story = {
@@ -43,5 +44,5 @@ export const Dark: Story = {
     title: 'AppDropdownSearch',
     children: <ItemsList />
   },
-  decorators: [StoryDecorator, ThemeDecorator(Theme.DARK)]
+  decorators: [RouterDecorator, StoryDecorator, ThemeDecorator(Theme.DARK)]
 }

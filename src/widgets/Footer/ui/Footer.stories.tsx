@@ -4,6 +4,7 @@ import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorato
 import { Theme } from 'app/providers/ThemeProvider'
 import StoryDecorator from 'shared/config/storybook/StoryDecorator/StoryDecorator'
 import Footer from './Footer'
+import RouterDecorator from 'shared/config/storybook/RouterDecorator/RouterDecorator'
 
 const meta = {
   title: 'widgets/Footer',
@@ -17,10 +18,10 @@ type Story = StoryObj<typeof meta>
 
 export const Light: Story = {
   args: {},
-  decorators: [StoryDecorator, ThemeDecorator(Theme.LIGHT)]
+  decorators: [RouterDecorator, StoryDecorator, ThemeDecorator(Theme.LIGHT)]
 }
 
 export const Dark: Story = {
   args: {},
-  decorators: [StoryDecorator, ThemeDecorator(Theme.DARK)]
+  decorators: [RouterDecorator, StoryDecorator, ThemeDecorator(Theme.DARK)]
 }

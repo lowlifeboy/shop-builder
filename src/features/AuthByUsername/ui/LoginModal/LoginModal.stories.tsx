@@ -7,6 +7,7 @@ import StoryDecorator from 'shared/config/storybook/StoryDecorator/StoryDecorato
 import StoreDecorator from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import TranslationDecorator from 'shared/config/storybook/TranslationDecorator/TranslationDecorator'
+import RouterDecorator from 'shared/config/storybook/RouterDecorator/RouterDecorator'
 
 const meta = {
   title: 'features/AuthByUsername/LoginModal',
@@ -31,12 +32,12 @@ export const Light: Story = {
   args: {
     isOpen: true
   },
-  decorators: [StoreDecorator(state), StoryDecorator, ThemeDecorator(Theme.LIGHT), TranslationDecorator]
+  decorators: [RouterDecorator, StoreDecorator(state), StoryDecorator, ThemeDecorator(Theme.LIGHT), TranslationDecorator]
 }
 
 export const Dark: Story = {
   args: {
     isOpen: true
   },
-  decorators: [StoreDecorator(state), StoryDecorator, ThemeDecorator(Theme.DARK), TranslationDecorator]
+  decorators: [RouterDecorator, StoreDecorator(state), StoryDecorator, ThemeDecorator(Theme.DARK), TranslationDecorator]
 }

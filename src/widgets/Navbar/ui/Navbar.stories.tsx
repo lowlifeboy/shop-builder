@@ -7,6 +7,7 @@ import { navigationDropdownsConfig, searchDropdownConfig } from 'widgets/Navbar/
 import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import StoryDecorator from 'shared/config/storybook/StoryDecorator/StoryDecorator'
 import StoreDecorator from 'shared/config/storybook/StoreDecorator/StoreDecorator'
+import RouterDecorator from 'shared/config/storybook/RouterDecorator/RouterDecorator'
 
 const meta = {
   title: 'widgets/Navbar',
@@ -41,7 +42,7 @@ export const LightDefault: Story = {
     navigationDropdownsConfig,
     searchDropdownConfig
   },
-  decorators: [StoreDecorator(stateDefault), StoryDecorator, ThemeDecorator(Theme.LIGHT)]
+  decorators: [RouterDecorator, StoreDecorator(stateDefault), StoryDecorator, ThemeDecorator(Theme.LIGHT)]
 }
 
 export const LightLoggedIn: Story = {
@@ -49,7 +50,7 @@ export const LightLoggedIn: Story = {
     navigationDropdownsConfig,
     searchDropdownConfig
   },
-  decorators: [StoreDecorator(stateLoggedIn), StoryDecorator, ThemeDecorator(Theme.LIGHT)]
+  decorators: [RouterDecorator, StoreDecorator(stateLoggedIn), StoryDecorator, ThemeDecorator(Theme.LIGHT)]
 }
 
 export const DarkDefault: Story = {
@@ -57,7 +58,7 @@ export const DarkDefault: Story = {
     navigationDropdownsConfig,
     searchDropdownConfig
   },
-  decorators: [StoreDecorator(stateDefault), StoryDecorator, ThemeDecorator(Theme.DARK)]
+  decorators: [RouterDecorator, StoreDecorator(stateDefault), StoryDecorator, ThemeDecorator(Theme.DARK)]
 }
 
 export const DarkLoggedIn: Story = {
@@ -65,5 +66,5 @@ export const DarkLoggedIn: Story = {
     navigationDropdownsConfig,
     searchDropdownConfig
   },
-  decorators: [StoreDecorator(stateLoggedIn), StoryDecorator, ThemeDecorator(Theme.DARK)]
+  decorators: [RouterDecorator, StoreDecorator(stateLoggedIn), StoryDecorator, ThemeDecorator(Theme.DARK)]
 }

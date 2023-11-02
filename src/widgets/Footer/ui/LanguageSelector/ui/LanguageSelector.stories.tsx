@@ -7,7 +7,7 @@ import StoryDecorator from 'shared/config/storybook/StoryDecorator/StoryDecorato
 import { languages } from 'widgets/Footer/model/mockData'
 
 const meta = {
-  title: 'models/LanguageSelector',
+  title: 'widgets/Footer/LanguageSelector',
   component: LanguageSelector,
   tags: ['autodocs'],
   argTypes: {}

@@ -7,7 +7,7 @@ import StoryDecorator from 'shared/config/storybook/StoryDecorator/StoryDecorato
 import { currencies } from 'widgets/Footer/model/mockData'
 
 const meta = {
-  title: 'models/CurrencySelector',
+  title: 'widgets/Footer/CurrencySelector',
   component: CurrencySelector,
   tags: ['autodocs'],
   argTypes: {}

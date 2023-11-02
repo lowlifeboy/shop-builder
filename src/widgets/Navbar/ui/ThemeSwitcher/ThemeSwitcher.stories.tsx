@@ -6,7 +6,7 @@ import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorato
 import StoryDecorator from 'shared/config/storybook/StoryDecorator/StoryDecorator'
 
 const meta = {
-  title: 'models/ThemeSwitcher',
+  title: 'widgets/Navbar/ThemeSwitcher',
   component: ThemeSwitcher,
   tags: ['autodocs'],
   argTypes: {}

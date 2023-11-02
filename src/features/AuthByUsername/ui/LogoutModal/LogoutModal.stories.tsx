@@ -6,6 +6,7 @@ import { type StateSchema } from 'app/providers/StoreProvider'
 import StoryDecorator from 'shared/config/storybook/StoryDecorator/StoryDecorator'
 import StoreDecorator from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import RouterDecorator from 'shared/config/storybook/RouterDecorator/RouterDecorator'
 
 const meta = {
   title: 'features/AuthByUsername/LogoutModal',
@@ -30,12 +31,12 @@ export const Light: Story = {
   args: {
     isOpen: true
   },
-  decorators: [StoreDecorator(state), StoryDecorator, ThemeDecorator(Theme.LIGHT)]
+  decorators: [RouterDecorator, StoreDecorator(state), StoryDecorator, ThemeDecorator(Theme.LIGHT)]
 }
 
 export const Dark: Story = {
   args: {
     isOpen: true
   },
-  decorators: [StoreDecorator(state), StoryDecorator, ThemeDecorator(Theme.DARK)]
+  decorators: [RouterDecorator, StoreDecorator(state), StoryDecorator, ThemeDecorator(Theme.DARK)]
 }

@@ -7,6 +7,7 @@ import { navigationDropdownsConfig } from 'widgets/Navbar/models/mocks'
 import cls from 'features/Search/ui/Search.module.scss'
 import AppLink from 'shared/ui/AppLink/AppLink'
 import StoryDecorator from 'shared/config/storybook/StoryDecorator/StoryDecorator'
+import RouterDecorator from 'shared/config/storybook/RouterDecorator/RouterDecorator'
 
 const meta = {
   title: 'shared/AppDropdownSimple',
@@ -40,7 +41,7 @@ export const Light: Story = {
     title: 'AppDropdownSimple',
     children: <ItemsList />
   },
-  decorators: [StoryDecorator, ThemeDecorator(Theme.LIGHT)]
+  decorators: [RouterDecorator, StoryDecorator, ThemeDecorator(Theme.LIGHT)]
 }
 
 export const Dark: Story = {
@@ -48,5 +49,5 @@ export const Dark: Story = {
     title: 'AppDropdownSimple',
     children: <ItemsList />
   },
-  decorators: [StoryDecorator, ThemeDecorator(Theme.DARK)]
+  decorators: [RouterDecorator, StoryDecorator, ThemeDecorator(Theme.DARK)]
 }
